@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<ui:include src="views/header.xhtml" />
+
+</h:head>
+<h:body>
+
+	<section class="page_section" id="clients">
+		<!--page_section-->
+
+		<div class="container">
+			<script type="text/javascript">
+    function handleDrop(event, ui) {
+        var droppedCar = ui.draggable;
+ 
+        droppedCar.fadeOut('fast');
+    }
+</script>
+
+			<h:form id="carForm">
+				<p:fieldset id="availableCarsField" legend="Available Segments">
+					<p:dataTable id="availableCars" var="car"
+						value="">
+						<p:column style="width:20px">
+							<h:outputText id="dragIcon" styleClass="ui-icon ui-icon-arrow-4" />
+							<p:draggable for="dragIcon" revert="true" helper="clone" />
+						</p:column>
+
+						<p:column headerText="Id">
+							<h:outputText value="" />
+						</p:column>
+
+						<p:column headerText="Category">
+							<h:outputText value="" />
+						</p:column>
+
+						<p:column headerText="Type">
+							<h:outputText value="" />
+						</p:column>
+
+						<p:column headerText="Cluster">
+							<h:outputText value="" />
+						</p:column>
+					</p:dataTable>
+				</p:fieldset>
+
+				<p:fieldset id="selectedCars" legend="Selected Segments"
+					style="margin-top:20px">
+					<p:outputPanel id="dropArea">
+						<h:outputText value="!!!Drop here!!!"
+							rendered=""
+							style="font-size:24px;" />
+						<p:dataTable id="selectedCarsTable" var="car"
+							value=""
+							rendered="">
+							<p:column headerText="Id">
+								<h:outputText value="" />
+							</p:column>
+
+							<p:column headerText="Year">
+								<h:outputText value="" />
+							</p:column>
+
+							<p:column headerText="Brand">
+								<h:outputText value="" />
+							</p:column>
+
+							<p:column headerText="Color">
+								<h:outputText value="" />
+							</p:column>
+
+							<p:column style="width:32px">
+								<p:commandButton update=":carForm:display"
+									oncomplete="PF('carDialog').show()" icon="ui-icon-search">
+									<f:setPropertyActionListener value=""
+										target="" />
+								</p:commandButton>
+							</p:column>
+						</p:dataTable>
+					</p:outputPanel>
+				</p:fieldset>
+
+				<p:droppable for="selectedCars" tolerance="touch"
+					activeStyleClass="ui-state-highlight" datasource="availableCars"
+					onDrop="handleDrop">
+					<p:ajax 
+						update="dropArea availableCars" />
+				</p:droppable>
+
+				<p:dialog header="Car Detail" widgetVar="carDialog"
+					resizable="false" draggable="false" showEffect="fade"
+					hideEffect="fade" modal="true">
+
+					<p:outputPanel id="display">
+						<h:panelGrid columns="2" cellpadding="4"
+							rendered="">
+							<f:facet name="header">
+								<p:graphicImage
+									name="demo/images/car/#{dndCarsView.selectedCar.brand}.gif" />
+							</f:facet>
+
+							<h:outputText value="Id:" />
+							<h:outputText value=""
+								style="font-weight:bold" />
+
+							<h:outputText value="Year:" />
+							<h:outputText value=""
+								style="font-weight:bold" />
+
+							<h:outputText value="Brand:" />
+							<h:outputText value=""
+								style="font-weight:bold" />
+
+							<h:outputText value="Color:" />
+							<h:outputText value=""
+								style="font-weight:bold" />
+						</h:panelGrid>
+					</p:outputPanel>
+				</p:dialog>
+			</h:form>
+		</div>
+	</section>
+	<ui:include src="views/footer.xhtml" />
+
+
+</h:body>
+
+
+
+</html>
+

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+	<f:facet name="first">
+		<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+		<title>Partner</title>
+	</f:facet>
+	<ui:include src="../views/header.xhtml" />
+</h:head>
+
+<h:body>
+
+
+	<section class="page_section team" id="team">
+		<!--main-section team-start-->
+		<div class="container">
+			<p:growl id="msgs" showDetail="true" />
+			<p:tabView id="tabview">
+				<p:tab title="Status" id="Status">
+					<h:panelGrid columns="1" style="height:300px; width:900px; margain: 0 auto; !important;">
+						<p:chart type="bar" model="#{chartView.barModel}"
+							style="height:300px; width:900px" />
+					</h:panelGrid>
+					<h:panelGrid columns="1" style="height:300px; width:900px; margain: 0 auto; !important; ">
+						<p:chart type="bar"  model="#{chartView.horizontalBarModel}"
+							style="height:300px;  width:900px" />
+					</h:panelGrid>
+					
+				</p:tab>
+				<!--  Request for campaign Tab -->
+				<p:tab title="Request for Campaign" id="Request_Campaign">
+
+					<h:form id="frmx1" enctype="multipart/form-data">
+						<p:messages id="mes" style="font-size: 12; color: red"
+							autoUpdate="true" showIcon="false" closable="true" />
+						<h:panelGrid id="panelGrid1" columns="6" cellpadding="5">
+
+							<p:outputLabel for="requester_name" value="Requester Name:" />
+							<p:inputText id="requester_name" required="true"
+								value="#{campaignBean.campaign.requesterName}"
+								style="width: 250px" />
+							<p:message for="requester_name" />
+							<p:outputLabel for="TargetAudience" value="Target Audience" />
+							<p:inputText id="TargetAudience"
+								value="#{campaignBean.campaign.targetAudience}"
+								autoResize="false" rows="1" style="width: 250px" />
+
+							<p:message for="TargetAudience" />
+
+<p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer>
+							<p:outputLabel for="sender_email" value="Sender Email:" />
+							<p:inputText style="width: 250px" required="true"
+								id="sender_email" requiredMessage="Please Enter Email ?"
+								placeholder="Email" validatorMessage="Invalid email format"
+								value="#{campaignBean.campaign.senderEmail}">
+								<f:validateRegex
+									pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+							</p:inputText>
+							<p:message for="sender_email" />
+							<p:outputLabel value="Project Name" />
+							<p:inputText id="pn" value="#{campaignBean.campaign.projectName}"
+								style="width: 250px" />
+							<p:message for="pn" />
+<p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer>
+
+							<p:outputLabel value="Launch Date" />
+							<p:calendar id="ld"
+								value="#{campaignBean.campaign.marketLaunchDate}"
+								style="width: 150px" />
+							<p:message for="ld" />
+
+							<p:outputLabel value="End Date" />
+							<p:calendar id="ed"
+								value="#{campaignBean.campaign.marketEndDate}" />
+							<p:message for="ed" />
+<p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer>
+							<p:outputLabel value="Objectives" />
+							<p:inputTextarea id="co"
+								value="#{campaignBean.campaign.campaignObjectives}" rows="4"
+								cols="40" />
+							<p:message for="co" />
+
+
+
+							<p:outputLabel for="CampaignDescription"
+								value="Campaign Description:" />
+							<p:inputTextarea id="CampaignDescription"
+								value="#{campaignBean.campaign.campaignDescription}"
+								required="true" rows="4" cols="40" />
+							<p:message for="CampaignDescription" />
+<p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer>
+							<p:outputLabel value="Phone Number" />
+							<p:inputText value="#{campaignBean.campaign.phoneNumber}"
+								style="width: 250px" id="phone" />
+							<p:message for="phone" />
+
+
+							<p:outputLabel value="Business Type" />
+							<p:selectOneMenu id="BusinessType"
+								value="#{campaignBean.campaign.businessType}"
+								style="width: 250px" label="Business Type">
+								<f:selectItem itemValue="Agriculture" itemLabel="Agriculture" />
+								<f:selectItem itemValue="Business" itemLabel="Business" />
+								<f:selectItem itemValue="Pharmaceuticals"
+									itemLabel="Pharmaceuticals" />
+								<f:selectItem itemValue="Construction" itemLabel="Construction" />
+								<f:selectItem itemValue="Education" itemLabel="Education" />
+								<f:selectItem itemValue="TrainingOrganization"
+									itemLabel="Training Organization" />
+								<f:selectItem itemValue="Electrical" itemLabel="Electrical" />
+								<f:selectItem itemValue="Electronics_and_Optical"
+									itemLabel="Electronics and Optical" />
+								<f:selectItem itemValue="Energy Environment"
+									itemLabel="Energy Environment" />
+								<f:selectItem itemValue="IT_Internet"
+									itemLabel="IT or Internet or R and D" />
+								<f:selectItem itemValue="Leisure_and_Tourism "
+									itemLabel="Leisure and Tourism" />
+								<f:selectItem itemValue="Metals_Machinery_Engineering"
+									itemLabel="Metals , Machinery and Engineering" />
+								<f:selectItem itemValue="Minerals" itemLabel="Minerals" />
+								<f:selectItem itemValue="Paper_Printing_Publishing"
+									itemLabel="Paper, Printing, Publishing" />
+								<f:selectItem itemValue="Retail and Traders"
+									itemLabel="Retail and Traders" />
+								<f:selectItem itemValue="Textiles" itemLabel="Textiles" />
+								<f:selectItem itemValue="Clothing" itemLabel="Clothing" />
+								<f:selectItem itemValue="Leather" itemLabel="Leather" />
+								<f:selectItem itemValue="Watchmaking" itemLabel="Watchmaking" />
+								<f:selectItem itemValue="Jewellery" itemLabel="Jewellery" />
+								<f:selectItem itemValue="Transport and Logistics"
+									itemLabel="Transport and Logistics" />
+							</p:selectOneMenu>
+							<p:message for="BusinessType" />
+
+<p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer>
+							<p:outputLabel value="Offer Type:" />
+							<p:selectOneMenu value="#{campaignBean.campaign.offerType}"
+								style="width: 250px" id="OfferType" label="Offer Type">
+								<f:selectItem itemValue="Points"
+									itemLabel=" Points (Recommended) " />
+								<f:selectItem itemValue="Buy1Get1FREE"
+									itemLabel="Buy 1 Get 1 FREE" />
+								<f:selectItem itemValue="Discount" itemLabel="Discount" />
+								<f:selectItem itemValue="DemosSampling"
+									itemLabel="Demos and Sampling" />
+								<f:selectItem itemValue="GiftCoupons" itemLabel="Gift Coupons" />
+								<f:selectItem itemValue="PriceReduction"
+									itemLabel="Price Reduction" />
+								<f:selectItem itemValue="FreeProducts" itemLabel="Free Products" />
+								<f:selectItem itemValue="Other" itemLabel="Other" />
+							</p:selectOneMenu>
+							<p:message for="OfferType" />
+
+
+							<p:outputLabel for="Channels_f" value="Channels" />
+							<p:selectManyCheckbox id="Channels_f"
+								value="#{campaignBean.channels}" required="true" layout="grid"
+								columns="1">
+								<f:selectItem itemValue="EMAIL" itemLabel="* Email " />
+								<f:selectItem itemValue="FACEBOOK" itemLabel="* Facebook" />
+								<f:selectItem itemValue="WHATSAPP" itemLabel="* Whatsapp" />
+								<f:selectItem itemValue="EMAGAZINE" itemLabel="* E-Magazine" />
+								<f:selectItem itemValue="SMS" itemLabel="* SMS" />
+							</p:selectManyCheckbox>
+							<p:message for="Channels_f" />
+
+
+
+						</h:panelGrid>
+						<p:panel style="margin: 0 auto; border:0;">
+
+							<h:panelGrid style="margin: 0 auto; border:0;">
+								<p:fileUpload fileUploadListener="#{campaignBean.upload}"
+									style="margin: 0 auto; border:0;" label="Choose Attachment" />
+							</h:panelGrid>
+							<p:spacer></p:spacer>
+							<h:panelGrid columns="3" style="margin: 0 auto; border:0;">
+								<p:commandButton styleClass="myButton" action="SegmentTool" value="Select Audience" immediate="true" />
+								<p:commandButton styleClass="myButton" value="Save Campaign"  	icon="ui-icon-disk" action="#{campaignBean.save('frmx1')}" />
+								<p:commandButton type="reset" 	action="#{campaignBean.clear('form1')}" styleClass="myButton" value="Clear">
+									<f:ajax execute="@this" render="panelGrid1" />
+								</p:commandButton>
+							</h:panelGrid>
+						</p:panel>
+
+ 
+
+					</h:form>
+
+				</p:tab>
+				<!--  End Request for campaign Tab -->
+
+				<p:tab title="Submit Offer" id="submit_offer">
+
+					<h:form id="form2" enctype="multipart/form-data">
+						<p:messages id="messages_sf" style="font-size: 12; color: red"
+							autoUpdate="true" showIcon="false" closable="true" />
+						<h:panelGrid id="panelGrid2" columns="6" cellpadding="10">
+
+							<p:outputLabel for="requester_name_sf" value="Requester Name:" />
+							<p:inputText id="requester_name_sf" required="true"
+								value="#{submitOfferBean.offer.requesterName}"
+								style="width: 250px" />
+							<p:message for="requester_name_sf">
+							</p:message>
+							<p:outputLabel for="sender_email_sf" value="Sender Email:" />
+							<p:inputText style="width: 250px" required="true"
+								id="sender_email_sf"
+								value="#{submitOfferBean.offer.senderEmail}" />
+							<p:message for="sender_email_sf">
+							</p:message>
+<p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer>
+
+
+
+							<p:outputLabel value="End Date" />
+							<p:calendar id="EndDate"
+								value="#{submitOfferBean.offer.marketEndDate}" />
+							<p:message for="EndDate">
+							</p:message>
+
+							<p:outputLabel value="Launch Date" />
+							<p:calendar id="lDate"
+								value="#{submitOfferBean.offer.marketLaunchDate}"
+								style="width: 250px" />
+							<p:message for="lDate">
+							</p:message>
+<p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer>
+							<p:outputLabel value="Now Date" />
+							<p:calendar id="today" style="width: 250px" />
+							<p:message for="today">
+							</p:message>
+
+							<p:outputLabel value="Department" />
+							<p:selectOneMenu id="Department"
+								value="#{submitOfferBean.offer.department}" style="width: 250px"
+								label="Department">
+								<f:selectItem itemValue="Marketing" itemLabel="Marketing" />
+								<f:selectItem itemValue="Business" itemLabel="Business" />
+								<f:selectItem itemValue="Sales" itemLabel="Sales" />
+								<f:selectItem itemValue="Accounting" itemLabel="Accounting" />
+								<f:selectItem itemValue="Leasing" itemLabel="Leasing" />
+								<f:selectItem itemValue="Production" itemLabel="Production" />
+								<f:selectItem itemValue="distribution" itemLabel="distribution" />
+								<f:selectItem itemValue="Reseller" itemLabel="Reseller" />
+							</p:selectOneMenu>
+							<p:message for="Department">
+							</p:message>
+<p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer>
+							<p:outputLabel value="Objective:" />
+							<p:inputTextarea id="Objective" cols="40" rows="6" />
+							<p:message for="Objective">
+							</p:message>
+
+
+
+							<p:outputLabel value="Offer Description:" />
+							<p:inputTextarea id="offerDescription"
+								value="#{submitOfferBean.offer.description}" cols="40"
+								rows="6" />
+							<p:message for="offerDescription">
+							</p:message>
+<p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer><p:spacer></p:spacer>
+							<p:outputLabel for="Channels_sf" value="Channels" />
+							<p:selectManyCheckbox id="Channels_sf"
+								value="#{submitOfferBean.channels}" required="true"
+								layout="grid" columns="1">
+								<f:selectItem itemValue="EMAIL" itemLabel="* Email " />
+								<f:selectItem itemValue="FACEBOOK" itemLabel="* Facebook" />
+								<f:selectItem itemValue="WHATSAPP" itemLabel="* Whatsapp" />
+								<f:selectItem itemValue="EMAGAZINE" itemLabel="* E-Magazine" />
+								<f:selectItem itemValue="SMS" itemLabel="* SMS" />
+							</p:selectManyCheckbox>
+							<p:message for="Channels_sf">
+							</p:message>
+
+
+
+						</h:panelGrid>
+
+
+
+						<p:panel style="margin: 0 auto; border:0;">
+							<h:panelGrid style="margin: 0 auto; border:0;">
+								<p:fileUpload fileUploadListener="#{submitOfferBean.upload}"
+									label="Choose Attachment" />
+							</h:panelGrid>
+<p:spacer></p:spacer>
+							<h:panelGrid columns="3" style="margin: 0 auto; border:0;">
+
+								<p:commandButton styleClass="myButton" value="Save"
+									action="#{submitOfferBean.print}" />
+								<p:commandButton styleClass="myButton" value="Submit"
+									action="#{submitOfferBean.print}" update="sf"
+									oncomplete="PF('dlg').show()" />
+
+
+								<p:commandButton styleClass="myButton" type="reset"
+									action="#{submitOfferBean.clear1('form2')}" value="Clear">
+									<f:ajax execute="@this" render="panelGrid2" />
+								</p:commandButton>
+							</h:panelGrid>
+						</p:panel>
+						<p:dialog header="Values" modal="true" showEffect="clip"
+							widgetVar="dlg" resizable="false">
+
+							<p:outputPanel id="sf">
+								<h:outputText value="Sender email:" />
+								<h:outputText value="#{submitOfferBean.offer.senderEmail}" />
+								<p:dataList value="#{submitOfferBean.offer.channels}"
+									var="console">
+                                   #{console}
+                         </p:dataList>
+							</p:outputPanel>
+						</p:dialog>
+
+					</h:form>
+
+				</p:tab>
+
+				<p:tab title="Partner Profile" id="PartnerProfile">
+					<div id="w"
+						style="font-size: 12px; font-family: serif; !important;">
+						<div id="content" class="clearfix"
+							style="background-color: white; height: 400px; border-top: 0px; !importnat;">
+							<div id="userphoto">
+								<img src="../resources/img/avatar.png" alt="default avatar" />
+							</div>
+							<h2>Partner Profile</h2>
+
+							<nav id="profiletabs"
+								style="background-color: white; !importnat;">
+								<ul class="clearfix">
+									<li><a href="#bio" class="sel">Personal Info.</a></li>
+									<li><a href="#activity">Activity</a></li>
+									<li><a href="#friends">Settlements </a></li>
+									<li><a href="#settings">Settings</a></li>
+								</ul>
+							</nav>
+
+							<section id="bio" style="background-color: white; !importnat;">
+								<p>
+									Welcome , <a href="#"><h:outputLabel
+											value="#{campaignBean.campaign.requesterName}" /><span /> <h:outputLabel
+											value="#{customerLoginMB.customer.lastName}" /></a>.
+								</p>
+								<br /> Address:
+								<h:outputLabel  />
+								<br /> National Number:
+								<h:outputLabel value="#{customerLoginMB.customer.nationalId}" />
+								<br /> Profession:
+								<h:outputLabel value="#{customerLoginMB.customer.profession}" />
+								<br /> Phone:
+								<h:outputLabel value="#{customerLoginMB.customer.phone}" />
+								<br /> Martial Status:
+								<h:outputLabel value="#{customerLoginMB.customer.martialStatus}" />
+								<br /> Birth Date:
+								<h:outputLabel value="#{customerLoginMB.customer.birthdate}" />
+								<p>Last Recommendations for this Partner.</p>
+							</section>
+
+							<section id="activity" class="hidden"
+								style="background-color: white; !importnat;">
+								<p>Most recent actions:</p>
+								<p class="activity">No Activities Tell Now !</p>
+
+							</section>
+
+							<section id="friends" class="hidden"
+								style="background-color: white; !importnat;">
+								<p>History list:</p>
+
+								<ul id="friendslist" class="clearfix">
+									<li><a href="#"><img src="../resources/img/avatar.png"
+											width="22" height="22" alt="" /> <h:outputLabel
+												value="#{customerLoginMB.customer.friendName}" /></a> <h:outputLabel
+											value="#{customerLoginMB.customer.friendEmail}" /></li>
+									<li><a href="#"><img src="../resources/img/avatar.png"
+											width="22" height="22" alt="" /> Value Baed on last upload</a></li>
+
+								</ul>
+							</section>
+
+							<section id="settings" class="hidden"
+								style="background-color: white; !importnat;">
+								<p>Edit your settings:</p>
+								<h:form enctype="multipart/form-data">
+									<p:growl id="msgs" showDetail="true" />
+
+
+									<p:fileUpload fileUploadListener="#{submitOfferBean.upload}"
+										label="Choose Attachment" update="msgs" sizeLimit="100000"
+										allowTypes="/(\.|\/)(xls|xlsx|csv|CSV)$/" />
+									<p:commandButton value="Submit" ajax="false"
+										actionListener="#{submitOfferBean.upload}" disabled="true" />
+								</h:form>
+
+								<p class="setting" style="font-size: 12px; !important;">
+									<span>E-mail Address <img
+										src="../resources/img/edit.png" alt="*Edit*" /></span>
+									<h:outputLabel value="#{customerLoginMB.customer.emailId}" />
+								</p>
+
+								<p class="setting" style="font-size: 12px; !important;">
+									<span>Language <img src="../resources/img/edit.png"
+										alt="*Edit*" /></span> English(US)
+								</p>
+
+								<p class="setting" style="font-size: 12px; !important;">
+									<span>Profile Status <img
+										src="../resources/img/edit.png" alt="*Edit*" /></span> Public
+								</p>
+
+
+							</section>
+						</div>
+						<!-- @end #content -->
+					</div>
+					<!-- @end #w -->
+					<script type="text/javascript">
+						$(function() {
+							$('#profiletabs ul li a').on('click', function(e) {
+								e.preventDefault();
+								var newcontent = $(this).attr('href');
+
+								$('#profiletabs ul li a').removeClass('sel');
+								$(this).addClass('sel');
+
+								$('#content section').each(function() {
+									if (!$(this).hasClass('hidden')) {
+										$(this).addClass('hidden');
+									}
+								});
+
+								$(newcontent).removeClass('hidden');
+							});
+						});
+					</script>
+
+				</p:tab>
+
+			</p:tabView>
+		</div>
+
+	</section>
+
+	<ui:include src="../views/footer.xhtml" />
+</h:body>
+
+
+</html>
+

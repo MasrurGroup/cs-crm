@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">   
+    <f:view contentType="text/html">
+        <h:head>
+             
+             <style>
+            body {
+                width: 100%;
+                margin: 10px auto 20 auto;
+                font-family: Arial, Helvetica;
+                font-size: small;
+                background-color:#666666
+            }
+
+            /* ------------------------------------------------- */
+
+            #tabs {
+                overflow: hidden;
+                width: 80%;
+                margin: 0;
+                padding: 0;
+
+                list-style: none;
+            }
+
+            #tabs li {
+                float: left;
+                margin: 0 -15px 0 0;
+
+            }
+
+            #tabs a {
+                float: left;
+                position: relative;
+                padding: 0 40px;
+                height: 0;
+                line-height: 30px;
+                text-transform: uppercase;
+                text-decoration: none;
+                color: #fff;      
+                border-right: 30px solid transparent;
+                border-bottom: 30px solid #3D3D3D;
+                border-bottom-color: #7779;
+                opacity: .3;
+                filter: alpha(opacity=30);      
+            }
+
+            #tabs a:hover,
+            #tabs a:focus {
+                border-bottom-color: #FB0606;
+                opacity: 1;
+                filter: alpha(opacity=100);
+            }
+
+            #tabs a:focus {
+                outline: 0;
+            }
+
+            #tabs #current {
+                z-index: 3;
+                border-bottom-color: #3d3d3d;
+                opacity: 1;
+                filter: alpha(opacity=100);      
+            }
+
+            /* ----------- */
+            #content {
+                background: #fff;
+                border-top: 2px solid #3d3d3d;
+                padding: 2em;
+                height: 500px;
+            }
+
+            #content h2,
+            #content h3,
+            #content p {
+                margin: 0 0 15px 0;
+            }  
+
+            /* Demo page only */
+            #about {
+                color: #999;
+                text-align: center;
+                font: 0.9em Arial, Helvetica;
+            }
+
+            #about a {
+                color: #777;
+            }   
+        </style>
+        <style>
+            .left {
+                background-color: white;
+                padding-left:30PX;
+                float: left;
+                width: 50%;
+            }
+
+            .right {
+                background-color: white;
+                margin-left: 50%;
+            }
+        </style>
+        
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Partner</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+
+              
+                     <ui:include src="views/header.xhtml" />
+              
+    <p:growl id="msgs" showDetail="true" />
+ 
+   
+    <p:tabView id="tabview"   >
+        <p:tab title="Status">
+                 <iframe src="patnerStatus.xhtml" width="100%" height="400px"></iframe>
+        </p:tab>
+        <p:tab title="Create Campaign">
+            
+            
+             <h:form id="form" enctype="multipart/form-data" >
+   <p:messages id="messages"  style="font-size: 12; color: red" autoUpdate="true" showIcon="false" closable="true" />
+            <h:panelGrid columns="4" cellpadding="10">
+                
+                 <p:outputLabel for="requester_name" value="Requester Name:" />
+                  <p:inputText id="requester_name" required="true" value="#{campaignBean.requesterName}" style="width: 250px"/>
+                  
+                  
+        <p:outputLabel for="CampaignDescription" value="Campaign Description:" />
+       <p:inputTextarea id="CampaignDescription" value="#{campaignBean.description}" autoResize="false" rows="1" cols="25" />
+                             
+                  <p:outputLabel for="sender_email" value="Sender Email:"  />
+              <p:inputText style="width: 250px" required="true"  id="sender_email" value="#{campaignBean.email}"  />   
+                             
+                 <p:outputLabel  value="Campaign Objectives" />
+                  <p:inputTextarea value="#{campaignBean.objective}"  autoResize="false"  rows="1" cols="25" />
+                  
+                    <p:outputLabel  value="Phone Number" />
+                    <p:inputText value="#{campaignBean.phone}"  style="width: 250px"  id="phone"/> 
+                    
+                    <p:outputLabel  for="TargetAudience" value="Target Audience"/> 
+     <p:inputTextarea  id="TargetAudience" value="#{campaignBean.targetAudience}" autoResize="false"
+                             rows="1" cols="25" />
+     
+     
+     
+     <p:outputLabel  value="Business Type" />
+                                      <p:selectOneMenu id="BusinessType" value="#{campaignBean.busineessType}" style="width: 250px" label="Business Type" >
+                                        <f:selectItem itemValue="Agriculture" itemLabel="Agriculture" />
+                                        <f:selectItem itemValue="Business" itemLabel="Business" />
+                                        <f:selectItem itemValue="Pharmaceuticals" itemLabel="Pharmaceuticals" />
+                                        <f:selectItem itemValue="Construction" itemLabel="Construction" />
+                                        <f:selectItem itemValue="Education" itemLabel="Education"/>
+                                        <f:selectItem itemValue="TrainingOrganization" itemLabel="Training Organization" />
+                                        <f:selectItem itemValue="Electrical" itemLabel="Electrical" />
+                                        <f:selectItem itemValue="Electronics_and_Optical" itemLabel="Electronics and Optical" />
+                                        <f:selectItem itemValue="Energy Environment" itemLabel="Energy Environment" />
+                                        <f:selectItem itemValue="IT_Internet" itemLabel="IT or Internet or R and D" />
+                                        <f:selectItem itemValue="Leisure_and_Tourism " itemLabel="Leisure and Tourism" />
+                                        <f:selectItem itemValue="Metals_Machinery_Engineering" itemLabel="Metals , Machinery and Engineering" />
+                                        <f:selectItem itemValue="Minerals" itemLabel="Minerals" />
+                                        <f:selectItem itemValue="Paper_Printing_Publishing" itemLabel="Paper, Printing, Publishing" />
+                                        <f:selectItem itemValue="Retail and Traders" itemLabel="Retail and Traders" />
+                                        <f:selectItem itemValue="Textiles" itemLabel="Textiles" />
+                                        <f:selectItem itemValue="Clothing" itemLabel="Clothing"/>
+                                        <f:selectItem itemValue="Leather" itemLabel="Leather"/>
+                                        <f:selectItem itemValue="Watchmaking" itemLabel="Watchmaking"/>
+                                        <f:selectItem itemValue="Jewellery" itemLabel="Jewellery"/>
+                                        <f:selectItem itemValue="Transport and Logistics" itemLabel="Transport and Logistics"/>
+                                    </p:selectOneMenu>
+     
+      
+     <p:outputLabel  value="Offer Type:" /> 
+                <p:selectOneMenu  value="#{campaignBean.offerType}"  style="width: 250px" id="OfferType" label="Offer Type" >
+                                        <f:selectItem itemValue="Points" itemLabel=" Points (Recommended) " />
+                                        <f:selectItem itemValue="Buy1Get1FREE" itemLabel="Buy 1 Get 1 FREE" />
+                                        <f:selectItem itemValue="Discount" itemLabel="Discount" />				 
+                                        <f:selectItem itemValue="DemosSampling" itemLabel="Demos and Sampling"/>
+                                        <f:selectItem itemValue="GiftCoupons" itemLabel="Gift Coupons" /> 
+                                        <f:selectItem itemValue="PriceReduction" itemLabel="Price Reduction" />
+                                        <f:selectItem itemValue="FreeProducts" itemLabel="Free Products" />
+                                        <f:selectItem itemValue="Other" itemLabel="Other" />
+                                    </p:selectOneMenu>
+     
+     
+     
+<p:outputLabel for="lang" value="Languages" />                                
+ <p:selectManyMenu    value="#{campaignBean.languages}"
+   required="true"  id="lang"    style="height: 65px;  margin-bottom:0px; width: 148px;">
+                      <f:selectItem itemValue="En" itemLabel="English" />
+                      <f:selectItem itemValue="Ar" itemLabel="العربية" />
+                  <f:selectItem itemValue="Fr" itemLabel="French" />
+ </p:selectManyMenu>  
+      
+     
+     
+     
+     <p:outputLabel for="Channels" value="Channels" />
+      <p:selectManyMenu  id="Channels" value="#{campaignBean.channels}" required="true" style="height: 65px;  margin-bottom:0px; width: 148px;" >
+                <f:selectItem itemValue="DigitalMarketing" itemLabel="Digital Marketing"  />
+                <f:selectItem itemValue="Magazine" itemLabel="Stars Magazine" />
+		<f:selectItem itemValue="SocialMedia" itemLabel="Social Media" />	 
+            </p:selectManyMenu>
+          
+     <p:outputLabel  value="Project Name"/>  
+     <p:inputText value="#{campaignBean.projectName}" style="width: 250px"  />
+     
+     <p:outputLabel  value="Targetted In Market Launch Date"/> 
+     <p:calendar value="#{campaignBean.launchDate}"  style="width: 250px" /> 
+ 								
+ <p:outputLabel  value="Targetted In Market End Date"/>  
+ <p:calendar value="#{campaignBean.endDate}" />  
+ 
+     
+     <p/>
+     <p:fileUpload   fileUploadListener="#{campaignBean.upload}" label="Choose Attachment"/> 
+   
+  <p:commandButton value="Submit" action="#{campaignBean.print}"  ajax="false"/>
+                       
+            </h:panelGrid>
+             </h:form>
+      
+        
+        
+        </p:tab>
+        <p:tab title="Submit Offer" id="submit_offer">
+            <h:panelGrid columns="2" cellpadding="10" cellspacing="10">
+                           <h:form id="form_fs" enctype="multipart/form-data" >
+   <p:messages id="messages_sf"  style="font-size: 12; color: red" autoUpdate="true" showIcon="false" closable="true" />
+            <h:panelGrid columns="4" cellpadding="10">
+                
+                 <p:outputLabel for="requester_name_sf" value="Requester Name:" />
+                  <p:inputText id="requester_name_sf" required="true" value="#{submitOfferBean.requesterName}" style="width: 250px"/>
+                                            
+                  <p:outputLabel for="sender_email_sf" value="Sender Email:" />
+                  <p:inputText style="width: 250px" required="true"  id="sender_email_sf" value="#{submitOfferBean.email}"  />   
+                             
+                                   
+
+     
+     <p:outputLabel  value="Department" />
+                                      <p:selectOneMenu id="Department" value="#{submitOfferBean.department}" style="width: 250px" label="Department" >
+                                        <f:selectItem itemValue="Marketing" itemLabel="Marketing" />
+                                        <f:selectItem itemValue="Business" itemLabel="Business" />
+                                        <f:selectItem itemValue="Sales" itemLabel="Sales" />
+                                        <f:selectItem itemValue="Accounting" itemLabel="Accounting" />
+                                        <f:selectItem itemValue="Leasing" itemLabel="Leasing"/>
+                                        <f:selectItem itemValue="Production" itemLabel="Production" />    
+										<f:selectItem itemValue="distribution" itemLabel="distribution" />
+                                        <f:selectItem itemValue="Reseller" itemLabel="Reseller" /> 
+                                    </p:selectOneMenu>
+      
+     <p:outputLabel  value="Offer Description:" /> 
+                 <p:inputTextarea id="offerDescription" value="#{submitOfferBean.offerDescription}" autoResize="false" rows="1" cols="25" />
+            
+ <p:outputLabel  value="Targetted In Market Launch Date"/> 
+ <p:calendar value="#{submitOfferBean.launchDate}"  style="width: 250px" /> 
+ 								
+ <p:outputLabel  value="Targetted In Market End Date"/>  
+ <p:calendar value="#{submitOfferBean.endDate}" />  
+        
+                 
+                 
+                 
+     <p:outputLabel for="Channels_sf" value="Channels" />
+      <p:selectManyCheckbox  id="Channels_sf" value="#{submitOfferBean.channels}" required="true" 
+                             layout="grid" columns="1"
+                             >
+        <f:selectItem itemValue="DigitalMarketing" itemLabel="* Send Offer By Digital Marketing "  />
+        <f:selectItem itemValue="MediaMarketing" itemLabel=" * Share Offer By Social Media Marketing " />
+	<f:selectItem itemValue="E-Magazine" itemLabel="* Publish Offer On Stars E-Magazine " />	 
+	<f:selectItem itemValue="StarsMagazine" itemLabel="* Advertise On Stars Magazine  " />	 
+            </p:selectManyCheckbox>
+
+     <p/>
+<p:fileUpload   fileUploadListener="#{submitOfferBean.upload}" label="Choose Attachment"/> 
+   
+<p:commandButton value="Submit" actionListener="#{submitOfferBean.print}"  update="display_sf" oncomplete="PF('dlg').show()"  ajax="false"/>
+  <p:dialog header="Values" modal="true" showEffect="clip" widgetVar="dlg" resizable="false">
+        <p:outputPanel id="display_sf">
+            <p:dataList value="#{submitOfferBean.channels}" var="console">
+                #{console}
+            </p:dataList>
+          
+        </p:outputPanel>
+    </p:dialog>                     
+            </h:panelGrid>
+             </h:form>
+      
+                
+                
+                
+                
+            </h:panelGrid>
+        </p:tab>
+    </p:tabView>
+      
+ 
+      
+                    
+                    <ui:include src="views/footer.xhtml" />
+                      
+   
+
+        </h:body>
+
+    </f:view>
+</html>
+

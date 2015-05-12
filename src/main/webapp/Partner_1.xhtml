@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">    <h:head>
+       
+ <ui:include src="views/header.xhtml" />
+    </h:head>
+    <h:body>
+               
+
+ 
+<section class="page_section team" id="team" ><!--main-section team-start-->
+  <div class="container">
+      <h:form id="form">
+    <p:growl id="msgs" showDetail="true" />
+ 
+    <h:panelGrid columns="2" cellpadding="5">
+      <p:outputLabel for="button" value="Button:" />
+        <p:calendar id="button" value="#{calendarView.date3}" showOn="button" />
+ 
+        
+ 
+       </h:panelGrid>
+ 
+   
+    <p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+        <p:panelGrid id="display" columns="2" columnClasses="label,value">
+            
+            <h:outputText value="Button:" />
+            <h:outputText value="#{calendarView.date3}">
+                <f:convertDateTime pattern="MM/dd/yyyy" />
+            </h:outputText>
+ 
+ 
+             </p:panelGrid>
+    </p:dialog>
+</h:form>
+  </div>
+</section>
+<!--footer --> 
+ <ui:include src="views/footer.xhtml" />
+    
+</h:body>
+
+
+
+</html>

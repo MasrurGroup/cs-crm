@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<f:view contentType="text/html">
+	<h:head>
+
+		<f:facet name="first">
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+			<title>Partner</title>
+		</f:facet>
+		<ui:include src="views/header.xhtml" />
+	</h:head>
+
+	<h:body>
+
+		<h:form id="tabform">
+
+			<p:growl id="msgs" showDetail="true" />
+
+			<div style="height: 30px"></div>
+			<p:tabView id="tabview">
+				
+				<p:tab title="Status" name="#tab1">
+					<!--  <iframe src="patnerStatus.xhtml" width="100%" height="400px"></iframe>  -->
+			<div style="height: 30px"></div>
+			<p:tabView id="tabview">
+				<p:tab title="Status" name="#tab1">
+					<!--  <iframe src="patnerStatus.xhtml" width="100%" height="400px"></iframe>  -->
+
+
+
+					<div style="height: 500px">
+						<h:form style="align=center;">
+							<p:growl id="msgs" showDetail="true" />
+
+							<p:dashboard id="board" model="#{dashboardView.model}">
+								<p:ajax event="reorder"
+									listener="#{dashboardView.handleReorder}" update="msgs" />
+
+								<p:panel id="sports" header="Market Campaign"
+									style="width:300px">
+									<h:outputText value="Product Status" />
+									<p:chart type="bubble" model="#{partnerDashboard.bubbleModel2}" />
+								</p:panel>
+
+								<p:panel id="finance" header="Product Offers"
+									style="width:330px">
+									<h:outputText value="Finance Content" />
+									<p:chart type="bubble" model="#{partnerDashboard.bubbleModel1}" />
+								</p:panel>
+
+								<p:panel id="lifestyle" header="Social Media BroadCast">
+									<h:outputText value="Lifestyle Content" />
+									<p:chart type="donut" model="#{dashboardView.donutModel1}"
+										style="width:250px;height:300px" />
+
+								</p:panel>
+
+								<p:panel id="weather" header="Othe BroadCasts">
+									<h:outputText value="Weather Content" />
+									<p:chart type="donut" model="#{dashboardView.donutModel2}"
+										style="width:250px;height:300px" />
+								</p:panel>
+
+
+							</p:dashboard>
+
+							<div style="clear: both" />
+						</h:form>
+					</div>
+
+				</p:tab>
+
+
+<<<<<<< .mine
+				<p:tab title="Request for Campaign">
+				
+				
+=======
+				<p:tab title="Request for Campaign">
+					<p:messages />
+					<h:form id="frmx1" enctype="multipart/form-data">
+						<p:messages id="mes" style="font-size: 12; color: red"
+							autoUpdate="true" showIcon="false" closable="true" />
+						<h:panelGrid id="panelGrid1" columns="4" cellpadding="10">
+>>>>>>> .r121
+
+<<<<<<< .mine
+				
+					<p:messages />
+					<h:form id="frmx1" enctype="multipart/form-data">
+						<p:messages id="mes" style="font-size: 12; color: red"
+							autoUpdate="true" showIcon="false" closable="true" />
+						<h:panelGrid id="panelGrid1" columns="4" cellpadding="10">
+=======
+>>>>>>> .r121
+
+							<p:outputLabel for="requester_name" value="Requester Name:" />
+							<p:inputText id="requester_name" required="true"
+								value="#{campaignBean.campaign.requesterName}"
+								style="width: 250px" />
+
+<<<<<<< .mine
+							<p:outputLabel for="requester_name" value="Requester Name:" />
+							<p:inputText id="requester_name" required="true"
+								value="#{campaignBean.campaign.requesterName}"
+								style="width: 250px" />
+							<p:message for="requester_name">
+							</p:message>
+							<p:outputLabel for="CampaignDescription"
+								value="Campaign Description:" />
+							<p:inputText id="CampaignDescription"
+								value="#{campaignBean.campaign.campaignDescription}"
+								required="true" />
+=======
+>>>>>>> .r121
+
+<<<<<<< .mine
+							<p:outputLabel for="sender_email" value="Sender Email:" />
+							<p:inputText style="width: 250px" required="true"
+								id="sender_email" value="#{campaignBean.campaign.senderEmail}" />
+=======
+							<p:outputLabel for="CampaignDescription"
+								value="Campaign Description:" />
+							<p:inputText id="CampaignDescription"
+								value="#{campaignBean.campaign.campaignDescription}"
+								required="true" />
+>>>>>>> .r121
+
+<<<<<<< .mine
+							<p:outputLabel value="Campaign Objectives" />
+							<p:inputText value="#{campaignBean.campaign.campaignObjectives}"
+								autoResize="false" rows="1" cols="25" />
+=======
+							<p:outputLabel for="sender_email" value="Sender Email:" />
+							<p:inputText style="width: 250px" required="true"
+								id="sender_email" value="#{campaignBean.campaign.senderEmail}" />
+>>>>>>> .r121
+
+<<<<<<< .mine
+							<p:outputLabel value="Phone Number" />
+							<p:inputText value="#{campaignBean.campaign.phoneNumber}"
+								style="width: 250px" id="phone" />
+=======
+							<p:outputLabel value="Campaign Objectives" />
+							<p:inputText value="#{campaignBean.campaign.campaignObjectives}"
+								autoResize="false" rows="1" cols="25" />
+>>>>>>> .r121
+
+<<<<<<< .mine
+							<p:outputLabel for="TargetAudience" value="Target Audience" />
+							<p:inputText id="TargetAudience"
+								value="#{campaignBean.campaign.targetAudience}"
+								autoResize="false" rows="1" cols="25" />
+=======
+							<p:outputLabel value="Phone Number" />
+							<p:inputText value="#{campaignBean.campaign.phoneNumber}"
+								style="width: 250px" id="phone" />
+>>>>>>> .r121
+
+<<<<<<< .mine
+							<p:outputLabel value="Business Type" />
+							<p:selectOneMenu id="BusinessType"
+								value="#{campaignBean.campaign.businessType}"
+								style="width: 250px" label="Business Type">
+								<f:selectItem itemValue="Agriculture" itemLabel="Agriculture" />
+								<f:selectItem itemValue="Business" itemLabel="Business" />
+								<f:selectItem itemValue="Pharmaceuticals"
+									itemLabel="Pharmaceuticals" />
+								<f:selectItem itemValue="Construction" itemLabel="Construction" />
+								<f:selectItem itemValue="Education" itemLabel="Education" />
+								<f:selectItem itemValue="TrainingOrganization"
+									itemLabel="Training Organization" />
+								<f:selectItem itemValue="Electrical" itemLabel="Electrical" />
+								<f:selectItem itemValue="Electronics_and_Optical"
+									itemLabel="Electronics and Optical" />
+								<f:selectItem itemValue="Energy Environment"
+									itemLabel="Energy Environment" />
+								<f:selectItem itemValue="IT_Internet"
+									itemLabel="IT or Internet or R and D" />
+								<f:selectItem itemValue="Leisure_and_Tourism "
+									itemLabel="Leisure and Tourism" />
+								<f:selectItem itemValue="Metals_Machinery_Engineering"
+									itemLabel="Metals , Machinery and Engineering" />
+								<f:selectItem itemValue="Minerals" itemLabel="Minerals" />
+								<f:selectItem itemValue="Paper_Printing_Publishing"
+									itemLabel="Paper, Printing, Publishing" />
+								<f:selectItem itemValue="Retail and Traders"
+									itemLabel="Retail and Traders" />
+								<f:selectItem itemValue="Textiles" itemLabel="Textiles" />
+								<f:selectItem itemValue="Clothing" itemLabel="Clothing" />
+								<f:selectItem itemValue="Leather" itemLabel="Leather" />
+								<f:selectItem itemValue="Watchmaking" itemLabel="Watchmaking" />
+								<f:selectItem itemValue="Jewellery" itemLabel="Jewellery" />
+								<f:selectItem itemValue="Transport and Logistics"
+									itemLabel="Transport and Logistics" />
+							</p:selectOneMenu>
+=======
+							<p:outputLabel for="TargetAudience" value="Target Audience" />
+							<p:inputText id="TargetAudience"
+								value="#{campaignBean.campaign.targetAudience}"
+								autoResize="false" rows="1" cols="25" />
+>>>>>>> .r121
+
+							<p:outputLabel value="Business Type" />
+							<p:selectOneMenu id="BusinessType"
+								value="#{campaignBean.campaign.businessType}"
+								style="width: 250px" label="Business Type">
+								<f:selectItem itemValue="Agriculture" itemLabel="Agriculture" />
+								<f:selectItem itemValue="Business" itemLabel="Business" />
+								<f:selectItem itemValue="Pharmaceuticals"
+									itemLabel="Pharmaceuticals" />
+								<f:selectItem itemValue="Construction" itemLabel="Construction" />
+								<f:selectItem itemValue="Education" itemLabel="Education" />
+								<f:selectItem itemValue="TrainingOrganization"
+									itemLabel="Training Organization" />
+								<f:selectItem itemValue="Electrical" itemLabel="Electrical" />
+								<f:selectItem itemValue="Electronics_and_Optical"
+									itemLabel="Electronics and Optical" />
+								<f:selectItem itemValue="Energy Environment"
+									itemLabel="Energy Environment" />
+								<f:selectItem itemValue="IT_Internet"
+									itemLabel="IT or Internet or R and D" />
+								<f:selectItem itemValue="Leisure_and_Tourism "
+									itemLabel="Leisure and Tourism" />
+								<f:selectItem itemValue="Metals_Machinery_Engineering"
+									itemLabel="Metals , Machinery and Engineering" />
+								<f:selectItem itemValue="Minerals" itemLabel="Minerals" />
+								<f:selectItem itemValue="Paper_Printing_Publishing"
+									itemLabel="Paper, Printing, Publishing" />
+								<f:selectItem itemValue="Retail and Traders"
+									itemLabel="Retail and Traders" />
+								<f:selectItem itemValue="Textiles" itemLabel="Textiles" />
+								<f:selectItem itemValue="Clothing" itemLabel="Clothing" />
+								<f:selectItem itemValue="Leather" itemLabel="Leather" />
+								<f:selectItem itemValue="Watchmaking" itemLabel="Watchmaking" />
+								<f:selectItem itemValue="Jewellery" itemLabel="Jewellery" />
+								<f:selectItem itemValue="Transport and Logistics"
+									itemLabel="Transport and Logistics" />
+							</p:selectOneMenu>
+
+<<<<<<< .mine
+							<p:outputLabel value="Offer Type:" />
+							<p:selectOneMenu value="#{campaignBean.campaign.offerType}"
+								style="width: 250px" id="OfferType" label="Offer Type">
+								<f:selectItem itemValue="Points"
+									itemLabel=" Points (Recommended) " />
+								<f:selectItem itemValue="Buy1Get1FREE"
+									itemLabel="Buy 1 Get 1 FREE" />
+								<f:selectItem itemValue="Discount" itemLabel="Discount" />
+								<f:selectItem itemValue="DemosSampling"
+									itemLabel="Demos and Sampling" />
+								<f:selectItem itemValue="GiftCoupons" itemLabel="Gift Coupons" />
+								<f:selectItem itemValue="PriceReduction"
+									itemLabel="Price Reduction" />
+								<f:selectItem itemValue="FreeProducts" itemLabel="Free Products" />
+								<f:selectItem itemValue="Other" itemLabel="Other" />
+							</p:selectOneMenu>
+=======
+>>>>>>> .r121
+
+							<p:outputLabel value="Offer Type:" />
+							<p:selectOneMenu value="#{campaignBean.campaign.offerType}"
+								style="width: 250px" id="OfferType" label="Offer Type">
+								<f:selectItem itemValue="Points"
+									itemLabel=" Points (Recommended) " />
+								<f:selectItem itemValue="Buy1Get1FREE"
+									itemLabel="Buy 1 Get 1 FREE" />
+								<f:selectItem itemValue="Discount" itemLabel="Discount" />
+								<f:selectItem itemValue="DemosSampling"
+									itemLabel="Demos and Sampling" />
+								<f:selectItem itemValue="GiftCoupons" itemLabel="Gift Coupons" />
+								<f:selectItem itemValue="PriceReduction"
+									itemLabel="Price Reduction" />
+								<f:selectItem itemValue="FreeProducts" itemLabel="Free Products" />
+								<f:selectItem itemValue="Other" itemLabel="Other" />
+							</p:selectOneMenu>
+
+
+							<p:outputLabel for="lang" value="Languages" />
+							<p:selectManyMenu value="#{campaignBean.campaign.languages}"
+								required="true" id="lang"
+								style="height: 65px;  margin-bottom:0px; width: 148px;">
+								<f:selectItem itemValue="" itemLabel="Select Languages:" />
+								<f:selectItem itemValue="En" itemLabel="English" />
+								<f:selectItem itemValue="Ar" itemLabel="العربية" />
+
+							</p:selectManyMenu>
+
+<<<<<<< .mine
+							<p:outputLabel for="Channels" value="Channels" />
+							<h:panelGrid columns="2" style="margin-bottom:10px"
+								cellpadding="5">
+								<h:outputText value="E-Mail: " />
+								<p:selectBooleanCheckbox label="E-Mail:" value="" />
+								<p:selectBooleanCheckbox label="E-Mail:" value="" />
+								<p:selectBooleanCheckbox label="E-Mail:" value="" />
+								<p:selectBooleanCheckbox label="E-Mail:" value="" />
+								<p:selectBooleanCheckbox label="E-Mail:" value="" />
+							</h:panelGrid>
+=======
+							<p:outputLabel for="Channels" value="Channels" />
+							<p:selectManyMenu id="Channels"
+								value="#{campaignBean.campaign.channels}" required="true"
+								style="height: 95px;  margin-bottom:5px; width: 148px;">
+								<f:selectItem itemValue="" itemLabel="Select Channels:" />
+								<f:selectItem itemValue="DigitalMarketing"
+									itemLabel="Digital Marketing" />
+								<f:selectItem itemValue="Magazine" itemLabel="Stars Magazine" />
+								<f:selectItem itemValue="SocialMedia" itemLabel="Social Media" />
+							</p:selectManyMenu>
+>>>>>>> .r121
+
+<<<<<<< .mine
+=======
+							<p:outputLabel value="Project Name" />
+							<p:inputText value="#{campaignBean.campaign.projectName}"
+								style="width: 250px" />
+>>>>>>> .r121
+
+<<<<<<< .mine
+=======
+							<p:outputLabel value="Targetted In Market Launch Date" />
+>>>>>>> .r121
+
+<<<<<<< .mine
+							<p:selectManyMenu id="Channels"
+								value="#{campaignBean.campaign.channels}" required="true"
+								style="height: 95px;  margin-bottom:5px; width: 148px;">
+								<f:selectItem itemValue="" itemLabel="Select Channels:" />
+=======
+							<p:calendar value="#{campaignBean.campaign.marketLaunchDate}"
+								style="width: 250px" />
+>>>>>>> .r121
+
+<<<<<<< .mine
+								<f:selectItem itemValue="DigitalMarketing"
+									itemLabel="Digital Marketing" />
+								<f:selectItem itemValue="Magazine" itemLabel="Stars Magazine" />
+								<f:selectItem itemValue="SocialMedia" itemLabel="Social Media" />
+							</p:selectManyMenu>
+=======
+							<p:outputLabel value="Targetted In Market End Date" />
+							<p:calendar value="#{campaignBean.campaign.marketEndDate}" />
+>>>>>>> .r121
+
+							<p:outputLabel value="Project Name" />
+							<p:inputText value="#{campaignBean.campaign.projectName}"
+								style="width: 250px" />
+
+<<<<<<< .mine
+							<p:outputLabel value="Targetted In Market Launch Date" />
+=======
+>>>>>>> .r121
+
+<<<<<<< .mine
+							<p:calendar value="#{campaignBean.campaign.marketLaunchDate}"
+								style="width: 250px" />
+=======
+							<p:fileUpload fileUploadListener="#{campaignBean.upload}"
+								label="Choose Attachment" />
+>>>>>>> .r121
+
+<<<<<<< .mine
+							<p:outputLabel value="Targetted In Market End Date" />
+							<p:calendar value="#{campaignBean.campaign.marketEndDate}" />
+=======
+>>>>>>> .r121
+
+<<<<<<< .mine
+=======
+							<p:button value="Save A" outcome="#{campaignBean.print()}" />
+>>>>>>> .r121
+
+<<<<<<< .mine
+							<p />
+							<p:fileUpload fileUploadListener="#{campaignBean.upload}"
+								label="Choose Attachment" />
+=======
+							<p:commandButton value="Save D Campaign" action="Home" />
+>>>>>>> .r121
+
+							<p:commandButton type="reset"
+								action="#{campaignBean.clear1('form1')}" value="Clear">
+								<f:ajax execute="@this" render="panelGrid1" />
+							</p:commandButton>
+						</h:panelGrid>
+
+<<<<<<< .mine
+							<p:commandButton value="Save D Campaign" action="Home"
+							 update=""	icon="ui-icon-check" />
+=======
+						<p:dialog header="Selected Values" modal="true" showEffect="fade"
+							widgetVar="Adlg" resizable="false">
+							<p:panelGrid columns="2" id="display"
+								columnClasses="label,output">
+								<h:outputText value="Basic:" />
+								<h:outputText value="#{campaignBean.campaign.channels}" />
+>>>>>>> .r121
+
+<<<<<<< .mine
+							<p:commandButton type="reset"
+								action="#{campaignBean.clear1('form1')}" value="Clear">
+								<f:ajax execute="@this" render="panelGrid1" />
+							</p:commandButton>
+						</h:panelGrid>
+=======
+								<h:outputText value="Advanced:" />
+								<h:outputText value="#{campaignBean.campaign.languages}" />
+							</p:panelGrid>
+						</p:dialog>
+>>>>>>> .r121
+
+<<<<<<< .mine
+						<p:dialog header="Selected Values" modal="true" showEffect="fade"
+							widgetVar="Adlg" resizable="false">
+							<p:panelGrid columns="2" id="display"
+								columnClasses="label,output">
+								<h:outputText value="Basic:" />
+								<h:outputText value="#{campaignBean.campaign.channels}" />
+=======
+					</h:form>
+					<div style="height: 80px"></div>
+				</p:tab>
+>>>>>>> .r121
+
+<<<<<<< .mine
+								<h:outputText value="Advanced:" />
+								<h:outputText value="#{campaignBean.campaign.languages}" />
+							</p:panelGrid>
+						</p:dialog>
+=======
+>>>>>>> .r121
+
+<<<<<<< .mine
+					</h:form>
+					<div style="height: 80px"></div>
+				</p:tab>
+=======
+				<p:tab title="Submit Offer" id="submit_offer">
+>>>>>>> .r121
+
+					<h:form id="form2" enctype="multipart/form-data">
+						<p:messages id="messages_sf" style="font-size: 12; color: red"
+							autoUpdate="true" showIcon="false" closable="true" />
+						<h:panelGrid id="panelGrid2" columns="4" cellpadding="10">
+
+<<<<<<< .mine
+				<p:tab title="Submit Offer" id="submit_offer">
+=======
+							<p:outputLabel for="requester_name_sf" value="Requester Name:" />
+							<p:inputText id="requester_name_sf" required="true"
+								value="#{submitOfferBean.offer.requesterName}"
+								style="width: 250px" />
+>>>>>>> .r121
+
+<<<<<<< .mine
+					<h:form id="form2" enctype="multipart/form-data">
+						<p:messages id="messages_sf" style="font-size: 12; color: red"
+							autoUpdate="true" showIcon="false" closable="true" />
+						<h:panelGrid id="panelGrid2" columns="4" cellpadding="10">
+=======
+							<p:outputLabel for="sender_email_sf" value="Sender Email:" />
+							<p:inputText style="width: 250px" required="true"
+								id="sender_email_sf"
+								value="#{submitOfferBean.offer.senderEmail}" />
+>>>>>>> .r121
+
+<<<<<<< .mine
+							<p:outputLabel for="requester_name_sf" value="Requester Name:" />
+							<p:inputText id="requester_name_sf" required="true"
+								value="#{submitOfferBean.offer.requesterName}"
+								style="width: 250px" />
+=======
+>>>>>>> .r121
+
+<<<<<<< .mine
+							<p:outputLabel for="sender_email_sf" value="Sender Email:" />
+							<p:inputText style="width: 250px" required="true"
+								id="sender_email_sf"
+								value="#{submitOfferBean.offer.senderEmail}" />
+=======
+>>>>>>> .r121
+
+
+							<p:outputLabel value="Department" />
+							<p:selectOneMenu id="Department"
+								value="#{submitOfferBean.offer.department}" style="width: 250px"
+								label="Department">
+								<f:selectItem itemValue="Marketing" itemLabel="Marketing" />
+								<f:selectItem itemValue="Business" itemLabel="Business" />
+								<f:selectItem itemValue="Sales" itemLabel="Sales" />
+								<f:selectItem itemValue="Accounting" itemLabel="Accounting" />
+								<f:selectItem itemValue="Leasing" itemLabel="Leasing" />
+								<f:selectItem itemValue="Production" itemLabel="Production" />
+								<f:selectItem itemValue="distribution" itemLabel="distribution" />
+								<f:selectItem itemValue="Reseller" itemLabel="Reseller" />
+							</p:selectOneMenu>
+
+							<p:outputLabel value="Offer Description:" />
+							<p:inputTextarea id="offerDescription"
+								value="#{submitOfferBean.offer.offerDescription}" />
+
+<<<<<<< .mine
+							<p:outputLabel value="Department" />
+							<p:selectOneMenu id="Department"
+								value="#{submitOfferBean.offer.department}" style="width: 250px"
+								label="Department">
+								<f:selectItem itemValue="Marketing" itemLabel="Marketing" />
+								<f:selectItem itemValue="Business" itemLabel="Business" />
+								<f:selectItem itemValue="Sales" itemLabel="Sales" />
+								<f:selectItem itemValue="Accounting" itemLabel="Accounting" />
+								<f:selectItem itemValue="Leasing" itemLabel="Leasing" />
+								<f:selectItem itemValue="Production" itemLabel="Production" />
+								<f:selectItem itemValue="distribution" itemLabel="distribution" />
+								<f:selectItem itemValue="Reseller" itemLabel="Reseller" />
+							</p:selectOneMenu>
+=======
+							<p:outputLabel value="Targetted In Market Launch Date" />
+							<p:calendar value="#{submitOfferBean.offer.marketLaunchDate}"
+								style="width: 250px" />
+>>>>>>> .r121
+
+<<<<<<< .mine
+							<p:outputLabel value="Offer Description:" />
+							<p:inputTextarea id="offerDescription"
+								value="#{submitOfferBean.offer.offerDescription}" />
+=======
+							<p:outputLabel value="Targetted In Market End Date" />
+							<p:calendar value="#{submitOfferBean.offer.marketEndDate}" />
+>>>>>>> .r121
+
+<<<<<<< .mine
+							<p:outputLabel value="Targetted In Market Launch Date" />
+							<p:calendar value="#{submitOfferBean.offer.marketLaunchDate}"
+								style="width: 250px" />
+=======
+>>>>>>> .r121
+
+<<<<<<< .mine
+							<p:outputLabel value="Targetted In Market End Date" />
+							<p:calendar value="#{submitOfferBean.offer.marketEndDate}" />
+=======
+>>>>>>> .r121
+
+
+<<<<<<< .mine
+=======
+							<p:outputLabel for="Channels_sf" value="Channels" />
+							<p:selectManyCheckbox id="Channels_sf"
+								value="#{submitOfferBean.offer.channels}" required="true"
+								layout="grid" columns="1">
+								<f:selectItem itemValue="DigitalMarketing"
+									itemLabel="* Send Offer By Digital Marketing " />
+								<f:selectItem itemValue="MediaMarketing"
+									itemLabel=" * Share Offer By Social Media Marketing " />
+								<f:selectItem itemValue="E-Magazine"
+									itemLabel="* Publish Offer On Stars E-Magazine " />
+								<f:selectItem itemValue="StarsMagazine"
+									itemLabel="* Advertise On Stars Magazine  " />
+							</p:selectManyCheckbox>
+>>>>>>> .r121
+
+<<<<<<< .mine
+=======
+							<p />
+							<p:fileUpload fileUploadListener="#{submitOfferBean.upload}"
+								label="Choose Attachment" />
+>>>>>>> .r121
+
+<<<<<<< .mine
+							<p:outputLabel for="Channels_sf" value="Channels" />
+							<p:selectManyCheckbox id="Channels_sf"
+								value="#{submitOfferBean.offer.channels}" required="true"
+								layout="grid" columns="1">
+								<f:selectItem itemValue="DigitalMarketing"
+									itemLabel="* Send Offer By Digital Marketing " />
+								<f:selectItem itemValue="MediaMarketing"
+									itemLabel=" * Share Offer By Social Media Marketing " />
+								<f:selectItem itemValue="E-Magazine"
+									itemLabel="* Publish Offer On Stars E-Magazine " />
+								<f:selectItem itemValue="StarsMagazine"
+									itemLabel="* Advertise On Stars Magazine  " />
+							</p:selectManyCheckbox>
+=======
+							<p:commandButton value="Submit" action="#{submitOfferBean.print}"
+								update="sf" oncomplete="PF('dlg').show()" />
+>>>>>>> .r121
+
+<<<<<<< .mine
+							<p />
+							<p:fileUpload fileUploadListener="#{submitOfferBean.upload}"
+								label="Choose Attachment" />
+=======
+>>>>>>> .r121
+
+<<<<<<< .mine
+							<p:commandButton value="Submit" action="#{submitOfferBean.print}"
+								update="sf" oncomplete="PF('dlg').show()" />
+
+
+							<p:commandButton type="reset"
+								action="#{submitOfferBean.clear1('form2')}" value="Clear">
+								<f:ajax execute="@this" render="panelGrid2" />
+							</p:commandButton>
+
+							<p:dialog header="Values" modal="true" showEffect="clip"
+								widgetVar="dlg" resizable="false">
+								<p:outputPanel id="sf">
+
+									<h:outputText value="Sender email:" />
+
+									<h:outputText value="#{submitOfferBean.offer.senderEmail}" />
+
+									<p:dataList value="#{submitOfferBean.offer.channels}"
+										var="console">
+=======
+							<p:commandButton type="reset"
+								action="#{submitOfferBean.clear1('form2')}" value="Clear">
+								<f:ajax execute="@this" render="panelGrid2" />
+							</p:commandButton>
+
+							<p:dialog header="Values" modal="true" showEffect="clip"
+								widgetVar="dlg" resizable="false">
+								<p:outputPanel id="sf">
+
+									<h:outputText value="Sender email:" />
+
+									<h:outputText value="#{submitOfferBean.offer.senderEmail}" />
+
+									<p:dataList value="#{submitOfferBean.offer.channels}"
+										var="console">
+>>>>>>> .r121
+                #{console}
+            </p:dataList>
+
+								</p:outputPanel>
+							</p:dialog>
+						</h:panelGrid>
+					</h:form>
+					<div style="height: 140px"></div>
+				</p:tab>
+
+				<p:tab title="Partner Profile" id="PartnerProfile">
+
+					<!--Partner Profile Tab View -->
+					<p:tabView>
+						<p:tab title="Personal info">
+ Personal info
+  
+ 
+ </p:tab>
+						<p:tab title="Activity">
+ Activity
+ </p:tab>
+						<p:tab title="Friends">
+ Friends
+ </p:tab>
+						<p:tab title="Settings">
+ Settings
+   <h:form enctype="multipart/form-data">
+								<p:growl id="msgs" showDetail="true" />
+
+
+								<p:fileUpload fileUploadListener="#{submitOfferBean.upload}"
+									label="Choose Attachment" update="msgs" sizeLimit="100000"
+									allowTypes="/(\.|\/)(xls|xlsx|csv|CSV)$/" />
+								<p:commandButton value="Submit" ajax="false"
+									actionListener="#{submitOfferBean.upload}" disabled="true" />
+							</h:form>
+						</p:tab>
+
+					</p:tabView>
+
+					<div class="container">
+
+						<div id="w">
+							<div id="content" class="clearfix">
+								<div id="userphoto">
+									<img src="../resources/img/avatar.png" alt="default avatar" />
+								</div>
+								<h1>Partner Profile</h1>
+
+								<nav id="profiletabs">
+									<ul class="clearfix">
+										<li><a href="#bio" class="sel">Personal Info.</a></li>
+										<li><a href="#activity">Activity</a></li>
+										<li><a href="#friends">Friends</a></li>
+										<li><a href="#settings">Settings</a></li>
+									</ul>
+								</nav>
+
+								<section id="bio">
+									<p>
+										Welcome , <a href="#"><h:outputLabel
+												value="#{partnerWizard.partner.companyName }" /><span>
+										</span> <h:outputLabel value="#{partnerWizard.partner.id}" /></a>.
+									</p>
+									<br /> Address:
+									<h:outputLabel value="#{partnerWizard.partner.address}"></h:outputLabel>
+									<br /> Business Type:
+									<h:outputLabel value="#{partnerWizard.partner.businesstype}"></h:outputLabel>
+									<br /> Registration Number:
+									<h:outputLabel
+										value="#{partnerWizard.partner.companyRegistrationNumber}"></h:outputLabel>
+									<br /> Phone:
+									<h:outputLabel value="#{partnerWizard.partner.telephone}" />
+									<br /> Foundation Year:
+									<h:outputLabel
+										value="#{partnerWizard.partner.yearofCompanyFormation}" />
+									<br /> Officer Name:
+									<h:outputLabel value="#{partnerWizard.partner.officername}" />
+
+
+								</section>
+
+								<section id="activity" class="hidden">
+									<p>Most recent actions:</p>
+									<p class="activity">No Activities Tell Now !</p>
+
+								</section>
+
+								<section id="friends" class="hidden">
+									<p>Friends list:</p>
+
+									<ul id="friendslist" class="clearfix">
+										<li><a href="#"><img
+												src="../resources/img/avatar.png" width="22" height="22" />
+												<h:outputLabel value="#{partnerWizard.partner.companyEmail}" /></a></li>
+										<li><br /> Employees :<h:outputLabel
+												value="#{partnerWizard.partner.numberofEmployees}" /></li>
+										<li><br /> Customers :<h:outputLabel
+												value="#{partnerWizard.partner.numberofcustomers}" /></li>
+										<li><a href="#"><img
+												src="../resources/img/avatar.png" width="22" height="22" />
+												SomeGuy123</a></li>
+
+									</ul>
+								</section>
+
+								<section id="settings" class="hidden">
+									<p>Edit your settings:</p>
+
+									<p class="setting">
+										<span>E-mail Address <img
+											src="../resources/img/edit.png" alt="*Edit*" /></span>
+										<h:outputLabel value="#{partnerWizard.partner.companyEmail}" />
+									</p>
+
+									<p class="setting">
+										<span>Language <img src="../resources/img/edit.png"
+											alt="*Edit*" /></span> English(US)
+									</p>
+
+									<p class="setting">
+										<span>Profile Status <img
+											src="../resources/img/edit.png" alt="*Edit*" /></span> Public
+									</p>
+
+									<h:commandButton value="Upload Your Database" />
+								</section>
+							</div>
+							<!-- @end #content -->
+						</div>
+						<!-- @end #w -->
+					</div>
+
+				</p:tab>
+			</p:tabView>
+		</h:form>
+		<ui:include src="views/footer.xhtml" />
+	</h:body>
+
+</f:view>
+</html>
+

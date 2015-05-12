@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<ui:include src="views/header.xhtml" />
+<style>
+.panel {
+    margin-bottom: 20px;
+ color:white;
+    background-color: transparent; !importnat;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
+}
+.panel-footer {
+    padding: 4px 15px;
+    background-color: rgba(245, 245, 245, 0);
+    border-top: 1px solid #DDD;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    margin: 0 0 !important;
+}
+.ui-inputfield {
+    margin: 0px;
+    outline: medium none;
+    padding: 4px;
+    font-weight: normal;
+    width: 100%;
+}
+</style>
+	<div class="container"
+		style="border-radius: 25px; border: 2px solid #D6C485; padding: 20px; width: 50%; margin-top:2%; !important; margin-bottom: 0px;   !important;">
+<h:form class="form-horizontal" role="form">
+			<p:growl id="growl1" sticky="true" showSummary="true" />
+			<div class="panel panel-default" style="text-align: left;">
+				<div class="panel-body">
+					<div class="form-group">
+						<label for="name" style="text-align: left;"
+							class="col-sm-2 control-label">Email*</label>
+						<div class="col-sm-10">
+							<div class="input-group input-group-sm">
+								<span class="input-group-addon">@</span>
+								<p:inputText styleClass="form-control" placeholder="Email*" width="100%" id="emailaddress"
+									required="true" requiredMessage="Please Enter Email ?"
+									validatorMessage="Invalid email format"
+									value="#{redeemVoucherbean.email}">
+									<f:validateRegex
+										pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+								</p:inputText>
+            
+          
+							</div>
+						</div>
+					</div>
+					  <div class="form-group">
+    <label for="password" class="col-sm-2 control-label" style="text-align: left;">National ID*</label>
+    <div class="col-sm-10">
+<p:inputText id="NationalId" styleClass="form-control"
+									value="#{redeemVoucherbean.nationalId}"
+									placeholder="National ID" required="true"
+									requiredMessage="Please Enter NID ?">
+									<f:validateLength minimum="14" maximum="15" />
+								</p:inputText>
+
+    </div>
+  </div>
+   <div class="form-group">
+    <label for="password" class="col-sm-2 control-label" style="text-align: left;">Select Gift Type*</label>
+    <div class="col-sm-10">
+<p:selectOneMenu id="Mstatus"  styleClass="form-control"
+									requiredMessage="Please Select Gift Type "
+									value="#{redeemVoucherbean.giftType}" required="true"
+									style="padding: 0px;   margin-bottom: 10px; width: 100%;  font-family: montserrat;  font-size: 12px; width:100%; !important">
+									
+								<f:selectItem itemValue="Points"
+									itemLabel=" Points (Recommended) " />
+								<f:selectItem itemValue="Buy1Get1FREE"
+									itemLabel="Buy 1 Get 1 FREE" />
+								<f:selectItem itemValue="Discount" itemLabel="Discount" />
+								<f:selectItem itemValue="DemosSampling"
+									itemLabel="Demos and Sampling" />
+								<f:selectItem itemValue="GiftCoupons" itemLabel="Gift Coupons" />
+								<f:selectItem itemValue="PriceReduction"
+									itemLabel="Price Reduction" />
+								<f:selectItem itemValue="FreeProducts" itemLabel="Free Products" />
+								<f:selectItem itemValue="Other" itemLabel="Other" />
+							</p:selectOneMenu>
+
+    </div>
+  </div>
+   			</div>
+			 <div class="panel-footer" style="overflow:hidden;text-align:right;">
+    <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    <p:growl id="growl" sticky="true" showSummary="true" />
+    <p:commandButton value="Print Voucher" action="#{redeemVoucherbean.printButtonAction}"
+								update="growl" styleClass="myButton"/>
+      
+      <!-- <button type="submit" class="btn btn-default btn-sm">Cancel</button> -->
+    </div>
+  </div>  
+  </div>
+			</div>
+			<div style="background-image: url('resources/img/giftBG.png'); width: 100%; height: 407px;" id="printableArea">
+   <div>
+<h1>Congratulations</h1>
+<h2>Citystars Gift</h2>
+<br/>
+<p style="margin-left:20px; color:black; font-size: 20px;">Name <p:outputLabel value="#{redeemVoucherbean.name}" /></p>
+<div style="height: 30px;"></div>
+<p style="margin-left:20px; color:black; font-size: 20px;">Voucher ID: <p:outputLabel value="#{redeemVoucherbean.user.voucherNumber}"/></p>
+<div style="height: 15px;"></div>
+<b><p style="margin-left:20px; color: white; font-size: 40px;">FREE   </p></b>
+<p style="margin-left: 126px; color: #FFF; font-size: 20px; margin-top: -21px;">Gift Type: </p>
+
+   </div>
+   </div>
+	 <input type="button" onclick="printDiv('printableArea')" value="print voucher" class="myButton" />
+		</h:form>
+	</div>
+
+ <script type="text/javascript" >
+ 
+function printDiv(divName) {
+alert('Hiiii');
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script >
+	<ui:include src="views/footer.xhtml" />
+
+</h:body>
+ 
+
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+   <head><title>IGNORED</title></head>  
+   <body>        
+      <ui:composition>    
+        
+           <h:form>
+    
+ 
+    <p:panelMenu style="width:200px">
+        <p:submenu label="Mailing">
+            <p:menuitem value="Overview" outcome="overview" icon="ui-icon-disk" />
+            <p:menuitem value="New Mailing" outcome="new_mailing"  icon="ui-icon-arrowrefresh-1-w" />
+            <p:menuitem value="content Manager" outcome="content_manager" icon="ui-icon-home" />
+            <p:menuitem value="Templates" outcome="templates" icon="ui-icon-document" />
+            <p:menuitem value="Archive" outcome="archive" icon="ui-icon-document" />
+        </p:submenu>
+         <p:separator />
+         
+        <p:submenu label="Reciepients">
+         <p:menuitem value="Delete" actionListener="#{menuView.delete}"  ajax="false" icon="ui-icon-close"/>
+        </p:submenu>
+        <p:separator />
+        
+        <p:submenu label="Statistics" >
+            <p:submenu label="Links" icon="ui-icon-extlink">
+            <p:submenu label="PrimeFaces" icon="ui-icon-heart">
+                    
+                    <p:menuitem value="Download" url="http://www.primefaces.org/downloads" icon="ui-icon-arrowthick-1-s" />
+                    <p:menuitem value="Support" url="http://www.primefaces.org/support" icon="ui-icon-wrench" />
+                </p:submenu>
+            </p:submenu>
+            <p:menuitem value="Mobile" icon="ui-icon-signal" />
+        </p:submenu>
+        
+          <p:submenu label="Target Groups">
+         <p:menuitem value="Delete"   ajax="false" icon="ui-icon-close"/>
+        </p:submenu>
+        <p:separator />
+    
+          <p:submenu label="Mailing lists">
+         <p:menuitem value="Delete"    ajax="false" icon="ui-icon-close"/>
+        </p:submenu>
+        <p:separator />
+        
+         <p:submenu label="Sites and Actions">
+         <p:menuitem value="Delete"   ajax="false" icon="ui-icon-close"/>
+        </p:submenu>
+        <p:separator />
+        
+         <p:submenu label="Administration">
+         <p:menuitem value="Delete"   ajax="false" icon="ui-icon-close"/>
+        </p:submenu>
+        
+        
+    </p:panelMenu>
+</h:form>
+ 
+           	
+      </ui:composition>
+   </body>
+</html>

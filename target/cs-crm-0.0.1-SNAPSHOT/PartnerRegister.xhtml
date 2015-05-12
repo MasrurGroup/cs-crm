@@ -1,0 +1,354 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+
+
+</h:head>
+<h:body>
+	<ui:include src="views/header.xhtml" />
+
+<style>
+.ui-tabs-left > .ui-tabs-nav {
+    float: left;
+    width: 22%;
+    background-color: #D6C485;
+    background-image: url("../resources/img/partnersidebarscreen1.png");
+    padding-top: 1px;
+    height: 565px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-top: 33px;
+    margin-left: -4px;
+}
+.ui-inputfield {
+  margin: 0;
+  outline: medium none;
+  padding: 7px;
+  font-weight: normal;
+  margin-left: 5px;
+}
+
+.ui-panel .ui-panel-titlebar {
+  padding: 0.5em 1em 0.3em;
+  color: white; background-color: black;
+  font-size: large;
+}
+.ui-panel .ui-panel-content {
+    border: 0px none;
+    background: none repeat scroll 0% 0% #C6CACB;
+    padding: 0.5em 1em;
+}
+.ui-tabs {
+    position: relative;
+    padding: 0.2em;
+    background-image: url("../resources/img/partnersidebarscreen2.png"); !important;
+    padding-top: 1px;
+    height: 600px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    
+}
+.ui-tabs-left > .ui-tabs-panels {
+    float: right;
+    width: 75%;
+    margin-top: 20px;
+    }
+
+.ui-tabs.ui-tabs-left > .ui-tabs-nav li {
+    margin: 0px 0px 1px 0.2em;
+    border-right: 0px none;
+    background-color: #292D2F !important;
+    
+}
+
+.ui-tabs.ui-tabs-left > .ui-tabs-nav li a, .ui-tabs.ui-tabs-right > .ui-tabs-nav li a {
+    width: 90%;
+    color:white;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    width: 90%;
+    text-align: left;
+}
+</style>
+
+<section class="page_section team" id="team">
+		<!--main-section team-start-->
+		<div class="container" style="border-radius: 25px; border: 2px solid #D6C485; padding: 20px; width:80%;   margin-bottom: 50px;   !important;">
+			<h:form id="form" >
+				<p:growl id="growl1" sticky="true" showSummary="true" />
+				<p:tabView id="tabview" style="background-color: #F7F9D0;  !important; " orientation="left" > 
+					
+					<p:tab id="AccountSetup" title="Account Setup" >
+						<p:panel header="Account Details" style="background-color:#F7F9D0;  color:white;">
+							<p:messages showIcon="false" style="text-align:left"/>
+							<h:panelGrid columns="2" >
+								<h:outputText value="Company Email: *" />
+								<p:inputText size="60" value="#{partnerWizard.partner.companyEmail}"
+									required="true" requiredMessage="Please Enter Comapny Email" validatorMessage="Invalid email format"
+									label="companyEmail" ><f:validateRegex
+									pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+							</p:inputText>
+<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:outputText value="Company Name: *" />
+								<p:inputText size="60" value="#{partnerWizard.partner.companyName}"
+									required="true" label="companyName"  requiredMessage="Please Enter Comapny Name" />
+
+<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:outputText value="Type of Business: *" />
+								<p:selectOneMenu id="Btype"
+									requiredMessage="Please Select Business Type ?"
+									value="#{partnerWizard.partner.businesstype}" required="true"
+									style="padding: 0px;   margin-bottom: 10px; width: 100%;  font-family: montserrat;  font-size: 12px; width:100%; !important">
+									<f:selectItem itemLabel="Citystars Merchant Store" itemValue="Citystars Merchant Store" />
+									<f:selectItem itemLabel="Citystars Complex Tenant" itemValue="Citystars Complex Tenant" />
+									<f:selectItem itemLabel="Citystars Community Partner" itemValue="Citystars Community Partner" />
+									<f:selectItem itemLabel="Citystars Marketing Agency" itemValue="Citystars Marketing Agency" />
+
+								</p:selectOneMenu>
+
+<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:outputText value="Type of Marketing Activities: *" />
+								<p:selectOneMenu id="marketingactivities"
+									requiredMessage="Please Select Type of Marketing Activities ?"
+									value="#{partnerWizard.partner.partnertype}" required="true"
+									style="padding: 0px;   margin-bottom: 10px; width: 100%;  font-family: montserrat;  font-size: 12px; width:100%; !important">
+									<f:selectItem itemLabel="Direct to Customer" itemValue="Direct to Customer" />
+									<f:selectItem itemLabel="Business 2 Business" itemValue="Business 2 Business" />
+									<f:selectItem itemLabel="Social Media" itemValue="Social Media" />
+                                    <f:selectItem itemLabel="Traditional Media" itemValue="Traditional Media" />
+								</p:selectOneMenu>
+
+<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:outputText value="Types of Interest: *" />
+								<p:selectOneMenu id="interest"
+									requiredMessage="Please Select Types of Interest ?"
+									value="#{partnerWizard.partner.interest}" required="true"
+									style="padding: 0px;   margin-bottom: 10px; width: 100%;  font-family: montserrat;  font-size: 12px; width:100%; !important">
+<f:selectItem itemLabel="Making Offer to Retail Shopper" itemValue="Making Offer to Retail Shopper" />
+									<f:selectItem itemLabel="Promotions to commercial Businesses" itemValue="Promotions to commercial Businesses" />
+									<f:selectItem itemLabel="Participate in Citystars Marketing Campaigns" itemValue="Participate in Citystars Marketing Campaigns" />
+									<f:selectItem itemLabel="Co-Branding opportunities with Citystars" itemValue="Co-Branding opportunities with Citystars" />
+
+								</p:selectOneMenu>
+
+<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:outputText value="Password:* " />
+								<p:password size="60"  requiredMessage="Please Enter Password" label="Password" required="true"
+									value="#{partnerWizard.partner.password}" />
+
+<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:outputText value="Confirm Password:* "  rendered="true" />
+								<p:password size="60"   label="Confirm Password" requiredMessage="Please Confirm Password"
+									required="true" value="#{partnerWizard.partner.password}" />
+ 
+								 
+							</h:panelGrid>
+
+						</p:panel>
+
+					</p:tab>
+
+					<p:tab id="CompanyDetails" title="Company Details" titleStyle="background-color:#E9A328;  !important; " >
+						<p:panel header="Company Details" style="background-color:#F7F9D0;  ">
+							<p:messages showIcon="false" style="text-align:left"/>
+							<h:panelGrid columns="2" >
+								<h:outputText value="Year of Registration: " />
+								<p:inputText size="60" required="true" requiredMessage="Please Enter Year of Company Formation"  label="yearofCompanyFormation"
+									value="#{partnerWizard.partner.yearofCompanyFormation}" />
+<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:outputText value="Tax Registration Number: " />
+								<p:inputText size="60" required="true" requiredMessage="Please Enter company Registration Number"  label=""
+									value="#{partnerWizard.partner.companyRegistrationNumber}" />
+<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:outputText value="Officer Name: " />
+								<p:inputText size="60" value="#{partnerWizard.partner.officername}"
+									requiredMessage="Please Enter Office Name" required="true" label="" />
+<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:outputText value="Position: " />
+								<p:inputText size="60" value="#{partnerWizard.partner.position}"
+									requiredMessage="Please Enter Position" required="true" label="" />
+<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:outputText value="Address: " />
+								<p:inputText size="60" value="#{partnerWizard.partner.address}"
+									requiredMessage="Please Enter Address" required="true" label="" />
+<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:outputText value="Telephone: " />
+								<p:inputText size="60" value="#{partnerWizard.partner.telephone}"
+									requiredMessage="Please Enter Telephone" required="true" label="" />
+<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:outputText value="Business Type: " />
+								<p:inputText size="60" value="#{partnerWizard.partner.businesstype}"
+									requiredMessage="Please Enter Business Type"  required="true" label="" />
+<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:outputText value="Number Of Employees: " />
+								<p:inputText size="60" value="#{partnerWizard.partner.numberofEmployees}"
+									requiredMessage="Please Enter Number Of Employees" required="true" label="" />
+<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:outputText value="Number Of Customers: " />
+								<p:inputText size="60" value="#{partnerWizard.partner.numberofcustomers}"
+									requiredMessage="Please Enter Number Of Customers" required="true" label="" />
+
+
+<p:growl id="growl" sticky="true" showSummary="true" />
+
+<p:commandButton value="Submit" styleClass="myButton1" style="float:right; !important;"	action ="#{partnerWizard.save}" update="growl" onclick="alert('Please wait till checking our records and send email!')" />
+
+							</h:panelGrid>
+						</p:panel>
+					</p:tab>
+
+<!-- 					<p:tab id="YourBusiness" title="Your Business" titleStyle="background-color:#E9A328;  !important; " >
+
+						<p:panel header="More About Your Business" style="background-color:#F7F9D0;  ">
+							<p:messages showIcon="false" style="text-align:left"/>
+							<h:panelGrid columns="2" style="text-align:left; ">
+
+								<h:selectBooleanCheckbox
+									 />
+								<h:outputText style="  font-size: 18px;  font-color: white;  color: darkblue;  margin-left: 10px;"
+									value="We are a regular advertisers at Citystars." />
+								<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:selectBooleanCheckbox
+									 />
+								<h:outputText style="  font-size: 18px;  font-color: white;  color: darkblue;  margin-left: 10px;"
+									value="Our Business is Based on Strong Branding." />
+								<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:selectBooleanCheckbox
+									 />
+								<h:outputText style="  font-size: 18px;  font-color: white;  color: darkblue;  margin-left: 10px;"
+									value="We depend on regular Marketing activities for our Business." />
+								<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:selectBooleanCheckbox
+									 />
+								<h:outputText style="  font-size: 18px;  font-color: white;  color: darkblue;  margin-left: 10px;"
+									value="We are interested in Social and Digital Media Marketing." />
+								<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:selectBooleanCheckbox
+									 />
+								<h:outputText style="  font-size: 18px;  font-color: white;  color: darkblue;  margin-left: 10px;"
+									value="Our Customers will be interested in Citystars Loyalty Program to enjoy new offers." />
+								<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:selectBooleanCheckbox
+									 />
+								<h:outputText style="  font-size: 18px;  font-color: white;  color: darkblue;  margin-left: 10px;"
+									value="We would like to be associated with Citystars as Partners." />
+								<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:selectBooleanCheckbox
+									 />
+								<h:outputText style="  font-size: 18px;  font-color: white;  color: darkblue;  margin-left: 10px;"
+									value="We would be interested in Business Intelligence Reports." />
+								<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:selectBooleanCheckbox />
+								<h:outputText style="  font-size: 18px;  font-color: white;  color: darkblue;  margin-left: 10px;"
+									value="Our Business particpates in Trade shows, events and exhibitions." />
+								<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:selectBooleanCheckbox/>
+								<h:outputText style="  font-size: 18px;  font-color: white;  color: darkblue;  margin-left: 10px;"
+									value="We would like Corporate Dine and Entertain Experience at Citystars." />
+								<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:selectBooleanCheckbox/>
+								<h:outputText style="  font-size: 18px;  font-color: white;  color: darkblue;  margin-left: 10px;"
+									value="We accept the Loyalty Terms and Conditions." />
+								<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:selectBooleanCheckbox/>
+								<h:outputText style="  font-size: 18px;  font-color: white;  color: darkblue;  margin-left: 10px;"
+									value="We want to recieve corporate offers from Citystars." />
+								<p:spacer></p:spacer><p:spacer></p:spacer>
+								<h:selectBooleanCheckbox/>
+								<h:outputText style="  font-size: 18px;  font-color: white;  color: darkblue;  margin-left: 10px;"
+									value="Allow partners to send us B2B offers and related services." />
+								<p:spacer></p:spacer><p:spacer></p:spacer>
+							</h:panelGrid>
+						</p:panel>
+						
+					</p:tab>
+ -->
+					<!-- <p:tab id="confirm" title="Confirmation" titleStyle="background-color:#E9A328;  !important; " >
+						<p:growl id="growl" sticky="true" showSummary="true" />
+						<p:panel header="Confirmation" style="text-align:left;">
+								<h:panelGrid id="confirmation" columns="3"
+							columnClasses="grid,grid,grid">
+							 <h:panelGrid columns="2" > 
+							 <h:messages/>
+							<h:outputText value="Company Email: " />
+							<h:outputText value="#{partnerWizard.partner.companyEmail}"
+								styleClass="outputLabel" />
+							<br />
+
+							<h:outputText value="Company Name: " />
+							<h:outputText value="#{partnerWizard.partner.companyName}"
+								styleClass="outputLabel" />
+							<br />
+
+							<h:outputText value="Year of Company Formation: " />
+							<h:outputText
+								value="#{partnerWizard.partner.yearofCompanyFormation}"
+								styleClass="outputLabel" />
+							<br />
+
+								</h:panelGrid>
+
+							<h:panelGrid columns="2" >
+							<h:outputText value="Company Registration Number: " />
+							<h:outputText
+								value="#{partnerWizard.partner.companyRegistrationNumber}"
+								styleClass="outputLabel" />
+							<br />
+
+							<h:outputText value="Office Name: " />
+							<h:outputText value="#{partnerWizard.partner.officername}"
+								styleClass="outputLabel" />
+							<br />
+
+							<h:outputText value="Position: " />
+							<h:outputText value="#{partnerWizard.partner.position}"
+								styleClass="outputLabel" />
+							<br />
+
+								</h:panelGrid>
+
+							<h:panelGrid columns="2" >
+							<h:outputText value="Address: " />
+							<h:outputText value="#{partnerWizard.partner.address}"
+								styleClass="outputLabel" />
+							<br />
+
+							<h:outputText value="Telephone: " />
+							<h:outputText value="#{partnerWizard.partner.telephone}"
+								styleClass="outputLabel" />
+							<br />
+
+							<h:outputText value="Business Type: " />
+							<h:outputText value="#{partnerWizard.partner.businesstype}"
+								styleClass="outputLabel" />
+							<br />
+
+							 		
+								
+						 	</h:panelGrid> 
+						 </h:panelGrid>
+							
+						</p:panel>
+					</p:tab> -->
+					
+				</p:tabView>
+
+			</h:form>
+		</div>
+	</section>
+	<!--footer -->
+	<ui:include src="views/footer.xhtml" />
+
+</h:body>
+
+
+
+</html>

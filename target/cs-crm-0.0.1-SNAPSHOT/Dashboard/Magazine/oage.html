@@ -1,0 +1,91 @@
+<!doctype html>
+
+<!--[if !IE]><!--> <html lang="en" class="noie"> <!--<![endif]-->
+<head>
+
+<meta name="viewport" content="width=1200" />
+<meta name="keywords" content="page,flip,pages,effect,flipbook,flipboard,jquery,html5,book,magazine,newspaper,ipad,iphone,android,ios" />
+<meta name="description" content="Turn.js makes a beautiful page turning effect using HTML5 and jQuery" />
+<link rel="icon" type="image/png" href="pics/favicon.png" />
+<link type="text/css" rel="stylesheet" href="css/jquery.ui.css"></link>
+<link type="text/css" rel="stylesheet" href="css/default.css"></link>
+<script type="text/javascript" src="extras/all.js"></script>
+<script type="text/javascript" src="lib/hash.js"></script>
+<script type="text/javascript" src="lib/turn.min.js"></script>
+<script type="text/javascript" src="lib/zoom.min.js"></script>
+<script type="text/javascript" src="lib/bookshelf.js"></script>
+</head>
+<body>
+<style>
+.splash .details {
+  float: left;
+  margin-top: -10px;
+  margin-left:20px;
+  color: white;
+}
+</style>
+<div class="splash" >
+	<div class="center">
+	<div class="details">
+		
+		<center>
+		<h1>CityStars Magazine Store ! </h1>
+		</center>
+		<ul>
+		<li style="text-align: center;"><img src="shelf image.png" style="  width: 526px;
+height: 300px;"/></li>
+			<li style="font-size: 24px; padding-left: 40px;">Published on most browsers and devices</li>
+			<li style="font-size: 19px; padding-left: 40px;">Digital Marketing Platform</li>
+			
+		</ul>
+	</div>
+	<div class="bookshelf">
+		<div class="shelf">
+			<div class="row-1">
+				<div class="loc">
+					<div> <a href="samples/doublepage/index.html"><div class="sample thumb1" ></div></a> </div>
+					<div> <a href="samples/doublepage/index.html"><div class="sample thumb2" sample="html5"></div></a> </div>
+					<div> <a href="samples/stevejobs/index.html"><div class="sample thumb3" sample="docs"></div></a> </div>
+				</div>
+			</div>
+			<div class="row-2">
+				<div class="loc">
+					<div> <a href="samples/magazine/index.html"><div class="sample thumb4" ></div></a> </div>
+					<div>  <a href="samples/basic/index.html"><div class="sample thumb5"></div></a> </div>
+					<div> <a href="samples/docs/index.html"><div class="sample thumb6" ></div></a> </div>
+				</div>
+			</div>
+		</div>
+		<P style="color: white;   margin: -71px 73px;">&uarr; Click to see 3D flip magazine animation.</P>
+	</div>
+
+</div>
+
+</div>
+<script type="text/javascript">
+yepnope({
+	test : Modernizr.csstransforms,
+	nope : ['lib/turn.html4.min.js', 'css/jquery.ui.html4.css']
+});
+
+$('#sample-viewer a').click(function() {
+	$(this).hide();
+	yepnope({
+		test : Modernizr.csstransforms,
+		load: ['samples/basic/js/basic.js', 'samples/basic/css/basic.css'],
+		nope: 'samples/basic/css/basic.html4.css?'+Math.round(Math.random()*100)
+	});
+});
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-28960832-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body>
+</html>

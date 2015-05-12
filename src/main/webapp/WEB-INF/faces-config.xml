@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+    http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+	version="2.0">
+
+<navigation-rule>
+<from-view-id>PartnerLogin.xhtml</from-view-id>
+<navigation-case>
+<from-outcome>success</from-outcome>
+<to-view-id>PartnerHome.xhtml</to-view-id>
+<redirect/>
+</navigation-case>
+</navigation-rule>
+
+<navigation-rule>
+<from-view-id>PartnerHome.xhtml</from-view-id>
+<navigation-case>
+<from-outcome>success</from-outcome>
+<to-view-id>CampaignCreatedSuccessfully.xhtml</to-view-id>
+<redirect/>
+</navigation-case>
+</navigation-rule>	
+
+<navigation-rule>
+<from-view-id>PartnerHome.xhtml</from-view-id>
+<navigation-case>
+<from-outcome>SegmentTool</from-outcome>
+<to-view-id>SegmentTool.xhtml</to-view-id>
+<redirect/>
+</navigation-case>
+</navigation-rule>
+
+<navigation-rule>
+<from-view-id>Register.xhtml</from-view-id>
+<navigation-case>
+<from-outcome>FacebookAccess</from-outcome>
+<to-view-id>https://www.facebook.com/dialog/oauth</to-view-id>
+<redirect/>
+</navigation-case>
+</navigation-rule>	
+
+</faces-config>

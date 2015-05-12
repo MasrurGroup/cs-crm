@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+          <h:head>
+        <ui:include src="views/header.xhtml" />  
+        
+    </h:head>
+    <h:body >
+
+        <section class="page_section" id="clients"><!--page_section-->
+
+<div class="container">
+      <h:form  id="msform"   style="background:#fff; width:900px; height:350px;">
+	<!-- progressbar -->
+<!-- 	<p:chart type="bubble" model="#{partnerDashboard.bubbleModel1}" />  -->
+
+ 
+<p:chart type="bubble" model="#{partnerDashboard.bubbleModel2}"  />
+	</h:form>
+
+
+  </div>
+        </section>
+        <ui:include src="views/footer.xhtml" />
+
+
+    </h:body>
+
+
+
+</html>
+

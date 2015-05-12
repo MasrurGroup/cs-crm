@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+	<ui:include src="views/header.xhtml" />
+
+	
+</h:head>
+<style>
+.img {
+    position: absolute;
+    height: 100%
+    top: 0;
+    bottom: 0;
+}
+</style>
+<h:body style="background-color: black;">
+	<section class="page_section hero" id="hero" >
+		<!--main-section team-start-->
+		<div class="container">
+			<!--Hero_Section-->
+			<DIV
+				style="margin: 0 auto; text-align: center; height: 20% !important;">
+				<img src="../resources/img/CS Home landing page.png" style="height:550px; width:1200px !importnat;"
+					class="zoomIn wow animated" alt="" />
+			</DIV>
+
+			<div
+				style="position: absolute; width: 30%; height: 10px; left: 35%; height: 30% !important;">
+				<div style="margin: 0px auto; float: right;">
+					<a href="CustomerLogin.xhtml" class="read_more2">Sign in</a>
+				</div>
+				<div style="margin: 0px auto;">
+					<a href="Register.xhtml" class="read_more2">Sign Up</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!--Hero_Section-->
+
+
+
+	<!--Footer-->
+	<ui:include src="views/footer.xhtml" />
+
+</h:body>
+</html>
+

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+	<ui:include src="views/header.xhtml" />
+
+</h:head>
+<h:body style="background: black; !important;">
+<section class="page_section" id="clients" style="  padding: 60px 0px;
+  width: 100%;
+  padding-left: 0;!important;
+  padding-right: 0; !important;
+">
+	
+	<div class="wrap" style="border-radius: 25px; height:100%; border: 2px solid #D6C485; padding: 20px;">
+		<div class="contact-form" >
+
+			<!-- start-form -->
+			<h:form class="contact_form" name="contact_form" >
+
+
+				<h1>Login Into Customer Service</h1>
+
+				<h:panelGrid id="grid">
+					<p:messages showIcon="false" style="color:red;" />
+					<p:inputText id="email" required="true" size="50"
+						requiredMessage="Please Enter Email ?" placeholder="Email"
+						validatorMessage="Invalid email format"
+						value="#{customerServiceLoginMB.email}">
+						
+						<img src="../resources/img/contact.png" alt="" class="img" />
+						<f:validateRegex
+							pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+					</p:inputText>
+					
+					<p:password id="pass" required="true" placeholder="Password"
+						requiredMessage="Please Enter Password ?"
+						value="#{customerServiceLoginMB.password}" />
+						
+						<img src="../resources/img/lock.png" alt="" class="lock" />
+
+					<p>
+						
+					</p>
+					<p:commandButton value="Sign In" styleClass="myButton"
+						action="#{customerServiceLoginMB.doLogin()}" update="grid" />
+				</h:panelGrid>
+
+				<table style="width: 100%;">
+					<tr>
+						<td><p:selectBooleanCheckbox styleClass="checkbox"
+								label="Remember me" itemLabel="Remember me" /></td>
+
+						<td><p:link outcome="forgetPassword" value="forgot password?">
+								<f:param name="userId" value="10" />
+							</p:link></td>
+					</tr>
+				</table>
+				<div class="clear"></div>
+			</h:form>
+			<!-- end-form -->
+			<!-- start-account -->
+			<div class="account">
+				<center>
+					<a href="#">Log in Other Roles ! </a>
+				</center>
+				<div class="span">
+					<a href="Users_Login_Business.xhtml"><img
+						src="../resources/img/facebook.png" alt="" /><i>Sign In as
+							Business User</i>
+						<div class="clear"></div></a>
+				</div>
+				<div class="span1">
+					<a href="Users_Login_ITSupport.xhtml"><img
+						src="../resources/img/twitter.png" alt="" /><i>Sign In as IT
+							Support User</i>
+						<div class="clear"></div></a>
+				</div>
+				<div class="span2">
+					<a href="Users_Login_SuperUser.xhtml"><img
+						src="../resources/img/gplus.png" alt="" /><i>Sign In as Super
+							User</i>
+						<div class="clear"></div></a>
+				</div>
+
+			</div>
+
+			<!-- end-account -->
+
+			<div class="clear"></div>
+
+		</div>
+
+	</div>
+</section>
+	<!--footer -->
+	<ui:include src="views/footer.xhtml" />
+
+</h:body>
+
+</html>

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+          <h:head>
+        <ui:include src="views/header.xhtml" />  
+        
+    </h:head>
+    <h:body>
+
+        <section class="page_section" id="clients"><!--page_section-->
+
+<div class="container">
+      <h:form  id="msform"  action="CustomerProfile.xhtml" style="height:286px;">
+	<!-- progressbar -->
+	<fieldset>
+		<h2 class="fs-title">Customer Log In</h2>
+		<h3 class="fs-subtitle">*****</h3>
+		<p:inputText id="email" placeholder="User Name" value="#{customerLoginMB.email}"/>
+		<p:password id="pass" placeholder="Password" value="#{customerLoginMB.password}"/>
+		
+		<p:commandButton   styleClass="submit action-button" value="Log In"  action="#{customerLoginMB.doLogin()}"  />
+                <br/><br/>
+                <center>
+                    <div class="forgot" align="center">
+			<a href="#">forgot password?</a>
+		</div>	
+                    </center>
+	</fieldset>
+</h:form>
+
+  </div>
+        </section>
+        <ui:include src="views/footer.xhtml" />
+
+
+    </h:body>
+
+
+
+</html>
+

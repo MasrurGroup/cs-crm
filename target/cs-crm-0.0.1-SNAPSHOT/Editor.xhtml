@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">    <h:head>
+<ui:include src="views/header.xhtml" />  
+   
+    </h:head>
+    <h:body>
+        <center>
+        <div style="width: 100%; height: 900px">
+            <h:form style="width: 100%; height:900px;" >          
+                <p:editor id="editor" widgetVar="editorWidget" value="Thank you" width="900" height="550"/>
+ 
+    <h:panelGrid columns="2" style="margin-top: 10px">
+        <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-disk" />
+ 
+        <p:commandButton value="Clear" type="button" onclick="PF('editorWidget').clear();" icon="ui-icon-close" />
+    </h:panelGrid>
+ 
+    <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade">
+        <h:outputText id="display" value="#{editorView.text}" escape="false" />
+    </p:dialog>
+</h:form> 
+            </div>     
+
+
+ </center>
+<div style="height: 70px"></div>
+<ui:include src="views/footer.xhtml" />
+
+
+</h:body>
+
+
+
+</html>
+

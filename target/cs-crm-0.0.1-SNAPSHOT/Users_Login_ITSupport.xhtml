@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">    <h:head>
+        <ui:include src="views/header.xhtml" />  
+        
+    </h:head>
+    <h:body>
+
+        <section class="page_section" id="clients" ><!--page_section-->
+
+<div class="container" style="border-radius: 25px; height:100%; !important;  border: 2px solid #D6C485; padding: 20px;" >
+        <h:form  id="msform"  >
+	<!-- progressbar -->
+	 <center>
+		<h2 class="fs-title">Business User Log In</h2>
+		<h3 class="fs-subtitle">*****</h3>
+		<h:panelGrid id="grid" columns="1" cellpadding="5">
+						<p:messages showIcon="false" />
+							<p:inputText id="email" required="true" size="50"
+								requiredMessage="Please Enter Email ?" placeholder="Email"
+								validatorMessage="Invalid email format"
+								value="#{itSupportUserLoginMB.email}">
+								<f:validateRegex
+									pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+							</p:inputText>
+							<p:password id="pass" required="true" placeholder="Password"
+								requiredMessage="Please Enter Password ?"
+								value="#{itSupportUserLoginMB.password}" />
+								</h:panelGrid>
+								
+                 
+								
+							<p:commandButton styleClass="myButton" value="Log In"
+								update="grid" action="#{itSupportUserLoginMB.doLogin()}" />
+						
+				 
+						<div class="forgot"  style="margin:0 auto; margin-top:56;  !important; ">
+							<a href="#" style="margin-top: 50px;">forgot password?</a>
+						</div>
+                	
+                    </center>
+</h:form>
+
+
+  </div>
+        </section>
+        <ui:include src="views/footer.xhtml" />
+
+
+    </h:body>
+
+
+
+</html>
+

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="target/classes" path="src/main/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/JSF 2.2 (Mojarra 2.2.0)">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+			<attribute name="owner.project.facets" value="jst.jsf"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="con" path="net.sf.jasperreports.JR_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="com.jaspersoft.server.JRS_CONTAINER"/>
+	<classpathentry kind="lib" path="D:/CityStars/cs-crm/src/main/java/resources/apache-collections-commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="D:/CityStars/cs-crm/src/main/java/resources/commons-dbcp-1.2.1.jar"/>
+	<classpathentry kind="lib" path="D:/CityStars/cs-crm/src/main/java/resources/commons-digester-2.1.jar"/>
+	<classpathentry kind="lib" path="D:/CityStars/cs-crm/src/main/java/resources/commons-javaflow.jar"/>
+	<classpathentry kind="lib" path="D:/CityStars/cs-crm/src/main/java/resources/iText-2.1.7.js2.jar"/>
+	<classpathentry kind="lib" path="D:/CityStars/cs-crm/src/main/java/resources/jasperreports-0.6.3.jar"/>
+	<classpathentry kind="lib" path="D:/CityStars/cs-crm/src/main/java/resources/jasperreports-fonts-5.6.0.jar"/>
+	<classpathentry kind="lib" path="D:/CityStars/cs-crm/src/main/java/resources/spring-2.5.6.jar"/>
+	<classpathentry kind="lib" path="D:/CityStars/cs-crm/src/main/java/resources/joda-time-2.3.jar"/>
+	<classpathentry kind="lib" path="D:/CityStars/cs-crm/src/main/java/resources/cupertino-1.0.10.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

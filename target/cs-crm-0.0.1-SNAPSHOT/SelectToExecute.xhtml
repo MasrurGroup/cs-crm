@@ -1,0 +1,339 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
+<h:body>
+	<ui:include src="views/header.xhtml" />
+	<style>
+h2 {
+	background-color: black;
+	color: white;
+	margin-top: 20px;
+	!
+	important;
+}
+</style>
+	<style>
+.ui-panelgrid td, .ui-panelgrid tr {
+	border-style: none !important
+}
+</style>
+<style>
+
+.ui-tabs-left > .ui-tabs-nav {
+    float: left;
+    width: 22%;
+    background-color:#F0DDD5; !important;
+    padding-top: 1px;
+    height: 700px; !important;
+    
+    
+}
+.ui-fileupload-buttonbar {
+  padding: 0.2em 0.4em;
+  background-color: #F7F9D0;
+}
+
+.ui-fileupload-buttonbar .ui-button {
+  vertical-align: middle;
+  margin-right: 0.2em;
+    background-color: #E9A328;
+  color: white;
+}
+.ui-grid {
+    background-color: #F7F9D0;
+}
+
+.ui-datagrid .ui-datagrid-header {
+ padding: 0.5em 1em 0.3em;
+  color: white;
+  background-color: black;
+  font-size: large;
+}
+</style>
+<style>
+.ui-tabs-left > .ui-tabs-nav {
+    float: left;
+    width: 22%;
+    background-color: #D6C485;
+    background-image: url("../resources/img/partnersidebarscreen1.png");
+    padding-top: 1px;
+    height: 565px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-top: 33px;
+    margin-left: -4px;
+}
+.ui-inputfield {
+  margin: 0;
+  outline: medium none;
+  padding: 7px;
+  font-weight: normal;
+  margin-left: 5px;
+}
+
+.ui-panel .ui-panel-titlebar {
+  padding: 0.5em 1em 0.3em;
+  color: white; background-color: black;
+  font-size: large;
+}
+.ui-panel .ui-panel-content {
+    border: 0px none;
+    background: none repeat scroll 0% 0% #C6CACB;
+    padding: 0.5em 1em;
+}
+.ui-tabs {
+    position: relative;
+    padding: 0.2em;
+    background-image: url("../resources/img/partnersidebarscreen2.png"); !important;
+    padding-top: 1px;
+    height: 600px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    
+}
+.ui-tabs-left > .ui-tabs-panels {
+    float: right;
+    width: 75%;
+    margin-top: 20px;
+    }
+
+.ui-tabs.ui-tabs-left > .ui-tabs-nav li {
+    margin: 0px 0px 1px 0.2em;
+    border-right: 0px none;
+    background-color: #292D2F !important;
+    
+}
+
+.ui-tabs.ui-tabs-left > .ui-tabs-nav li a, .ui-tabs.ui-tabs-right > .ui-tabs-nav li a {
+    width: 90%;
+    color:white;
+}
+.ui-grid {
+    background-color: #C6CACB;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    width: 90%;
+    text-align: left;
+}
+</style>
+		<section class="page_section team" id="team"
+		style="padding: 30px 0; !important;">
+		<!--main-section team-start-->
+		<div class="container">
+			<h:form id="form" style="margin:0 auto; width:80%; border-radius: 25px;  border: 2px solid #D6C485; padding: 20px;">
+
+			<p:tabView id="tabview" style="background-color: #F7F9D0;  !important; " orientation="left" > 
+					
+					<p:tab id="CampaignsforExecute" title="Execute Campaign " titleStyle="background-color:#E9A328;  !important; " >
+				<p:dataGrid var="campaign" value="#{campaignView.approvedcampaigns}" style=" top: 0; left: 0; width: 100%; height: 100%; background-color:#F7F9D0;"
+					columns="3" layout="grid" rows="4" paginator="true" id="campaigns"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="6,12,16">
+
+					<f:facet name="header">
+            Campaigns Waiting for Execution
+        </f:facet>
+
+					<p:panel header="#{campaign.id}"
+						style="text-align:left; background-color:#E9A328;">
+						<h:panelGrid columns="2" style="width:100%">
+
+
+							<h:outputText value="Requester:" />
+										<h:outputText value="#{campaign.requesterName}" />
+
+										<h:outputText value="Project:" />
+										<h:outputText value="#{campaign.projectName}"
+											style="color:Red" />
+
+										<h:outputText value="Start:" />
+										<h:outputText value="#{campaign.marketLaunchDate}" />
+										<h:outputText value="End:" />
+										<h:outputText value="#{campaign.marketEndDate}" />
+
+										<h:outputText value="Budget:" />
+										<h:outputText style="color:Red" value="#{campaign.budget}" />
+
+							<hr />
+						</h:panelGrid>
+						<h:panelGrid columns="4">
+							<h:commandButton value="Execute"  action="#{campaignView.executeCampaign(campaign)}"
+								styleClass="myButton1" style="margin-right:5px; !important;" />
+						<!-- 	<h:commandButton value="Edit" styleClass="myButton1"
+								style="margin-right:5px; !important;" /> -->
+							<h:commandButton value="Cancel" styleClass="myButton1" action="#{campaignView.deleteCampaign(campaign)}" />
+							<p:commandLink  update=":form:carDetail"
+								oncomplete="PF('carDialog').show()" title="View Detail">
+								<h:outputText styleClass="ui-icon ui-icon-search"
+									style="margin:0 auto;" />
+								<f:setPropertyActionListener value="#{campaign}"
+									target="#{campaignView.approvedselectedCampaign}" />
+							</p:commandLink>
+						</h:panelGrid>
+
+					</p:panel>
+
+				</p:dataGrid>
+
+				
+				</p:tab>
+					<p:tab id="ExecuteOffers" title="Execute Offer" titleStyle="background-color:#E9A328;  !important; " >
+				<p:dataGrid var="offer" value="#{offerView.approvedoffers}" style=" top: 0; left: 0; width: 100%; height: 100%; background-color:#F7F9D0;"
+					columns="3" layout="grid" rows="4" paginator="true" id="offers"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="6,12,16">
+
+					<f:facet name="header">
+            Offers Waiting for Execution
+        </f:facet>
+
+					<p:panel header="#{offer.id}"
+						style="text-align:left;  background-color:#4CB0C7;">
+						<h:panelGrid columns="2" style="width:100%">
+
+
+							<h:outputText value="Requester:" />
+										<h:outputText value="#{offer.requesterName}" />
+
+										<h:outputText value="Project:" />
+										<h:outputText value="#{offer.projectName}" style="color:Red" />
+
+										<h:outputText value="Start:" />
+										<h:outputText value="#{offer.marketLaunchDate}" />
+										<h:outputText value="End:" />
+										<h:outputText value="#{offer.marketEndDate}" />
+										<h:outputText value="Budget:" />
+										<h:outputText style="color:Red" value="#{offer.budget}" />
+
+							<hr />
+						</h:panelGrid>
+						<h:panelGrid columns="4">
+							<h:commandButton value="Execute" action="#{offerView.executeOffer(offer)}"
+								styleClass="myButton1" style="margin-right:5px; !important;" />
+						<!-- 	<h:commandButton value="Edit" styleClass="myButton1"
+								style="margin-right:5px; !important;" /> -->
+							<h:commandButton value="Cancel" styleClass="myButton1" action="#{offerView.deleteOffer(offer)}"/>
+							<p:commandLink update=":form:carDetail1"
+								oncomplete="PF('carDialog1').show()" title="View Detail">
+								<h:outputText styleClass="ui-icon ui-icon-search"
+									style="margin:0 auto;" />
+								<f:setPropertyActionListener value="#{offer}"
+									target="#{offerView.approvedselectedOffer}" />
+							</p:commandLink>
+						</h:panelGrid>
+					</p:panel>
+
+				</p:dataGrid>
+
+
+</p:tab>
+</p:tabView>
+
+
+
+				<p:dialog header="Campaign Info" widgetVar="carDialog" modal="true"
+					style="color:Red" showEffect="fade" hideEffect="fade"
+					border="none;" resizable="false">
+					<p:outputPanel id="carDetail"
+						style="text-align:left; border: none;">
+						<p:panelGrid columns="2" columnClasses="label,value"
+							style="color:Red; border: none;">
+
+							<h:outputText value="Id:" style="color:Red" />
+							<h:outputText value="#{campaignView.approvedselectedCampaign.id}" />
+
+							<h:outputText value="Requester:" style="color:Red" />
+							<h:outputText
+								value="#{campaignView.approvedselectedCampaign.requesterName}" />
+
+							<h:outputText value="Project:" style="color:Red" />
+							<h:outputText
+								value="#{campaignView.approvedselectedCampaign.projectName}"
+								style="color:Red" />
+<h:outputText value="Description:" style="color:Red" />
+							<h:outputText style="color:Red"
+								value="#{campaignView.approvedselectedCampaign.campaignDescription}" />
+
+						<h:outputText value="Start:" style="color:Red" />
+							<h:outputText style="color:Red"
+								value="#{campaignView.approvedselectedCampaign.marketLaunchDate}" />
+							<h:outputText value="End:" style="color:Red" />
+							<h:outputText style="color:Red"
+								value="#{campaignView.approvedselectedCampaign.marketEndDate}" />
+								
+							
+							<h:outputText value="Budget:" style="color:Red" />
+							<h:outputText style="color:Red"
+								value="#{campaignView.approvedselectedCampaign.budget}" />
+
+
+						</p:panelGrid>
+
+					</p:outputPanel>
+				</p:dialog>
+
+
+
+				<p:dialog header="Offer Info" widgetVar="carDialog1" modal="true"
+					style="color:Red" showEffect="fade" hideEffect="fade"
+					border="none;" resizable="false">
+					<p:outputPanel id="carDetail1"
+						style="text-align:left; border: none;">
+							<p:panelGrid columns="2" columnClasses="label,value"
+							style="color:Red; border: none;">
+
+							<h:outputText value="Id:" style="color:Red" />
+							<h:outputText value="#{offerView.approvedselectedOffer.id}" />
+
+							<h:outputText value="Requester:" style="color:Red" />
+							<h:outputText
+								value="#{offerView.approvedselectedOffer.requesterName}" />
+
+							<h:outputText value="Project:" style="color:Red" />
+							<h:outputText
+								value="#{offerView.approvedselectedOffer.projectName}"
+								style="color:Red" />
+<h:outputText value="Description:" style="color:Red" />
+							<h:outputText style="color:Red"
+								value="#{offerView.approvedselectedOffer.description}" />
+
+						<h:outputText value="Start:" style="color:Red" />
+							<h:outputText style="color:Red"
+								value="#{offerView.approvedselectedOffer.marketLaunchDate}" />
+							<h:outputText value="End:" style="color:Red" />
+							<h:outputText style="color:Red"
+								value="#{offerView.approvedselectedOffer.marketEndDate}" />
+								
+							
+							<h:outputText value="Budget:" style="color:Red" />
+							<h:outputText style="color:Red"
+								value="#{offerView.approvedselectedOffer.budget}" />
+
+
+						</p:panelGrid>
+
+					</p:outputPanel>
+				</p:dialog>
+
+			</h:form>
+		</div>
+	</section>
+	
+	<ui:include src="views/footer.xhtml" />
+
+
+</h:body>
+
+
+
+</html>
+

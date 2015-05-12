@@ -1,0 +1,336 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
+<h:body>
+<ui:include src="views/header.xhtml" />
+<style>
+.panel {
+    margin-bottom: 20px;
+ color:white;
+    background-color: transparent; !importnat;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
+}
+.panel-footer {
+    padding: 4px 15px;
+    background-color: rgba(245, 245, 245, 0);
+    border-top: 1px solid #DDD;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    margin: 0 0 !important;
+}
+.ui-inputfield {
+    margin: 0px;
+    outline: medium none;
+    padding: 4px;
+    font-weight: normal;
+    width: 100%;
+}
+</style>
+	<section class="page_section team" id="team">
+		<div class="container"
+			style="border-radius: 25px; border: 2px solid #D6C485; padding: 20px; width: 80%; margin-bottom: 0px;   !important;">
+			<h:form class="form-horizontal" role="form">
+				<p:growl id="growl1" sticky="true" showSummary="true" />
+
+<div class="panel panel-default" style="text-align: left;">
+ <!-- <div class="panel-heading">
+  <h3 class="panel-title">Registration Form</h3>
+ </div> -->
+<div class="row outer">
+    <div class="col-md-6">  <div class="panel-body">
+ <div class="form-horizontal" role="form">
+  <div class="form-group">
+    	<p:messages showIcon="false" style="text-align:left" />
+    <label for="name" style="text-align: left;" class="col-sm-2 control-label">Name*</label>
+    <div class="col-sm-10">
+    <div class="col-md-6" style="padding: 0 0 0 0;">
+    <p:inputText STYLE="width:50%" styleClass="form-control" placeholder="First Name"
+									requiredMessage="Please Enter First Name ?"
+									value="#{customerWizard.user.firstName}" required="True" />
+									</div>
+									<div class="col-md-6" style="padding: 0 0 0 0;">
+    <p:inputText STYLE="width:50%" styleClass="form-control" placeholder="Last Name"
+									requiredMessage="Please Enter Last Name ?"
+									value="#{customerWizard.user.lastName}" required="true" />
+								  </div>
+    </div>
+  </div>
+   <div class="form-group">
+    <label for="gmail" style="text-align: left;" class="col-sm-2 control-label">Email*</label>
+ <div class="col-sm-10">
+   <div class="input-group input-group-sm">
+     <span class="input-group-addon">@</span>
+    <p:inputText styleClass="form-control" placeholder="Email*" required="true"
+									requiredMessage="Please Enter Email ?"
+									validatorMessage="Invalid email format"
+									value="#{customerWizard.user.emailId}">
+									<f:validateRegex
+										pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+								</p:inputText>
+    
+    
+  </div>
+  </div>
+  </div>
+    <div class="form-group">
+    <label for="password" style="text-align: left;" class="col-sm-2 control-label">FaceBook ID*</label>
+    <div class="col-sm-10">
+    <div class="col-md-6" style="padding: 0 0 0 0; width: 65%;">
+    <p:inputText   placeholder="Facebook" styleClass="form-control"
+									requiredMessage="Please Enter FaceBook ?"
+									value="#{customerWizard.user.facebook}" />
+    </div>
+    <div class="col-md-6" style="padding: 0 0 0 0; width: 35%; text-align: center;">
+    <h:commandLink action="#{customerWizard.openURL}"  value="Click to Activate Facebook Account" immediate="true" />
+    </div>
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="password" class="col-sm-2 control-label">Password
+    </label>
+       <div class="col-sm-10">
+    <div class="col-md-6" style="padding: 0 0 0 0;">
+      
+    <p:password STYLE="width:50%" styleClass="form-control" placeholder="Password*" id="password"
+									required="true" match="confirmed"
+									requiredMessage="Please Enter Password ?"
+									value="#{customerWizard.user.password}" />
+									</div>
+									<div class="col-md-6" style="padding: 0 0 0 0;">
+    <p:password STYLE="width:50%" styleClass="form-control"  id="confirmed" placeholder="Confirm Password"
+									requiredMessage="Please Confirm Password" 
+									value="#{customerWizard.user.password}" />
+								  </div>
+    </div>
+    
+  </div>
+<div class="form-group">
+   <label for="popup" class="col-sm-2 control-label" style="text-align: left;">Birth Date</label>
+   <div class="col-sm-10">
+    <p:calendar id="popup" styleClass="form-control" placeholder="Birth Date" style="margin: 0 !important;
+padding: 0 !important; width:100% " required="true"
+									yearRange="1910:2016" requiredMessage="Please Enter DOP ?"
+									label="Birth date" navigator="true" showOtherMonths="true"
+									showButtonPanel="true " pattern="dd/MM/yyyy"
+									value="#{customerWizard.user.birthdate}" />
+   </div>
+  </div>
+  <div class="form-group">
+    <label for="State" class="col-sm-2 control-label" style="text-align: left;">Address</label>
+    <div class="col-sm-10">
+    <div class="col-md-6" style="padding: 0 0 0 0; width: 33%;">
+  <p:selectOneMenu label="Country"  styleClass="form-control" style="margin: 0 !important;
+padding: 0 !important; width:100% " value="#{customerWizard.user.countryId}">
+								<f:selectItems value="#{customerWizard.countriesMap}"/>
+								<p:ajax event="change" update="cities" listener="#{customerWizard.fillCitiesMap}"/>
+								</p:selectOneMenu>
+  </div>
+  <div class="col-md-6"  style="padding: 0 0 0 0; width: 33%;">
+  <p:selectOneMenu id="cities" styleClass="form-control" style="margin: 0 !important;
+padding: 0 !important; width:100% " label="City" value="#{customerWizard.user.cityId}">
+								<p:ajax event="change" update="regions" listener="#{customerWizard.fillRegionsMap}"/>
+								<f:selectItems value="#{customerWizard.citiesMap}"/>
+								</p:selectOneMenu>
+								
+  </div>
+  <div class="col-md-6"  style="padding: 0 0 0 0; width: 33%;">
+  <p:selectOneMenu id="regions" styleClass="form-control" style="margin: 0 !important;
+padding: 0 !important; width:100% " label="Region" value="#{customerWizard.user.regionId}">
+								<f:selectItems value="#{customerWizard.regionsMap}" />
+								</p:selectOneMenu>
+  </div>
+  
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="Address" class="col-sm-2 control-label" style="text-align: left;">Detailed Address</label>
+    <div class="col-sm-10">
+ <p:inputText placeholder="Address" styleClass="form-control"
+									requiredMessage="Please Enter Address ?"
+									value="#{customerWizard.user.address}" required="true" />
+    </div>
+  </div>
+   <div class="form-group">
+    <label for="Address" class="col-sm-2 control-label" style="text-align: left;">Registration Source</label>
+    <div class="col-sm-10">
+    <p:selectOneMenu id="SourceReg"  styleClass="form-control"
+									requiredMessage="Please Select Registretion Source ?"
+									value="#{customerWizard.user.partnerId}" required="true"
+									style="padding: 0px;   margin-bottom: 10px; width: 100%;  font-family: montserrat;  font-size: 12px; width:100%; !important">
+									<f:selectItem itemLabel="Online" itemValue="100" />
+									<f:selectItem itemLabel="Through Customer Service" itemValue="200" />
+									
+
+								</p:selectOneMenu>
+    
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    <div class="col-md-6">  <div class="panel-body">
+ <div class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="name" class="col-sm-2 control-label" style="text-align: left;">Mobile</label>
+    <div class="col-sm-10">
+      
+     <div class="col-md-6" style="padding: 0 0 0 0;">
+    <p:inputText STYLE="width:50%" styleClass="form-control" id="Mobile" placeholder="Telephone"
+									required="true" requiredMessage="Please Enter Mobile ?"
+									value="#{customerWizard.user.phone}">
+									<f:convertNumber integerOnly="true" type="number" />
+								</p:inputText>
+									</div>
+									<div class="col-md-6" style="padding: 0 0 0 0;">
+    <p:inputText STYLE="width:50%" styleClass="form-control" id="Whatsapp" placeholder="Whats App"
+									required="true" requiredMessage="Please Enter Mobile ?"
+									value="#{customerWizard.user.whatsapp}">
+									<f:convertNumber integerOnly="true" type="number" />
+								</p:inputText>
+								  </div>
+    </div>
+  </div>
+   <div class="form-group">
+    <label for="gmail" class="col-sm-2 control-label"  style="text-align: left;">National ID</label>
+ <div class="col-sm-10">
+   <p:inputText id="NationalId" styleClass="form-control"
+									value="#{customerWizard.user.nationalId}"
+									placeholder="National ID" 
+									requiredMessage="Please Enter NID ?">
+									<f:validateLength minimum="14" maximum="15" />
+								</p:inputText>
+  
+  </div>
+  </div>
+    <div class="form-group">
+    <label for="password" class="col-sm-2 control-label" style="text-align: left;">Gender*</label>
+    <div class="col-sm-10">
+      <p:selectOneMenu id="console" styleClass="form-control"
+									requiredMessage="Please Select Gender ?"
+									value="#{customerWizard.user.gender}" required="true"
+									style="padding:0px;   margin-bottom: 10px; width: 100%;  font-family: montserrat;  font-size: 12px; width:100%; !important">
+									<f:selectItem itemLabel="Male" itemValue="Male" />
+									<f:selectItem itemLabel="Female" itemValue="Female" />
+
+								</p:selectOneMenu>
+
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="password" class="col-sm-2 control-label" style="text-align: left;">Marital Status
+    </label>
+    <div class="col-sm-10">
+      <p:selectOneMenu id="Mstatus"  styleClass="form-control"
+									requiredMessage="Please Enter Marital Status ?"
+									value="#{customerWizard.user.martialStatus}" required="true"
+									style="padding: 0px;   margin-bottom: 10px; width: 100%;  font-family: montserrat;  font-size: 12px; width:100%; !important">
+									<f:selectItem itemLabel="Single" itemValue="Single" />
+									<f:selectItem itemLabel="Married" itemValue="Married" />
+									<f:selectItem itemLabel="Other" itemValue="Other" />
+
+								</p:selectOneMenu>
+      
+    </div>
+  </div>
+<div class="form-group">
+   <label class="col-sm-2 control-label"  style="text-align: left;">Children</label>
+   <div class="col-sm-10">
+    								<p:inputText  styleClass="form-control" placeholder="Number of Children"
+									id="NoOfChilds" value="#{customerWizard.user.numberOfChildren}">
+									<f:convertNumber integerOnly="true" type="number" />
+								</p:inputText>
+
+   </div>
+  </div>
+  <div class="form-group">
+    <label for="State" class="col-sm-2 control-label">Profession</label>
+    <div class="col-sm-10">
+  <div class="col-md-6"  style="padding: 0 0 0 0; width: 50%;">
+  <p:selectOneMenu id="profes" styleClass="form-control" style="margin: 0 !important;
+padding: 0 !important; width:100% " value="#{customerWizard.user.professionId}" size="60">
+								<f:selectItems value="#{customerWizard.professionsMap}"/>
+								<p:ajax event="change" update="subProfession" listener="#{customerWizard.fillSubProfessionsMap}"/>
+								</p:selectOneMenu>
+								
+  </div>
+  <div class="col-md-6"  style="padding: 0 0 0 0; width: 50%;">
+  <p:selectOneMenu styleClass="form-control" style="margin: 0 !important;
+padding: 0 !important; width:100% " id="subProfession" label="Country1" value="#{customerWizard.user.subprofessionId}">
+								<f:selectItems value="#{customerWizard.subProfessionsMap}"/>
+								</p:selectOneMenu>
+  </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="Address" class="col-sm-2 control-label" style="text-align: left;">Job Title</label>
+    <div class="col-sm-10">
+
+<p:inputText  placeholder="Profession" styleClass="form-control" required="true"
+									requiredMessage="Please Enter Profession ?"
+									value="#{customerWizard.user.profession}" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="gmail" style="text-align: left;" class="col-sm-2 control-label">Recommend Friend</label>
+    
+ <div class="col-sm-10">
+ <div class="col-md-6"  style="padding: 0 0 0 0; width: 50%;">
+   <p:inputText placeholder="Friend's Name"  styleClass="form-control" 
+									value="#{customerWizard.user.friendName}" />
+   </div>
+  <div class="col-md-6"  style="padding: 0 0 0 0; width: 50%;"> 
+   <div class="input-group input-group-sm">
+     <span class="input-group-addon">@</span>
+    <p:inputText styleClass="form-control" placeholder="Email*" required="true"
+									requiredMessage="Please Enter Email ?"
+									validatorMessage="Invalid email format"
+									value="#{customerWizard.user.friendEmail}">
+									<f:validateRegex
+										pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+								</p:inputText>
+    
+    
+  </div>
+  </div>
+  </div>
+  </div>   
+</div>
+  </div>
+</div>
+  
+  
+  </div>
+  
+  <div class="panel-footer" style="overflow:hidden;text-align:right;">
+    <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    <p:growl id="growl" sticky="true" showSummary="true" />
+    <p:commandButton value="Submit" action="#{customerWizard.save}"
+								update="growl" styleClass="myButton"
+								onclick="alert('Please wait till checking our records and send email!')" />
+      
+      <!-- <button type="submit" class="btn btn-default btn-sm">Cancel</button> -->
+    </div>
+  </div>  
+  </div>
+</div>
+</h:form>
+
+		</div>
+	</section>
+	<ui:include src="views/footer.xhtml" />
+
+</h:body>
+
+
+
+</html>

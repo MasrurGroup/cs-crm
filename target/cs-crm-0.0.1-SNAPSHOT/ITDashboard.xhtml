@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<!-- 
+<f:view>
+     <f:event type="preRenderView"
+              listener="#{someRequestScopedMB.forwardToLoginIfNotLoggedIn}" />
+</f:view>  -->
+
+<h:head>
+	<!--  <meta http-equiv="refresh" content="5; url=Dashboard/index.html" />  -->
+	<style>
+.ui-panelgrid td, .ui-panelgrid tr {
+	border-style: none !important
+}
+</style>
+
+</h:head>
+<h:body>
+	<ui:include src="views/header.xhtml" />
+	
+	<!-- <ui:composition template="WEB-INF/templates/BasicTemplate.xhtml">
+    THE REGISTRATION FORM
+    <ui:define name="BUSINESS_USER">
+       <h2>BUSINESS_USER</h2>
+       #{SecurityController.redirectBusinessUser()}
+    </ui:define>            
+</ui:composition>
+	 -->
+	
+	<section class="page_section team" id="team"
+		style="height: 400px; padding: 10px 0; !important;">
+		<!--main-section team-start-->
+		<div class="container" style="height: 400px; width: 80%; !important;">
+			<h:form id="form"	style="border-radius: 25px; border: 2px solid #D6C485; padding: 20px;">
+
+				<p:tabMenu activeIndex="#{param.i}" style="background-color: #E9A328; color: white;">
+					<p:menuitem value="Overview" icon="ui-icon-star" style="background-color: #E9A328; color: white;">
+						<f:param name="i" value="0" />
+					</p:menuitem>
+					<p:menuitem value="Support" icon="ui-icon-wrench" style="background-color: #E9A328; color: white;">
+						<f:param name="i" value="3" />
+					</p:menuitem>
+					<p:menuitem value="Social" icon="ui-icon-person" style="background-color: #E9A328; color: white;">
+						<f:param name="i" value="4" />
+					</p:menuitem>
+				</p:tabMenu>
+
+<p:growl id="msgs" showDetail="true" />
+			<p:tabView id="tabview"
+				style="background-color: #C6CACB;  !important; " orientation="left">
+				<p:tab title="FaceBook Channel" id="Status" titleStyleClass="sett"
+					titleStyle="background-color: transparent;  !important; ">
+					</p:tab>
+					<p:tab title="E-mail Server Channel" id="Request_Campaign"
+					titleStyle="background-color:#E9A328;  !important; ">
+					<h1>Request Campaign</h1>
+					</p:tab>
+					<p:tab title="WhatsApp Channel" id="submit_offer"
+					titleStyle="background-color:#E9A328;  !important; ">
+					<h1>Request Offer</h1>
+					</p:tab>
+					<p:tab title="SMS Channel" id="PartnerProfile"
+					titleStyle="background-color:#E9A328;  !important; ">
+					</p:tab>
+					</p:tabView>
+
+			</h:form>
+		</div>
+	</section>
+	<ui:include src="views/footer.xhtml" />
+</h:body>
+</html>
+

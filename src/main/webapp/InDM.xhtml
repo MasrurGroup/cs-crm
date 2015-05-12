@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<title></title>
+
+<link rel="stylesheet" type="text/css"
+	href="../resources/css/styler.css" />
+
+<script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="../resources/js/jquery-ui.min.js"></script>
+<script type="text/javascript"
+	src="../resources/js/jquery.inputfocus-0.9.min.js"></script>
+<script type="text/javascript" src="../resources/js/jquery.main.js"></script>
+<script>
+            function setIframeSource() {
+                var theSelect = document.getElementById('locationer');
+                // var theIframe = document.getElementById('myIframe');
+                var theUrl;
+
+                theUrl = theSelect.options[theSelect.selectedIndex].value;
+                //theIframe.src = theUrl;
+                window.location.href = theUrl;
+            }
+
+        </script>
+<script>
+            function setI() {
+                document.getElementById("my-dropdown").onchange = function () {
+                    if (this.selectedIndex !== 0) {
+                        var win = window.open(this.value, '_blank');
+                        win.focus();
+                    }
+                };
+            }
+        </script>
+</head>
+<body>
+
+	<div id="container">
+		<form action="#" method="post">
+
+			<!-- #first_step -->
+			<div id="first_step">
+				<h1>
+					Marketing Wizard <span>Automator</span> Application
+				</h1>
+
+				<div class="form">
+					<select id="username" name="username">
+						<option>Customer Type</option>
+						<option>All</option>
+						<option>Shopper</option>
+						<option>Merchants</option>
+						<option>Parents</option>
+						<option>Employees</option>
+						<option>Tenants</option>
+						<option>Hotel Guests</option>
+					</select> <label for="username">At least 4 characters. Uppercase
+						letters, lowercase </label>
+					<div class="clear"></div>
+					<select id="firstname">
+						<option>Target Gender</option>
+						<option>All</option>
+						<option>Male</option>
+						<option>Female</option>
+
+					</select> <label for="firstname">At least 4 characters. Use a mix of
+						upper </label>
+					<div class="clear"></div>
+					<select id="lastname">
+						<option>Target Age</option>
+						<option>All</option>
+						<option>16 - 21</option>
+						<option>21 - 35</option>
+						<option>35 - 45</option>
+					</select> <label for="lastname">If your passwords aren’t equal, you
+						won’t be .</label>
+					<div class="clear"></div>
+				</div>
+				<!-- clearfix -->
+				<div class="clear"></div>
+				<!-- /clearfix -->
+				<input class="submit" type="submit" name="submit_first"
+					id="submit_first" value="" />
+			</div>
+			<!-- clearfix -->
+			<div class="clear"></div>
+			<!-- /clearfix -->
+
+
+			<!-- #second_step -->
+			<div id="second_step">
+				<h1>
+					E-mail Wizard <span>Automator</span> Application
+				</h1>
+
+				<div class="form">
+					<input type="text" name="MailSubject" id="MailSubject"
+						value="MailSubject" /> <label for="MailSubject">Your
+						EMail Subject. </label> <select id="Broadcast">
+						<option>Broadcast</option>
+						<option>Share On Face Book</option>
+						<option>Private</option>
+					</select> <label for="Broadcast">At least 4 characters. Use a mix of
+						upper </label>
+					<div class="clear"></div>
+					<select id="Send">
+						<option>Send Option</option>
+						<option>Send Now</option>
+						<option>Save and Send Later</option>
+						<option>Send Test Only</option>
+					</select> <label for="Send">At least 4 characters. Use a mix of
+						upper </label>
+					<div class="clear"></div>
+				</div>
+				<!-- clearfix -->
+				<div class="clear"></div>
+				<!-- /clearfix -->
+				<input class="submit" type="submit" name="submit_second"
+					id="submit_second" value="" />
+			</div>
+			<!-- clearfix -->
+			<div class="clear"></div>
+			<!-- /clearfix -->
+
+
+			<!-- #third_step -->
+			<div id="third_step">
+				<h1>
+					E-mail Wizard <span>Automator</span> Application
+				</h1>
+
+				<div class="form">
+					<form id="form1" method="post">
+						<select id="my-dropdown" onchange="setI();">
+							<option>Select a Theme ...</option>
+							<option
+								value="http://localhost:8080/cs-crm/Dashboard/templates/designs/Blue/PROMO%20BLUE/PROMOBLUE.html">Classic</option>
+							<option
+								value="http://localhost:8080/cs-crm/Dashboard/templates/designs/Green/PROMO%20GREEN/PROMO%20GREEN.html">Elegant</option>
+							<option
+								value="http://localhost:8080/cs-crm/Dashboard/templates/designs/Grey/NEWSLETTER%20GREY/NEWSLETTER%20GREY.html">Corporate</option>
+							<option
+								value="http://localhost:8080/cs-crm/Dashboard/templates/designs/Orange/NOTIFICATION%20ORANGE/NOTIFICATION%20ORANGE.html">NOTIFICATION
+								ORANGE</option>
+							<option
+								value="http://localhost:8080/cs-crm/Dashboard/templates/designs/Orange/PROMO%20ORANGE/PLG/ckeditor/samples/PROMOORANGE.html">PROMO
+								ORANGE</option>
+							<option value="Editor.xhtml">PROMO ORANGE</option>
+
+						</select>
+						<label for="my-dropdown">Select Your Theme Option. </label>
+						<div class="clear"></div>
+					</form>
+					<select id="gender" name="gender">
+						<option>Sender Type</option>
+						<option>City Stars to Customer</option>
+						<option>Partner to Customer</option>
+						<option>System to Customer</option>
+					</select> <label for="gender">Select Your Sender Type. </label>
+					<!-- clearfix -->
+					<div class="clear"></div>
+					<!-- /clearfix -->
+
+					<select id="country" name="country">
+						<option>Replay Option</option>
+						<option>Replay to City Stars</option>
+						<option>Replay to System</option>
+						<option>Replay to Partner</option>
+						<option>Replay to All</option>
+					</select> <label for="country">Your Replay. </label>
+					<!-- clearfix -->
+					<div class="clear"></div>
+					<!-- /clearfix -->
+
+				</div>
+				<!-- clearfix -->
+				<div class="clear"></div>
+				<!-- /clearfix -->
+				<input class="submit" type="submit" name="submit_third"
+					id="submit_third" value="" />
+
+			</div>
+			<!-- clearfix -->
+			<div class="clear"></div>
+			<!-- /clearfix -->
+
+
+			<!-- #fourth_step -->
+			<div id="fourth_step">
+				<h1>
+					E-mail Wizard <span>Automator</span> Application
+				</h1>
+
+				<div class="form">
+					<h2>Summary</h2>
+					<!--footer -->
+					<table>
+						<tr>
+							<td>Customer Type</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Target</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Target Age</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Mail Subject</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>BroadCast</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Sender Type</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Replay Option</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Send Option</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Location</td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+				<!-- clearfix -->
+				<div class="clear"></div>
+				<!-- /clearfix -->
+				<input class="send submit" type="submit" name="submit_fourth"
+					id="submit_fourth" value="" />
+
+			</div>
+
+		</form>
+
+	</div>
+	<div id="progress_bar">
+		<div id="progress"></div>
+		<div id="progress_text">0% Complete</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,250 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	
+	<style>
+h2 {
+	background-color: black;
+	color: white; !important;
+	margin-top: 20px;
+	!important;
+}
+
+ul {
+	list-style-type: none;
+	padding: 5px;
+	margin: 20px;
+	margin-left: 10px;
+	margin-top: 0px;
+	text-align: left;
+	font-size: 15px;
+	text-align: left;
+}
+
+li {
+	background-repeat: no-repeat;
+	background-position: 100% .4em;
+	padding-right: .6em;
+}
+</style>
+
+</h:head>
+<h:body>
+<ui:include src="views/header.xhtml" />
+
+	<section class="page_section team" id="team"
+		style="padding: 30px 0; !important;">
+		<!--main-section team-start-->
+		<div class="container" style="border-radius: 25px; border: 2px solid #D6C485; padding: 20px; width:80%;   margin-bottom: 50px;   !important;">
+			<h:form style="margin:0 auto; width:70%; ">
+
+
+
+				<div class="jumbotron"
+					style="margin-left: -15px; margin-top: 40px; border: 2px white solid; background-color: black; height: 70px; padding: 0px 0; margin-bottom: 5px; !important; ">
+					<h2 style="border: 0px white solid; color: white; background-color: black;">Segment
+						Selection Settings</h2>
+				</div>
+
+				<div class="row" style="margin-top: 20px;  !important;">
+					<div class="col-md-4"
+						style="border: 1px white solid; margin-right: 5px;    !important;">
+						<h2 style="border: 1px white solid;  margin-top: 10px; color: white; background-color: black;">Marital
+							Status</h2>
+						<div align="center"
+							style="background-color: white; margin-bottom: 15px; !important;">
+							<p:selectOneMenu id="MaritalStatus" value="#{userBeanTest.userSearch.martialStatus}"
+								style="padding: 15px; width:100%;   margin-bottom: 10px;   font-family: montserrat;  font-size: 13px;  !important">
+								
+								<f:selectItem itemLabel="All" itemValue="All" />
+								<f:selectItem itemLabel="Single" itemValue="Single" />
+								<f:selectItem itemLabel="Married" itemValue="Married" />
+								<f:selectItem itemLabel="Other" itemValue="Other" />
+
+
+							</p:selectOneMenu>
+
+							 
+						</div>
+					</div>
+					<div class="col-md-4"
+						style="border: 1px white solid; margin-right: 5px;    !important;">
+						<h2 style="border: 1px white solid;  color: white; margin-top: 10px; background-color: black;">Age</h2>
+						<div align="center"
+							style="background-color: white; margin-bottom: 15px; !important;">
+							<p:selectOneMenu id="age" value="#{userBeanTest.age}"
+								style="padding: 15px; width:100%;   margin-bottom: 10px;   font-family: montserrat;  font-size: 13px;  !important">
+
+								<f:selectItem itemLabel="All" itemValue="All" />
+								<f:selectItem itemLabel="0-16" itemValue="0-16" />
+								<f:selectItem itemLabel="16-18" itemValue="16-18" />
+								<f:selectItem itemLabel="18-28" itemValue="18-28" />
+								<f:selectItem itemLabel="28-40" itemValue="28-40" />
+								<f:selectItem itemLabel="40-60" itemValue="40-60" />
+								<f:selectItem itemLabel="60-100" itemValue="60-100" />
+
+							</p:selectOneMenu>
+
+							 
+						</div>
+					</div>
+					<div class="col-md-4"
+						style="border: 1px white solid; margin-right: 5px;    !important;">
+						<h2 style="border: 1px white solid;  margin-top: 10px; color: white; background-color: black;">Gender</h2>
+						<div align="center"
+							style="background-color: white; margin-bottom: 15px; !important;">
+							<p:selectOneMenu id="gender" value="#{userBeanTest.userSearch.gender}"
+								style="padding: 15px; width:100%;   margin-bottom: 10px;   font-family: montserrat;  font-size: 13px;  !important">
+
+
+
+
+								<f:selectItem itemLabel="All" itemValue="All" />
+								<f:selectItem itemLabel="Male" itemValue="Male" />
+								<f:selectItem itemLabel="Female" itemValue="Female" />
+							</p:selectOneMenu>
+
+							 
+						</div>
+					</div>
+
+
+				</div>
+				<div class="row" style="margin-top: 20px;  !important;">
+
+					<div class="col-md-4"
+						style="border: 1px white solid; margin-right: 5px;    !important;">
+						<h2 style="border: 1px white solid;  margin-top: 10px; color: white; background-color: black;">profession</h2>
+						<div align="center"
+							style="background-color: white; margin-bottom: 15px; !important;">
+							<p:selectOneMenu id="profession" value="#{userBeanTest.userSearch.professionId}"
+								style="padding: 15px; width:100%;  margin-bottom: 10px;   font-family: montserrat;  font-size: 13px;  !important">
+								<f:selectItems value="#{userBeanTest.professionsMap}"/>
+								<p:ajax event="change" update="Sub-Profession" listener="#{userBeanTest.fillSubProfessionsMap}" />
+							</p:selectOneMenu>
+
+							 
+						</div>
+					</div>
+					<div class="col-md-4"
+						style="border: 1px white solid; margin-right: 5px;    !important;">
+						<h2 style="border: 1px white solid; margin-top: 10px; color: white; background-color: black;">Sub-Profession</h2>
+						<div align="center"
+							style="background-color: white; margin-bottom: 15px; !important;">
+							<p:selectOneMenu id="Sub-Profession" value="#{userBeanTest.userSearch.subprofessionId}"
+								style="padding: 15px; width:100%;   margin-bottom: 10px;   font-family: montserrat;  font-size: 13px;  !important">
+								<f:selectItems value="#{userBeanTest.subProfessionsMap}" />
+							</p:selectOneMenu>
+							 
+						</div>
+					</div>
+					<div class="col-md-4"
+						style="border: 1px white solid; margin-right: 5px;    !important;">
+						<h2 style="border: 1px white solid;  margin-top: 10px; color: white; background-color: black;">Business Type</h2>
+						<div align="center"
+							style="background-color: white; margin-bottom: 15px; !important;">
+							<p:selectOneMenu id="BusinessType" value="#{userBeanTest.userSearch.partnerId}"
+								style="padding: 15px; width:100%;   margin-bottom: 10px;   font-family: montserrat;  font-size: 13px;  !important">
+								<f:selectItems value="#{userBeanTest.partnersMap}" />
+								
+							</p:selectOneMenu>
+
+							 
+						</div>
+					</div>
+
+
+
+				</div>
+
+<div class="row" style="margin-top: 20px;  !important;">
+
+					<div class="col-md-4"
+						style="border: 1px white solid; margin-right: 5px;    !important;">
+						<h2 style="border: 1px white solid;  margin-top: 10px; color: white; background-color: black;">Country</h2>
+						<div align="center"
+							style="background-color: white; margin-bottom: 15px; !important;">
+							<p:selectOneMenu id="country" value="#{userBeanTest.userSearch.countryId}"
+								style="padding: 15px; width:100%;  margin-bottom: 10px;   font-family: montserrat;  font-size: 13px;  !important">
+                               <f:selectItems value="#{userBeanTest.countriesMap}" />
+                               <p:ajax event="change" update="city" listener="#{userBeanTest.fillCitiesMap}" />
+
+							</p:selectOneMenu>
+
+							 
+						</div>
+					</div>
+					<div class="col-md-4"
+						style="border: 1px white solid; margin-right: 5px;    !important;">
+						<h2 style="border: 1px white solid;  margin-top: 10px; color: white; background-color: black;">City</h2>
+						<div align="center"
+							style="background-color: white; margin-bottom: 15px; !important;">
+							<p:selectOneMenu id="city" value="#{userBeanTest.userSearch.cityId}"
+								style="padding: 15px; width:100%;   margin-bottom: 10px;   font-family: montserrat;  font-size: 13px;  !important">
+								
+								<f:selectItems value="#{userBeanTest.citiesMap}"/>
+								<p:ajax event="change" update="region" listener="#{userBeanTest.fillRegionsMap}" />
+							</p:selectOneMenu>
+
+							 
+						</div>
+					</div>
+					<div class="col-md-4"
+						style="border: 1px white solid; margin-right: 5px;    !important;">
+						<h2 style="border: 1px white solid;  margin-top: 10px; color: white; background-color: black;">Region</h2>
+						<div align="center"
+							style="background-color: white; margin-bottom: 15px; !important;">
+							<p:selectOneMenu id="region" value="#{userBeanTest.userSearch.regionId}"
+								style="padding: 15px; width:100%;   margin-bottom: 10px;   font-family: montserrat;  font-size: 13px;  !important">
+								<f:selectItems value="#{userBeanTest.regionsMap}" />
+
+							</p:selectOneMenu>
+
+							 
+						</div>
+					</div>
+
+
+
+				</div>
+
+
+
+				<div
+					style="margin-left: -15px;  margin-top: 20px; border: 1px white solid; background-color: black; height: 100%; padding: 2px 0px; margin-bottom: 60px; !important; ">
+					<!-- <h:commandLink id="openPopUp3" value="View Campaigns"
+						styleClass="btn btn-danger" target="blankPopUp" style="background-color: #fe1a00; border-color: #fe1a00; width: 150px;  margin-left: 9%; !important;"
+						onclick="window.open('','blankPopUp','status=no,toolbar=no,location=no,menubar=no,resizable,width=200,height=400,scrollbars,left=50%,top=50');"
+						action="InDM" />
+					<h:commandLink id="openPopUp2" value="Print Report" 
+						styleClass="btn btn-danger" target="blankPopUp" style="background-color: #fe1a00; border-color: #fe1a00;  width: 150px;  margin-left: 12%; !important;"
+						onclick="window.open('','blankPopUp','status=no,toolbar=no,location=no,menubar=no,resizable,width=200,height=400,scrollbars,left=50%,top=50');"
+						action="InDM" /> -->
+					<h:commandLink id="openPopUp" value="Create List"
+						styleClass="myButton"
+						 action="#{userBeanTest.createListBtnAction}" />
+
+				</div>
+
+
+
+
+			</h:form>
+
+		</div>
+	</section>
+
+	<ui:include src="views/footer.xhtml" />
+
+
+</h:body>
+
+
+
+</html>
+

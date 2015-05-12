@@ -1,0 +1,201 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<!-- 
+<f:view>
+     <f:event type="preRenderView"
+              listener="#{someRequestScopedMB.forwardToLoginIfNotLoggedIn}" />
+</f:view>  -->
+
+<h:head>
+	<!--  <meta http-equiv="refresh" content="5; url=Dashboard/index.html" />  -->
+	<style>
+.ui-panelgrid td, .ui-panelgrid tr {
+	border-style: none !important
+}
+</style>
+
+</h:head>
+<h:body>
+	<ui:include src="views/header.xhtml" />
+
+	<!-- <ui:composition template="WEB-INF/templates/BasicTemplate.xhtml">
+    THE REGISTRATION FORM
+    <ui:define name="BUSINESS_USER">
+       <h2>BUSINESS_USER</h2>
+       #{SecurityController.redirectBusinessUser()}
+    </ui:define>            
+</ui:composition>
+	 -->
+
+	<section class="page_section team" id="team"
+		style="height: 400px; padding: 10px 0; !important;">
+		<!--main-section team-start-->
+		<div class="container" style="height: 400px; width: 80%; !important;">
+			<h:form id="form"
+				style="border-radius: 25px; border: 2px solid #D6C485; padding: 20px;">
+
+				<p:tabMenu activeIndex="#{param.i}"
+					style="background-color: #E9A328; color: white;">
+					<p:menuitem value="Overview" icon="ui-icon-star"
+						style="background-color: #E9A328; color: white;">
+						<f:param name="i" value="0" />
+					</p:menuitem>
+					<p:menuitem value="Support" icon="ui-icon-wrench"
+						style="background-color: #E9A328; color: white;">
+						<f:param name="i" value="3" />
+					</p:menuitem>
+					<p:menuitem value="Social" icon="ui-icon-person"
+						style="background-color: #E9A328; color: white;">
+						<f:param name="i" value="4" />
+					</p:menuitem>
+				</p:tabMenu>
+
+				<p:growl id="msgs" showDetail="true" />
+				<p:tabView id="tabview"
+					style="background-color: #C6CACB;  !important; " orientation="left">
+					<p:tab title="FaceBook Channel" id="Status" titleStyleClass="sett"
+						titleStyle="background-color: transparent;  !important; text-align:left; ">
+
+						<p:dataGrid var="facebook" value="#{facebookView.facebook}"
+							style=" top: 0; left: 0; width: 100%; height: 100%; background-color:#F7F9D0; text-align:left;"
+							columns="1" rows="1" paginator="false" id="faces">
+
+							<f:facet name="header">
+					            Channel Editor 
+					        </f:facet>
+							<p:panel header="#{facebook.id}"
+								style="text-align:left; background-color:#E9A328;">
+								<h:panelGrid columns="2" style="width:100%; text-align:left; ">
+									<label for="Address" class="col-sm-2 control-label"
+										style="text-align: left;">Application ID: </label>
+
+									<p:inplace id="ajax15" editor="true">
+										<p:ajax id="aj16" event="save"
+											listener="#{facebookChannelBean.updateAppid(facebook)}" />
+										<p:inputText value="#{facebook.appID}"
+											style="width:100%; !Important;" required="true" label="text" />
+									</p:inplace>
+									<label for="Address" class="col-sm-2 control-label"
+										style="text-align: left;">Application Secrit: </label>
+
+									<p:inplace id="ajax18" editor="true">
+										<p:ajax id="aj14" event="save"
+											listener="#{facebookChannelBean.updateSecritCode(facebook)}" />
+										<p:inputText value="#{facebook.appSecrit}"
+											style="width:100%; !Important;" required="true" label="text" />
+									</p:inplace>
+								
+								</h:panelGrid>
+							</p:panel>
+						</p:dataGrid>
+						
+					</p:tab>
+					<p:tab title="E-mail Server Channel" id="Request_Campaign"
+						titleStyle="background-color:#E9A328;  !important; ">
+						
+						<p:dataGrid var="email" value="#{emailView.emailchannel}"
+							style=" top: 0; left: 0; width: 100%; height: 100%; background-color:#F7F9D0; text-align:left;"
+							columns="1" rows="1" paginator="false" id="faces2">
+
+							<f:facet name="header">
+					            Channel Editor 
+					        </f:facet>
+							<p:panel header="#{email.id}"
+								style="text-align:left; background-color:#E9A328;">
+								<h:panelGrid columns="2" style="width:80%;  text-align:left;">
+									<p:outputLabel value="SMTP:"></p:outputLabel>
+									
+									<p:inplace id="ajax20" editor="true">
+										<p:ajax id="aj21" event="save"
+											listener="#{emailChannelBean.updateSMTP(email)}" />
+										<p:inputText value="#{email.smtp}"
+											style="width:100%; !Important;" required="true" label="text" />
+									</p:inplace>
+									<p:outputLabel value="User Name:"></p:outputLabel>
+									
+									<p:inplace id="ajax22" editor="true">
+										<p:ajax id="aj23" event="save"
+											listener="#{emailChannelBean.updateUserName(email)}" />
+										<p:inputText value="#{email.userName}"
+											style="width:100%; !Important;" required="true" label="text" />
+									</p:inplace>
+									
+									<p:outputLabel value="Password:"></p:outputLabel>
+									
+									<p:inplace id="ajax29" editor="true">
+										<p:ajax id="aj24" event="save"
+											listener="#{emailChannelBean.updatePassword(email)}" />
+										<p:inputText value="#{email.password}"
+											style="width:100%; !Important;" required="true" label="text" />
+									</p:inplace>
+									
+									<p:outputLabel value="Port:"></p:outputLabel>
+									
+									<p:inplace id="ajax25" editor="true">
+										<p:ajax id="aj26" event="save"
+											listener="#{emailChannelBean.updatePort(email)}" />
+										<p:inputText value="#{email.port}"
+											style="width:100%; !Important;" required="true" label="text" />
+									</p:inplace>
+								
+								</h:panelGrid>
+							</p:panel>
+						</p:dataGrid>
+
+
+
+					</p:tab>
+					<p:tab title="WhatsApp Channel" id="submit_offer"
+						titleStyle="background-color:#E9A328;  !important; ">
+
+<p:dataGrid var="whatsapp" value="#{whatsAppView.whatsApps}"
+							style=" top: 0; left: 0; width: 100%; height: 100%; background-color:#F7F9D0; text-align:left;"
+							columns="1" rows="1" paginator="false" id="faces3">
+
+							<f:facet name="header">
+					            Channel Editor 
+					        </f:facet>
+							<p:panel header="#{whatsapp.id}"
+								style="text-align:left; background-color:#E9A328;">
+								<h:panelGrid columns="2" style="width:100%; text-align:left; ">
+									<label for="Address" class="col-sm-2 control-label"
+										style="text-align: left;">Phone Number: </label>
+
+									<p:inplace id="ajax30" editor="true">
+										<p:ajax id="aj31" event="save"
+											listener="#{whatsAppChannelBean.updatePhoneNumber(whatsapp)}" />
+										<p:inputText value="#{whatsapp.phoneNumber}"
+											style="width:100%; !Important;" required="true" label="text" />
+									</p:inplace>
+									<label for="Address" class="col-sm-2 control-label"
+										style="text-align: left;">Password: </label>
+
+									<p:inplace id="ajax32" editor="true">
+										<p:ajax id="aj33" event="save"
+											listener="#{whatsAppChannelBean.updatePassword(whatsapp)}" />
+										<p:inputText value="#{whatsapp.password}"
+											style="width:100%; !Important;" required="true" label="text" />
+									</p:inplace>
+								
+								</h:panelGrid>
+							</p:panel>
+						</p:dataGrid>						
+
+					</p:tab>
+					<p:tab title="SMS Channel" id="PartnerProfile"
+						titleStyle="background-color:#E9A328;  !important; ">
+					</p:tab>
+				</p:tabView>
+
+			</h:form>
+		</div>
+	</section>
+	<ui:include src="views/footer.xhtml" />
+</h:body>
+</html>
+

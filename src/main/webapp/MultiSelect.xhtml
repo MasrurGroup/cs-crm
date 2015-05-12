@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+       
+  <ui:include src="views/header.xhtml" />
+  
+  
+    </h:head>
+    <h:body style="background-color: white; ">
+               
+<section id="Portfolio" Class="content">
+<div class="container" style="height:100%; !important;">
+<h:form id="msform" style="background-color:white; width:80%; !important;">
+    <p:multiSelectListbox value="#{multiSelectView.selectedLocation}" effect="slide" header="Location" showHeaders="true">
+        <f:selectItems value="#{multiSelectView.location}" />
+    </p:multiSelectListbox>
+    <p/>
+  <p:multiSelectListbox value="#{multiSelectView.selectedProfession}" effect="slide" header="Profession" showHeaders="true">
+        <f:selectItems value="#{multiSelectView.profession}" />
+    </p:multiSelectListbox>
+    <p:commandButton value="Save" icon="ui-icon-check" update="out,outer"  style="display:block;margin:10px 0" />
+ <h:outputText id="outer" value="Your Profession: #{multiSelectView.profession}" style="display:block" />
+    <h:outputText id="out" value="Your Location: #{multiSelectView.selectedLocation}" style="display:block" />
+    
+</h:form>
+ </div>
+ </section>
+  
+<!--Footer-->
+ <ui:include src="views/footer.xhtml" />
+
+    </h:body>
+</html>
+

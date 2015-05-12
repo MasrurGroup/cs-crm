@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	
+</h:head>
+<h:body >
+
+<ui:include src="views/header.xhtml" />
+	<style>
+h2 {
+	background-color: black;
+	color: white;
+	margin-top: 20px;
+	!
+	important;
+}
+
+ul {
+	list-style-type: none;
+	padding: 5px;
+	margin: 20px;
+	margin-left: 10px;
+	margin-top: 0px;
+	text-align: left;
+	font-size: 15px;
+	text-align: left;
+}
+
+li {
+	background-repeat: no-repeat;
+	background-position: 100% .4em;
+	padding-right: .6em;
+}
+.ui-grid {
+    clear: both;
+    padding: 0px;
+    margin: 0px;
+    margin-left: 18px;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+  background-color: transparent;
+}
+</style>
+
+	<section class="page_section team" id="team"
+		style="padding: 30px 0; !important;">
+		<!--main-section team-start-->
+		<div class="container">
+			<h:form id="form" style="margin:0 auto; width:80%; border-radius: 25px;  border: 2px solid #D6C485; padding: 20px;">
+
+
+
+				<div class="jumbotron"
+					style="margin-left: 2px; border: 2px white solid; background-color: black; height: 70px; padding: 0px 0; margin-bottom: 5px; !important; ">
+					<h2 style="border: 0px white solid; background-color: black;">Channel
+						Budget Settings</h2>
+				</div>
+
+				<p:dataGrid var="channel" value="#{channelView.channels}"
+					styleClass="row"
+					style="margin-top: 5px; margin-right: 2px; !important;"
+					columns="3" layout="grid" rows="12" id="channels">
+					<p:panel header="#{channel.channelId}" 
+						style=" top: 0; left: 0; width: 100%; height: 100%; background-color:#F7F9D0;">
+						<div align="center">
+							<h:outputText value="#{channel.name}"
+								style=" border: 1px white solid; height:100%; width:100%; color: black; !important;" />
+							<br />
+							<h:graphicImage value="#{channel.icon}" style="margin-top: 3px; "
+								width="20%" height="20%" />
+						</div>
+
+
+						<h:panelGrid columns="2" style="width:100%; align:center; ">
+
+							<h:outputLabel  style="font-weight:bold"  for="timestamp" value="Time Stamp:" />
+							<p:inplace id="timestamp" editor="true">
+							<p:ajax event="save" listener="#{channelView.updateTimeStamp(channel)}"  />
+								<p:inputText value="#{channel.timestamp}" required="true" 
+									label="text" >
+									  <f:convertDateTime pattern="yyyy-MM-dd"/>  
+									</p:inputText>
+							</p:inplace>
+
+							<h:outputLabel style="font-weight:bold" for="ValidFrom" value="Valid From:" />
+							<p:inplace id="ValidFrom" editor="true">
+							<p:ajax event="save" listener="#{channelView.updateValidFrom(channel)}"  />
+								<p:inputText value="#{channel.validfrom}" required="true"
+									label="text" >
+									<f:convertDateTime pattern="yyyy-MM-dd"/>  
+									</p:inputText>
+							</p:inplace>
+
+							<h:outputLabel style="font-weight:bold" for="ExpiryDate" value="Expiry Date:" />
+							<p:inplace id="ExpiryDate" editor="true">
+							<p:ajax event="save" listener="#{channelView.updateExpiryDate(channel)}"  />
+							
+								<p:inputText value="#{channel.expirydate}" required="true"
+									label="text" >
+									<f:convertDateTime pattern="yyyy-MM-dd"/>  
+									</p:inputText>
+							</p:inplace>
+
+							<h:outputLabel style="font-weight:bold" for="UnitPrice" value="Unit Price:" />
+							<p:inplace id="UnitPrice" editor="true">
+							<p:ajax event="save" listener="#{channelView.updateValue(channel)}"  />
+								<p:inputText value="#{channel.value}" required="true"
+									label="text" />
+							</p:inplace>
+
+						</h:panelGrid>
+						<h:panelGrid columns="1" style="width:100%">
+							<p:commandLink update=":form:carDetail"
+								oncomplete="PF('carDialog').show()" title="View Detail">
+								<h:outputText styleClass="ui-icon ui-icon-search"
+									style="margin:0 auto;" />
+								<f:setPropertyActionListener value="#{channel}"
+									target="#{channelView.selectedChannel}" />
+							</p:commandLink>
+						</h:panelGrid>
+					</p:panel>
+
+				</p:dataGrid>
+				<div
+					style="margin-left: 2px; text-align:center; !IMPORTANT; margin-top: 5px; border: 1px white solid; background-color: black; height: 100%; padding: 2px 0px; margin-bottom: 20px; !important; ">
+					<h:commandLink id="openPopUp3" value="View Campaigns"
+						styleClass="btn btn-danger" target="blankPopUp"
+						style="background-color: #fe1a00; border-color: #fe1a00; width: 150px;   !important;"
+						
+						action="SelectToExecute" />
+						
+					<h:commandLink id="openPopUp2" value="Print Report"
+						styleClass="btn btn-danger"  action="ShowReports"
+						style="background-color: #fe1a00; margin-left: 20px !important; margin-right: 20px; border-color: #fe1a00;  width: 150px;  !important;"
+						/>
+					<h:commandLink id="openPopUp" value="Save Updates"
+						style="background-color: #fe1a00;  border-color: #fe1a00;  width: 150px;  !important;"
+						styleClass="btn btn-danger" target="blankPopUp"
+						onclick="window.open('','blankPopUp','status=no,toolbar=no,location=no,menubar=no,resizable,width=200,height=400,scrollbars,left=50%,top=50');"
+						action="InDM" />
+
+				</div>
+
+				<p:dialog header="Channel Info" widgetVar="carDialog" modal="true"
+					style="color:Red" showEffect="fade" hideEffect="fade"
+					border="none;" resizable="false">
+					<p:outputPanel id="carDetail"
+						style="text-align:left; border: none;">
+						<p:panelGrid columns="2" columnClasses="label,value"
+							style="color:Red; border: none;">
+							
+						
+							
+
+						</p:panelGrid>
+					</p:outputPanel>
+				</p:dialog>
+
+
+
+			</h:form>
+
+		</div>
+	</section>
+
+	<ui:include src="views/footer.xhtml" />
+
+
+</h:body>
+
+
+
+</html>
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<f:view contentType="text/html" locale="en">
+    <h:head>
+        <meta charset="utf-8"/>
+            <meta name="viewport" content="width=device-width, maximum-scale=1"/>
+<title>Register</title>
+<link rel="icon" href="favicon.png" type="image/png"/>
+<link href="../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="../resources/css/style.css" rel="stylesheet" type="text/css"/> 
+<link href="../resources/css/font-awesome.css" rel="stylesheet" type="text/css"/> 
+<link href="../resources/css/animate.css" rel="stylesheet" type="text/css"/>
+ <link href="../resources/css/cs.css" rel="stylesheet" type="text/css"/> 
+<!--[if lt IE 9]>
+    <script src="../resources/js/respond-1.1.0.min.js"></script>
+    <script src="../resources/js/html5shiv.js"></script>
+    <script src="../resources/js/html5element.js"></script>
+<![endif]-->
+ 
+    	<title>#{msg['app.title']}</title>
+        <f:facet name="first">
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <meta http-equiv="pragma" content="no-cache"/>
+            <meta http-equiv="cache-control" content="no-cache"/>
+            <meta http-equiv="expires" content="0"/>
+        </f:facet>
+        <h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
+        <ui:insert name="head"/>
+    </h:head>
+    <h:body>
+    
+    	
+	    	 
+				 
+                                <!--Header_section-->
+ 
+  <div class="container">
+    <div class="header_box">
+        <div class="logo"><a href="#"><img src="../resources/img/logo.png" alt="logo"/></a></div>
+	  <nav class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-header">
+        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        </div>
+	    <div id="main-nav" class="collapse navbar-collapse navStyle">
+			<ul class="nav navbar-nav" id="mainNav">
+			  <li class="active"><a href="index.html" class="scroll-link">Home</a></li>
+			  <li><a href="#aboutUs" class="scroll-link">Tutorial</a></li>
+			  <li><a href="#service" class="scroll-link">Admin</a></li>
+			  <li><a href="#Portfolio" class="scroll-link">Customer </a></li>
+			  <li><a href="#clients" class="scroll-link">Digital Marketing</a></li>
+			  <li><a href="#team" class="scroll-link">Become Partner</a></li>
+			  <li><a href="#contact" class="scroll-link">Contact</a></li>
+			</ul>
+      </div>
+	 </nav>
+    </div>
+  </div>
+<!--Header_section--> 
+
+			 
+ 	    	<div class="ui-panel ui-widget ui-widget-content ui-corner-all" style="margin-bottom: 3px; min-height: 500px;">
+				<ui:insert name="bodyContent"/> 
+			</div>
+      
+    	
+    </h:body>
+</f:view>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+     
+   <head><title>IGNORED</title></head>
+   <body>
+      <ui:composition>
+          
+   
+        <h:panelGrid columns="1" cellpadding="2" cellspacing="20">
+<p:fieldset   style="margin-bottom:20px">
+      <h:panelGrid columns="4" cellpadding="2" cellspacing="20">
+        <p:outputLabel for="name" value="Name:" />
+      <p:inputText id="name" required="true" />
+      <p:outputLabel for="sender_email" value="Sender Email:" />
+      <p:inputText id="sender_email" required="true" size="50"/>
+      
+      <p:outputLabel for="mail_password" value="Password:" />
+      <p:inputText id="mail_password" required="true"/>
+      
+        <p:outputLabel for="smtp_server" value="SMTP Server:" />
+      <p:inputText id="smtp_server" required="true"/>
+      
+        <p:outputLabel for="port" value="Port:" />
+      <p:inputText id="port" required="true"/>
+      <h:outputText value="Server use Authentication: " />
+      <p:selectBooleanCheckbox  itemLabel="" />
+          </h:panelGrid>
+     <h:panelGrid columns="4" cellpadding="15" cellspacing="5">
+  
+Mailing: <p:commandButton value="Delete" icon="ui-icon-trash" /> 
+         <p:commandButton value="Copy" icon="	ui-icon-copy" /> 
+         <p:commandButton value="Save" icon="ui-icon-disk" />          
+             </h:panelGrid>
+</p:fieldset>
+              
+        </h:panelGrid> 
+               
+      </ui:composition>
+   </body>
+</html>

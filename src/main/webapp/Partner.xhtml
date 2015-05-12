@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+	<ui:include src="views/header.xhtml" />
+</h:head>
+<h:body>
+
+
+
+	<section class="page_section team" id="team">
+		<!--main-section team-start-->
+		<div class="container">
+			<h:form id="msform" style="height:286px;">
+				<!-- progressbar -->
+				<fieldset>
+					<h2 class="fs-title">Partner Log In</h2>
+					<h3 class="fs-subtitle">*****</h3>
+					 
+						<h:panelGrid id="grid" style="margin:0 auto" columns="1" cellpadding="5">
+							<p:messages showIcon="false" />
+							<p:inputText id="email" required="true" size="50"
+								requiredMessage="Please Enter Email ?" placeholder="Email"
+								validatorMessage="Invalid email format"
+								value="#{partnerLoginMB.email}">
+								<f:validateRegex
+									pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+							</p:inputText>
+							<p:password id="pass" required="true" placeholder="Password"
+								requiredMessage="Please Enter Password ?"
+								value="#{partnerLoginMB.password}" />
+ 	 
+						  	</h:panelGrid>
+						   <h:panelGrid   style="margin:0 auto" columns="2" cellpadding="5">
+								<p:button  value="Register"  outcome="PartnerRegister"		validateClient="false"		styleClass="submit action-button"	 />
+								
+							<p:commandButton styleClass="submit action-button" value="Log In"
+								update="grid" action="#{partnerLoginMB.doLogin()}" />
+						</h:panelGrid>
+				 
+					<br /> <br />
+					 
+						<div class="forgot"  style="margin:0 auto">
+							<a href="#">forgot password?</a>
+						</div>
+				 
+				</fieldset>
+			</h:form>
+
+		</div>
+	</section>
+	<!--footer -->
+	<ui:include src="views/footer.xhtml" />
+
+</h:body>
+
+
+
+</html>

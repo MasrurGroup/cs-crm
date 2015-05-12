@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+          <h:head>
+        
+        
+        
+    </h:head>
+    <h:body>
+<ui:include src="views/header.xhtml" />  
+        <section class="page_section" id="clients"><!--page_section-->
+<h:form>
+<div class="container" >
+
+  <div id="w" style=" border-radius: 25px; border: 2px solid #D6C485; padding: 20px; font-size: 12px; font-family: serif;  background-color: #F7F9D0;  !important;">
+    <div id="content" class="clearfix" > 
+      <div id="userphoto"><img src="../resources/img/avatar.png" alt="default avatar"/></div>
+      <h1>User Profile</h1>
+
+      <nav id="profiletabs" style="background-color: white; !importnat;">
+        <ul class="clearfix">
+          <li><a href="#bio" class="sel">Personal Info.</a></li>
+          <li><a href="#activity">Activity</a></li>
+          <li><a href="#friends">Friends</a></li>
+          <li><a href="#settings">Settings</a></li>
+        </ul>
+      </nav>
+      
+      <section id="bio" style="background-color: white; !importnat;">
+        <p>Welcome ,  <a href="#">
+        <p:inplace id="ajax" editor="true">
+        <p:ajax event="save" listener="#{customerLoginMB.updateFirstName(customerLoginMB.customer)}"  />
+            <p:inputText value="#{customerLoginMB.customer.firstName}" required="true" label="text" />
+        </p:inplace>
+        <span> </span>
+     
+        <p:inplace id="ajax1" editor="true">
+        <p:ajax event="save" listener="#{customerLoginMB.updateLastName(customerLoginMB.customer)}"  />
+            <p:inputText value="#{customerLoginMB.customer.lastName}" required="true" label="text" />
+        </p:inplace></a>.</p>
+        
+        <p> Address:  <p:inplace id="ajax2" editor="true">
+        <p:ajax event="save" listener="#{customerLoginMB.updateAddress(customerLoginMB.customer)}"  />
+            <p:inputText value="#{customerLoginMB.customer.address}" required="true" label="text" />
+        </p:inplace>
+        <br/> National Number: 
+        <p:inplace id="ajax3" editor="true">
+        <p:ajax event="save" listener="#{customerLoginMB.updateNID(customerLoginMB.customer)}"  />
+            <p:inputText value="#{customerLoginMB.customer.nationalId}" required="true" label="text" />
+        </p:inplace>
+        
+        <br/> Profession: 
+        <p:inplace id="ajax5" editor="true">
+        <p:ajax event="save" listener="#{customerLoginMB.updateProfession(customerLoginMB.customer)}"  />
+            <p:inputText value="#{customerLoginMB.customer.profession}" required="true" label="text" />
+        </p:inplace>
+        
+        <br/> Phone: 
+                <p:inplace id="ajax4" editor="true">
+        <p:ajax event="save" listener="#{customerLoginMB.updatephone(customerLoginMB.customer)}"  />
+            <p:inputText value="#{customerLoginMB.customer.phone}" required="true" label="text" />
+        </p:inplace>
+        
+        <br/> Martial Status: 
+        <p:inplace id="ajax6" editor="true">
+        <p:ajax event="save" listener="#{customerLoginMB.updateMstatus(customerLoginMB.customer)}"  />
+           <p:inputText value="#{customerLoginMB.customer.martialStatus}" required="true" label="text" />
+                    </p:inplace>
+        
+        <br/> Birth Date: 
+        <p:inplace id="timestamp" editor="true">
+							<p:ajax id="Ajax10" event="save" listener="#{customerLoginMB.updateDOB(customerLoginMB.customer)}"  />
+								<p:inputText value="#{customerLoginMB.customer.birthdate}" required="true" 
+									label="text" >
+									  <f:convertDateTime pattern="yyyy-MM-dd"/>  
+									</p:inputText>
+							</p:inplace>
+        
+        </p>
+        
+      </section>
+      
+      <section id="activity" class="hidden" style="background-color: white; !importnat;">
+        <p>Most recent actions:</p>
+        <p class="activity">No Activities Tell Now !</p>
+        
+      </section>
+      
+      <section id="friends" class="hidden" style="background-color: white; !importnat;">
+        <p>Friends list:</p>
+        
+        <ul id="friendslist" class="clearfix">
+          <li><a href="#"><img src="../resources/img/avatar.png" width="22" height="22"/></a>
+           
+            <p:inplace id="ajax16" editor="true">
+        <p:ajax event="save" listener="#{customerLoginMB.updateFriendName(customerLoginMB.customer)}"  />
+           <p:inputText value="#{customerLoginMB.customer.friendName}" required="true" label="text" />
+                    </p:inplace>
+           <br/>
+           <p:inplace  editor="true">
+        <p:ajax event="save" listener="#{customerLoginMB.updateFriendEmail(customerLoginMB.customer)}"  />
+           <p:inputText value="#{customerLoginMB.customer.friendEmail}" required="true" label="text" />
+                    </p:inplace>
+           </li>
+          
+          <li><a href="#"><img src="../resources/img/avatar.png" width="22" height="22"/> SomeGuy123</a></li>
+       
+        </ul>
+      </section>
+      
+      <section id="settings" class="hidden" style="background-color: white; !importnat;">
+        <p>Edit your settings:</p>
+        
+        <p class="setting"><span>E-mail Address <img src="../resources/img/edit.png" alt="*Edit*"/></span> 
+        
+          <p:inplace  id="ajax9" editor="true">
+        <p:ajax event="save" listener="#{customerLoginMB.updateEmail(customerLoginMB.customer)}"  />
+           <p:inputText value="#{customerLoginMB.customer.emailId}" required="true" label="text" />
+                    </p:inplace>
+                    
+        </p>
+        
+        <p class="setting"><span>Language <img src="../resources/img/edit.png" alt="*Edit*" /></span> English(US)</p>
+        
+        <p class="setting"><span>Profile Status <img src="../resources/img/edit.png" alt="*Edit*" /></span> Public</p>
+        
+        
+      </section>
+    </div><!-- @end #content -->
+  </div><!-- @end #w -->
+<script type="text/javascript">
+$(function(){
+  $('#profiletabs ul li a').on('click', function(e){
+    e.preventDefault();
+    var newcontent = $(this).attr('href');
+    
+    $('#profiletabs ul li a').removeClass('sel');
+    $(this).addClass('sel');
+    
+    $('#content section').each(function(){
+      if(!$(this).hasClass('hidden')) { $(this).addClass('hidden'); }
+    });
+    
+    $(newcontent).removeClass('hidden');
+  });
+});
+</script>
+  </div>
+        </h:form>
+        </section>
+        <ui:include src="views/footer.xhtml" />
+
+
+    </h:body>
+
+
+
+</html>
+

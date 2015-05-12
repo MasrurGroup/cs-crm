@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+<ui:include src="views/header.xhtml" />  
+   <script>
+     function setIframeSource() {
+     var theSelect = document.getElementById('location');
+     var theIframe = document.getElementById('myIframe');
+     var theUrl;
+ 
+     theUrl = theSelect.options[theSelect.selectedIndex].value;
+     theIframe.src = theUrl;
+}
+ </script>
+ 
+    </h:head>
+    <h:body>
+<section id="aboutUs"><!--Aboutus-->
+ <form id="form1" method="post">
+     <label style="color: white;"> Select A Demo <select style="color: black;" id="location" onchange="setIframeSource()">
+          <option value="../Dashboard/Magazine/samples/magazine/index.html">Demo One</option>
+          <option value="../Dashboard/Magazine/samples/steve-jobs/index.html">Demo Two</option>
+          <option value="../Dashboard/Magazine/samples/double-page/index.html">Demo Three</option>
+          <option value="../Dashboard/Magazine/samples/docs/index.html">Demo Four</option>
+          <option value="../Dashboard/Magazine/samples/basic/index.html">Demo Five</option>
+     </select></label>
+</form>     
+      <iframe id="myIframe" src="Dashboard/Magazine/samples/basic/index.html" width="100%" height="700px"></iframe>
+  
+</section>
+<!--Aboutus--> 
+
+        <ui:include src="views/footer.xhtml" />
+
+
+</h:body>
+
+
+
+</html>
+

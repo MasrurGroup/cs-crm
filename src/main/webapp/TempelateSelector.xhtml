@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">    <h:head>
+       
+ <ui:include src="views/header.xhtml" />
+ <script>
+     function setIframeSource() {
+     var theSelect = document.getElementById('location');
+     var theIframe = document.getElementById('myIframe');
+     var theUrl;
+ 
+     theUrl = theSelect.options[theSelect.selectedIndex].value;
+     theIframe.src = theUrl;
+}
+ </script>
+    </h:head>
+    <h:body>
+       <form id="form1" method="post">
+     <label> Select A Location: <select id="location" onchange="setIframeSource()">
+          <option value="X.xhtml">Select a location ...</option>
+          <option value="Register.xhtml">Yahoo!</option>
+          <option value="Partner.xhtml">Yahoo! Answers</option>
+          <option value="Customer.xhtml">Mozilla.org</option>
+          <option value="http://www.dunkindonuts.com">Dunkin Donuts</option>
+     </select></label>
+</form>
+ 
+<iframe id="myIframe" src="X.xhtml" frameborder="0" marginwidth="0" marginheight="0" width="100%" height="500 px"></iframe>
+        <!--footer --> 
+ <ui:include src="views/footer.xhtml" />
+    
+</h:body>
+
+
+
+</html>

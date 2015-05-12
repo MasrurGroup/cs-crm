@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+<ui:include src="views/header.xhtml" />  
+    <style>
+  body {
+    width: 100%;
+    margin: 0px auto ;
+    font-family: Arial, Helvetica;
+    font-size: small;
+    background-color:black; !important;
+  }
+    </style>
+    </h:head>
+    <h:body>
+               
+
+      <section class="page_section" id="clients">
+		<!--page_section-->
+
+		<div class="container">
+      <h:form id="msform" style="border-radius: 25px; border: 2px solid #D6C485; padding: 20px;" >
+       
+				<h2 Class="fs-title" style="color: white;" >Send E-mail</h2>
+				
+				<p:inputText placeholder="From" required="true"
+					value="#{registerView.user.emailId}" />
+				<p:inputText placeholder="Subject"
+					value="#{registerView.user.facebook}" />
+				<TEXTAREA placeholder="Body" required="true"
+					value="#{registerView.user.password}" />
+				<p:commandButton id="submitButton" value="Submit" styleClass="myButton"
+					actionListener="#{registerView.saveUser}" action="RegDone"/>
+			</h:form>
+		
+			</div>
+    </section>
+  
+  <footer class="footer_wrapper" id="contact">
+  
+  <div class="container">
+    <div class="footer_bottom"><span>Copyright © 2015,    Powered by <a href="http://www.masrurgroup.com">IKONSOFT</a>. </span> </div>
+  </div>
+</footer>
+
+
+
+</h:body>
+
+
+
+</html>
+

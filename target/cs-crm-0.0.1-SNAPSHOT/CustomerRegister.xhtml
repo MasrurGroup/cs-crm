@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+	<ui:include src="views/header.xhtml" />
+</h:head>
+<h:body>
+
+
+
+	<!-- Register -->
+	<section id="Portfolio" Class="content">
+
+		<h:form id="msform">
+			<h3>Styled</h3>
+			<p:steps styleClass="custom">
+				<p:menuitem value="Personal" />
+				<p:menuitem value="Seat Selection" />
+				<p:menuitem value="Payment" />
+				<p:menuitem value="Confirmation" />
+			</p:steps>
+
+			<style type="text/css">
+.ui-steps .ui-steps-item {
+	width: 24%;
+}
+
+.ui-state-highlight {
+	text-shadow: none !important;
+}
+
+.ui-steps.custom {
+	margin-bottom: 30px;
+}
+
+.ui-steps.custom .ui-steps-item .ui-menuitem-link {
+	height: 10px;
+	padding: 0 1em;
+}
+
+.ui-steps.custom .ui-steps-item .ui-steps-number {
+	background-color: #0081c2;
+	color: #FFFFFF;
+	display: inline-block;
+	width: 30px;
+	border-radius: 10px;
+	margin-top: -10px;
+	margin-bottom: 10px;
+}
+</style>
+			<!-- progressbar -->
+
+			<ul id="progressbar">
+				<li Class="active">Account Setup</li>
+				<li>Social Profiles</li>
+				<li>Personal Details</li>
+
+
+			</ul>
+
+			<!-- fieldsets -->
+
+			<fieldset>
+				<h2 Class="fs-title">Create your account</h2>
+				<h3 Class="fs-subtitle">Account Details</h3>
+				<p:inputText placeholder="Email*" required="true" 	 requiredMessage="Please Enter Email ?"		value="#{registerView.user.emailId}"	validatorMessage="Invalid email format">
+					<f:validateRegex 	pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+				</p:inputText>
+				
+				<p:inputText placeholder="First Name"	value="#{registerView.user.firstName}" />
+				<p:inputText placeholder="Last Name" 	value="#{registerView.user.lastName}" />
+				<p:inputText placeholder="Facebook"		value="#{registerView.user.facebook}" />
+				<p:password  placeholder="Password*" required="true" 		value="#{registerView.user.password}" />
+				<input type="button" name="next" class="next action-button" 		value="Next" />
+			</fieldset>
+
+			<fieldset>
+				<h2 Class="fs-title">Personal Details</h2>
+				<h3 Class="fs-subtitle">Earn 300 Stars Points</h3>
+				<p:calendar id="popup" placeholder="Birth Date" label="Birth date"		navigator="true" showOtherMonths="true" showButtonPanel="true"				pattern="dd/MM/yyyy" value="#{registerView.user.birthdate}" />
+ 
+				<p:inputText placeholder="Street Address" 	    value="#{registerView.user.street}" />
+				<p:inputText placeholder="Area Address" 	    value="#{registerView.user.area}" />
+		        <p:inputText placeholder="City" 	    value="#{registerView.user.city}" />
+				<p:inputText placeholder="Postal code" 	    value="#{registerView.user.postalCode}" />
+				
+				<p:inputText placeholder="Telephone" 	value="#{registerView.user.phone}" />
+				<p:inputText placeholder="Profession" 	value="#{registerView.user.profession}" />
+				<p:inputText placeholder="Gender"		value="#{registerView.user.gender}" />
+				<p:inputText placeholder="Martial Status" value="#{registerView.user.martialStatus}" />
+				<p:inputText placeholder="Number of Children" value="#{registerView.user.numberOfChildren}" />
+
+				<input type="button" name="previous" Class="previous action-button"
+					value="Previous" /> <input type="button" name="next"
+					Class="next action-button" value="Next" />
+
+			</fieldset>
+
+
+			<fieldset>
+				<h2 Class="fs-title">Recommend A Friend</h2>
+				<h3 Class="fs-subtitle">Earn 300 Star Points</h3>
+				<p:messages />
+				<p:inputText placeholder="Friend's Name"
+					value="#{registerView.user.friendName}" />
+				<p:inputText placeholder="Friend's Email"
+					value="#{registerView.user.friendEmail}" />
+
+				<input type="button" name="previous" Class="previous action-button"
+					value="Previous" />
+				<p:commandButton id="submitButton" value="Submit"
+					styleClass="submit action-button" action="#{registerView.saveUser}" />
+
+
+			</fieldset>
+		</h:form>
+		<div style="height: 850px"></div>
+	</section>
+	<!--/Customer -->
+
+	<!--footer -->
+	<ui:include src="views/footer.xhtml" />
+
+</h:body>
+
+
+
+</html>

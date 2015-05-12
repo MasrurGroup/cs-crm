@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+<ui:include src="views/header.xhtml" />
+	<section class="page_section" id="clients" style="margin-top: 2%;">
+		<!--page_section-->
+		
+		<div class="container" style="border-radius: 25px; height:100%; width:100%; margin-bottom:40px; !important;  border: 2px solid #D6C485; padding: 20px;">
+			<h:form id="form" style="text-align:center;">
+				<!-- progress bar -->
+
+						<p:messages showIcon="false" />
+						
+						<p:password id="pass" required="true" placeholder="Password" style="width:100%; display:none; "
+							requiredMessage="Please Enter Password ?"
+							value="#{customerLoginMB.password}" />
+				<a href="#">
+<img class="img-responsive" src="../resources/img/icons/gift-voucher.png" style="height:50%; !important; width:50%; !importnat; float:left;"
+					 alt="" /></a>
+			<a href="CustomerRegistion.xhtml">
+<img src="../resources/img/icons/regnew.png" style="height:50%; !important; width:50%; !importnat; float:right;"
+					 alt="" /></a>		
+					
+			<a href="Register.xhtml">
+<img src="../resources/img/icons/Linearsearch.png" style="height:50%; !important; width:50%; !importnat; float:right;"
+					 alt="" /></a>		
+			
+		<!-- </div> -->
+				
+			</h:form>
+		</div>
+		
+	</section>
+
+	<ui:include src="views/footer.xhtml" />
+
+</h:body>
+</html>
+

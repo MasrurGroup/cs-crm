@@ -1,0 +1,244 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">    <h:head>
+   
+	<link id="bootstrap-style" href="../Dashboard/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="../Dashboard/css/bootstrap-responsive.min.css" rel="stylesheet" />
+        <link id="base-style" href="../Dashboard/css/style.css" rel="stylesheet" />
+	<link id="base-style-responsive" href="../Dashboard/css/style-responsive.css" rel="stylesheet"  />
+	 <link rel="shortcut icon" href="img/favicon.ico" />
+    </h:head>
+    <h:body>
+               
+<div class="container-fluid-full">
+		<div class="row-fluid">
+				
+			<!-- start: Main Menu -->
+			
+			<!-- end: Main Menu -->
+			
+			<noscript>
+				<div class="alert alert-block span10">
+					<h4 class="alert-heading">Warning!</h4>
+					<p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+				</div>
+			</noscript>
+			
+			<!-- start: Content -->
+			<div id="content" class="span10">
+			
+			
+			
+
+			<div class="row-fluid">
+				
+				<div class="span3 statbox purple" onTablet="span6" onDesktop="span3">
+					<div class="boxchart">5,6,7,2,0,4,2,4,8,2,3,3,2</div>
+					<div class="number">854<i class="icon-arrow-up"></i></div>
+					<div class="title">visits</div>
+					<div class="footer">
+						<a href="#"> read full report</a>
+					</div>	
+				</div>
+				<div class="span3 statbox green" onTablet="span6" onDesktop="span3">
+					<div class="boxchart">1,2,6,4,0,8,2,4,5,3,1,7,5</div>
+					<div class="number">123<i class="icon-arrow-up"></i></div>
+					<div class="title">sales</div>
+					<div class="footer">
+						<a href="#"> read full report</a>
+					</div>
+				</div>
+				
+					
+				
+			</div>		
+
+			
+			<div class="row-fluid">
+				
+				<!--/span-->
+				
+				<!--/span-->
+				
+				
+			
+			</div>
+			
+			<div class="row-fluid">	
+
+				<a class="quick-button metro yellow span2">
+					<i class="icon-group"></i>
+					<p>Users</p>
+					<span class="badge">237</span>
+				</a>
+				<a class="quick-button metro red span2">
+					<i class="icon-comments-alt"></i>
+					<p>Comments</p>
+					<span class="badge">46</span>
+				</a>
+				<a class="quick-button metro blue span2">
+					<i class="icon-shopping-cart"></i>
+					<p>Orders</p>
+					<span class="badge">13</span>
+				</a>
+				<a class="quick-button metro green span2">
+					<i class="icon-barcode"></i>
+					<p>Products</p>
+				</a>
+				<a class="quick-button metro pink span2">
+					<i class="icon-envelope"></i>
+					<p>Messages</p>
+					<span class="badge">88</span>
+				</a>
+				<a class="quick-button metro black span2">
+					<i class="icon-calendar"></i>
+					<p>Calendar</p>
+				</a>
+				
+				<div class="clearfix"></div>
+								
+			</div><!--/row-->
+			
+       
+
+	</div><!--/.fluid-container-->
+	
+			<!-- end: Content -->
+		</div><!--/#content.span10-->
+		</div><!--/fluid-row-->
+		<div class="row-fluid">
+				
+				<div class="span8 widget blue" onTablet="span7" onDesktop="span8">
+					
+					<div id="stats-chart2"  style="height:282px" ></div>
+					
+				</div>
+				
+				<div class="sparkLineStats span4 widget green" onTablet="span5" onDesktop="span4">
+
+                    <ul class="unstyled">
+                        
+                        <li><span class="sparkLineStats3"></span> 
+                            Pageviews: 
+                            <span class="number">781</span>
+                        </li>
+                        <li><span class="sparkLineStats4"></span>
+                            Pages / Visit: 
+                            <span class="number">2,19</span>
+                        </li>
+                        <li><span class="sparkLineStats5"></span>
+                            Avg. Visit Duration: 
+                            <span class="number">00:02:58</span>
+                        </li>
+                        <li><span class="sparkLineStats6"></span>
+                            Bounce Rate: <span class="number">59,83%</span>
+                        </li>
+                        <li><span class="sparkLineStats7"></span>
+                            % New Visits: 
+                            <span class="number">70,79%</span>
+                        </li>
+                        <li><span class="sparkLineStats8"></span>
+                            % Returning Visitor: 
+                            <span class="number">29,21%</span>
+                        </li>
+
+                    </ul>
+					
+					<div class="clearfix"></div>
+
+                </div><!-- End .sparkStats -->
+
+			</div>
+			
+					
+						
+			<div class="row-fluid">
+				
+				<!--/span-->
+				
+				
+				
+				
+			
+			</div>
+			
+	<div class="modal hide fade" id="myModal">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<h3>Settings</h3>
+		</div>
+		<div class="modal-body">
+			<p>Here settings can be configured...</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal">Close</a>
+			<a href="#" class="btn btn-primary">Save changes</a>
+		</div>
+	</div>
+	
+	<div class="clearfix"></div>
+	
+	<!-- start: JavaScript-->
+
+        <script src="../Dashboard/js/jquery-1.9.1.min.js"></script>
+        <script src="../Dashboard/js/jquery-migrate-1.0.0.min.js"></script>
+
+        <script src="../Dashboard/js/jquery-ui-1.10.0.custom.min.js"></script>
+
+        <script src="../Dashboard/js/jquery.ui.touch-punch.js"></script>
+
+        <script src="../Dashboard/js/modernizr.js"></script>
+
+        <script src="../Dashboard/js/bootstrap.min.js"></script>
+
+        <script src="../Dashboard/js/jquery.cookie.js"></script>
+
+        <script src='../Dashboard/js/fullcalendar.min.js'></script>
+
+        <script src='../Dashboard/js/jquery.dataTables.min.js'></script>
+
+        <script src="../Dashboard/js/excanvas.js"></script>
+        <script src="../Dashboard/js/jquery.flot.js"></script>
+        <script src="../Dashboard/js/jquery.flot.pie.js"></script>
+        <script src="../Dashboard/js/jquery.flot.stack.js"></script>
+        <script src="../Dashboard/js/jquery.flot.resize.min.js"></script>
+
+        <script src="../Dashboard/js/jquery.chosen.min.js"></script>
+
+        <script src="../Dashboard/js/jquery.uniform.min.js"></script>
+
+        <script src="../Dashboard/js/jquery.cleditor.min.js"></script>
+
+        <script src="../Dashboard/js/jquery.noty.js"></script>
+
+        <script src="../Dashboard/js/jquery.elfinder.min.js"></script>
+
+        <script src="../Dashboard/js/jquery.raty.min.js"></script>
+
+        <script src="../Dashboard/js/jquery.iphone.toggle.js"></script>
+
+        <script src="../Dashboard/js/jquery.uploadify-3.1.min.js"></script>
+
+        <script src="../Dashboard/js/jquery.gritter.min.js"></script>
+
+        <script src="../Dashboard/js/jquery.imagesloaded.js"></script>
+
+        <script src="../Dashboard/js/jquery.masonry.min.js"></script>
+
+        <script src="../Dashboard/js/jquery.knob.modified.js"></script>
+
+        <script src="../Dashboard/js/jquery.sparkline.min.js"></script>
+
+        <script src="../Dashboard/js/counter.js"></script>
+
+        <script src="../Dashboard/js/retina.js"></script>
+
+        <script src="../Dashboard/js/custom.js"></script>
+        <!-- end: JavaScript-->
+	
+</h:body>
+</html>

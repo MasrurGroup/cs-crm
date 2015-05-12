@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<head>
+<title>IGNORED</title>
+<link rel="icon" href="../resources/img/favicon.png" type="image/png" />
+</head>
+<body >
+	<ui:composition>
+		<meta name="viewport" content="width=device-width, maximum-scale=1" />
+		<title>CityStars Loyalty Program</title>
+		
+				
+  		
+  		
+		<link href="../resources/css/bootstrap.min.css" rel="stylesheet"
+			type="text/css" />
+		<link href="../resources/css/style.css" rel="stylesheet"
+			type="text/css" />
+		<link href="../resources/css/font-awesome.css" rel="stylesheet"
+			type="text/css" />
+		<link href="../resources/css/animate.css" rel="stylesheet"
+			type="text/css" />
+
+		<link href="../resources/css/adminlogin.css" rel="stylesheet"
+			type="text/css" />
+		<link href="../resources/css/cs.css" rel="stylesheet" type="text/css" />
+		<link href="../resources/css/cs2.css" rel="stylesheet" type="text/css" />
+		 <link href="../resources/css/profile.css" rel="stylesheet"
+			type="text/css" />
+ 
+<style>
+.container {
+  width: 100%; !important;
+}
+#clients {
+  padding: 2px 0px;
+  width: 100%;
+  padding-left: 15%;
+  padding-right: 15%;
+ 
+}
+.page_section.team {
+    padding: 2px 0px;
+}
+
+#msform input, #msform textarea {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 26px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: montserrat;
+  color: #2C3E50;
+  font-size: 13px;
+}
+.fs-title {
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #F3F5F7;
+  margin-bottom: 10px;
+}
+
+#msform {
+  width: 100%;
+  margin: 50px auto;
+  text-align: center;
+  position: relative;
+  background-color: black;
+}
+
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    width: 90%;
+    text-align: center;
+}
+.myButton {
+	-moz-box-shadow: 0px 1px 0px 0px #fff6af;
+	-webkit-box-shadow: 0px 1px 0px 0px #fff6af;
+	box-shadow: 0px 1px 0px 0px #fff6af;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23));
+	background:-moz-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:-webkit-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:-o-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:-ms-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23',GradientType=0);
+	background-color:#ffec64;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-family:Arial;
+	font-size:16px;
+	font-weight:bold;
+	padding:8px 51px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffee66;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64));
+	background:-moz-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:-webkit-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:-o-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:-ms-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64',GradientType=0);
+	background-color:#ffab23;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+</style>
+
+		<style>
+		.ui-widget-header .ui-inputfield, .ui-widget-content .ui-inputfield {
+  font-weight: normal;
+  width: 100% !important;
+}
+.myButton1 {
+	-moz-box-shadow: inset 0px 1px 0px 0px #f29c93;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #f29c93;
+	box-shadow: inset 0px 1px 0px 0px #f29c93;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fe1a00
+		), color-stop(1, #ce0100));
+	background: -moz-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background: -webkit-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background: -o-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background: -ms-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background: linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe1a00',
+		endColorstr='#ce0100', GradientType=0);
+	background-color: #fe1a00;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	border: 1px solid #d83526;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: arial;
+	font-size: 10px;
+	font-weight: bold;
+	padding: 6px 24px;
+	margin-bottom: 5px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #b23e35;
+}
+
+.myButton1:hover {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ce0100
+		), color-stop(1, #fe1a00));
+	background: -moz-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+	background: -webkit-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+	background: -o-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+	background: -ms-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+	background: linear-gradient(to bottom, #ce0100 5%, #fe1a00 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ce0100',
+		endColorstr='#fe1a00', GradientType=0);
+	background-color: #ce0100;
+}
+
+.myButton1:active {
+	position: relative;
+	top: 1px;
+}
+</style>
+
+		<style>
+body {
+	width: 100%;
+	margin: 0px auto;
+	font-family: Arial, Helvetica;
+	font-size: small;
+	background-color: black;
+	!
+	important;
+}
+
+/* ------------------------------------------------- */
+#tabs {
+	overflow: hidden;
+	width: 80%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#tabs li {
+	float: left;
+	margin: 0 -15px 0 0;
+}
+
+#tabs a {
+	float: left;
+	position: relative;
+	padding: 0 40px;
+	height: 0;
+	line-height: 30px;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #fff;
+	border-right: 30px solid transparent;
+	border-bottom: 30px solid #3D3D3D;
+	border-bottom-color: #7779;
+	opacity: .3;
+	filter: alpha(opacity = 30);
+}
+
+#tabs a:hover, #tabs a:focus {
+	border-bottom-color: #FB0606;
+	opacity: 1;
+	filter: alpha(opacity = 100);
+}
+
+#tabs a:focus {
+	outline: 0;
+}
+
+#tabs #current {
+	z-index: 3;
+	border-bottom-color: #3d3d3d;
+	opacity: 1;
+	filter: alpha(opacity = 100);
+}
+
+/* ----------- */
+#content {
+	background: #fff;
+	border-top: 2px solid #3d3d3d;
+	padding: 2em;
+	height: 400px;
+}
+
+#content h2, #content h3, #content p {
+	margin: 0 0 15px 0;
+}
+
+/* Demo page only */
+#about {
+	color: #999;
+	text-align: center;
+	font: 0.9em Arial, Helvetica;
+}
+
+#about a {
+	color: #777;
+}
+</style>
+		<!--Header_section-->
+
+		<header id="header_wrapper">
+		<div class="container">
+			<div class="header_box">
+				<div class="logo"><a href="#"><img src="../resources/img/logo.png" alt="logo" /></a></div>
+				<nav class="navbar navbar-inverse" role="navigation">
+				<div class="navbar-header">
+					 <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+				</div>
+				<div id="main-nav" class="collapse navbar-collapse navStyle">
+					<ul class="nav navbar-nav" id="mainNav">
+						<li><a href="index.html" class="scroll-link">Home</a></li>
+						<li><a href="MagazineShelf.xhtml" class="scroll-link">E-Magazine</a></li>
+						<li><a href="Users_Login_Business.xhtml" class="scroll-link">Admin</a></li>
+						<li><a href="Customer.xhtml" class="scroll-link">Customer
+						</a></li>
+						<!-- <li><a href="DigitalMarketing_Login.xhtml"
+							class="scroll-link">Digital Marketing</a></li> -->
+						<li><a href="PartnerLanding.xhtml" class="scroll-link">Partner</a></li>
+						<li><a href="Contact.xhtml" class="scroll-link">Contact</a></li>
+					</ul>
+				</div>
+				</nav>
+			</div>
+		</div>
+		
+		</header>
+
+<link rel="icon" href="../resources/img/favicon.png" type="image/png" />
+	</ui:composition>
+
+
+</body>
+</html>

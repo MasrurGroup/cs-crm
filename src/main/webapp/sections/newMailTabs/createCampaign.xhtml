@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:h="http://java.sun.com/jsf/html"
+      
+      xmlns:p="http://primefaces.org/ui">
+     
+   <head><title>IGNORED</title></head>
+   <body>
+      <ui:composition>
+        <h:form> 
+      
+   
+       <h:panelGrid columns="6" cellpadding="112" cellspacing="120">
+      
+            
+       <p:outputLabel for="sender_name" value="Sender Name:" />
+       <p:inputText id="sender_name" value="CityStart Admin"  readonly="true"/>
+       <p:message for="sender_name" />
+       
+      <p:outputLabel for="sender_email1" value="Sender Email:" />
+      <p:inputText id="sender_email1"/>
+      <p:message for="sender_email1" />
+      
+      <p:outputLabel for="to" value="To:" />
+      <p:inputText id="to" value="#{message.to}"/>
+       <p:message for="to" /> 
+      
+      
+      <p:outputLabel for="cc" value="CC:" />
+      <p:inputText id="cc" value="#{message.cc}"/>
+      <p:message for="cc" /> 
+      
+      <p:outputLabel for="bcc" value="BCC:" />
+      <p:inputText id="bcc" size="35" value="#{message.bcc}" />
+        <p:message for="bcc" /> 
+    
+      <p:outputLabel for="subject" value="Subject:"/>
+      <p:inputText id="subject" value="#{message.subject}"/>
+       <p:message for="subject" />   <p:outputLabel  value="Subject:"/>
+     
+    </h:panelGrid>
+ 
+      
+      
+            
+    <p:editor id="editor" widgetVar="editorWidget" value="#{message.body}" width="600" />
+ 
+    <h:panelGrid columns="2" style="margin-top: 10px">
+        <p:commandButton value="Send" update="display" action="overview" onclick="PF('wait').show()"   oncomplete="PF('dlg').show()"  
+                        
+   actionListener= "#{message.sendGroupEmail}"  icon="ui-icon-mail-closed"/>
+ 
+        <p:commandButton value="Clear" type="button" onclick="PF('editorWidget').clear();" icon="ui-icon-close" />
+    </h:panelGrid>
+ 
+    <p:dialog header="the content" widgetVar="dlg" showEffect="fade" hideEffect="fade">
+        <h:outputText id="display" value="#{message.to}" escape="false" />
+    </p:dialog>
+    
+  <p:dialog header="the content" widgetVar="wait" showEffect="fade" hideEffect="fade">
+        <h:outputText id="display2" value="Please wait till the email is sent!" escape="false" />
+    </p:dialog>
+ 
+           
+      </h:form>      
+      </ui:composition>
+   </body>
+</html>

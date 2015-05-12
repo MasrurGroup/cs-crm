@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<ui:include src="views/header.xhtml" />
+
+</h:head>
+<h:body>
+
+	<section class="page_section" id="clients">
+		<!--page_section-->
+
+		<div class="container">
+			<h:form id="msform" style="width:80%; align:center; !important;">
+				<p:tabMenu activeIndex="#{param.i}">
+					<p:menuitem value="Overview" icon="ui-icon-star">
+						<f:param name="i" value="0" />
+					</p:menuitem>
+					<p:menuitem value="Budget Adjustment"
+						outcome="ProjectBudgetAdjustment" icon="ui-icon-search">
+						<f:param name="i" value="1" />
+					</p:menuitem>
+					<p:menuitem value="Documentation" icon="ui-icon-document">
+						<f:param name="i" value="2" />
+					</p:menuitem>
+					<p:menuitem value="Support" icon="ui-icon-wrench">
+						<f:param name="i" value="3" />
+					</p:menuitem>
+					<p:menuitem value="Social" icon="ui-icon-person">
+						<f:param name="i" value="4" />
+					</p:menuitem>
+				</p:tabMenu>
+				<p:dataGrid var="campaign" value="#{campaignView.campaigns}"
+					columns="3" layout="grid" rows="12" paginator="true" id="campaigns"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="6,12,16">
+
+					<f:facet name="header">
+            Campaigns Waiting for Approval
+        </f:facet>
+
+					<p:panel header="#{campaign.id}" style="text-align:left">
+						<h:panelGrid columns="2" style="width:100%">
+
+
+							<h:outputText value="Requester Name" />
+							<h:outputText value="#{campaign.requesterName}" />
+
+							<h:outputText value="Project Name:" />
+							<h:outputText value="#{campaign.projectName}" style="color:Red" />
+
+							<h:outputText value="Campaign Description" style="color:Red"/>
+							<h:outputText value="#{campaign.campaignDescription}" />
+
+							<p:commandLink update=":msform:carDetail"
+								oncomplete="PF('carDialog').show()" title="View Detail">
+								<h:outputText styleClass="ui-icon ui-icon-search"
+									style="margin:0 auto;" />
+								<f:setPropertyActionListener value="#{campaign}"
+									target="#{campaignView.selectedCampaign}" />
+							</p:commandLink>
+						</h:panelGrid>
+					</p:panel>
+
+				</p:dataGrid>
+
+				<p:dialog header="Campaign Info" widgetVar="carDialog" modal="true" style="color:Red"
+					showEffect="fade" hideEffect="fade" resizable="false">
+					<p:outputPanel id="carDetail" style="text-align:left;">
+						<p:panelGrid columns="2" columnClasses="label,value" style="color:Red">
+
+							<h:outputText value="Id:" style="color:Red"/>
+							<h:outputText value="#{campaignView.selectedCampaign.id}" />
+
+							<h:outputText value="Requester Name" style="color:Red"/>
+							<h:outputText
+								value="#{campaignView.selectedCampaign.requesterName}" />
+
+							<h:outputText value="Project Name:" style="color:Red"/>
+							<h:outputText
+								value="#{campaignView.selectedCampaign.projectName}"
+								style="color:Red" />
+
+							<h:outputText value="Campaign Description" />
+							<h:outputText style="color:Red"
+								value="#{campaignView.selectedCampaign.campaignDescription}" />
+						</p:panelGrid>
+					</p:outputPanel>
+				</p:dialog>
+			</h:form>
+
+		</div>
+	</section>
+	<ui:include src="views/footer.xhtml" />
+
+
+</h:body>
+
+
+
+</html>
+

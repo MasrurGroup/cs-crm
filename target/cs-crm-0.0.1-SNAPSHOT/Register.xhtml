@@ -1,0 +1,422 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
+<h:body>
+<ui:include src="views/header.xhtml" />
+
+<style>
+.ui-tabs-left > .ui-tabs-nav {
+    float: left;
+    width: 22%;
+    background-color: #D6C485;
+    background-image: url("../resources/img/tabsidebar.png");
+    padding-top: 1px;
+    height: 565px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-top: 33px;
+    margin-left: -4px;
+}
+/* .ui-inputfield {
+  margin: 0;
+  outline: medium none;
+  padding: 7px;
+  font-weight: normal;
+  margin-left: 5px;
+} */
+
+.ui-panel .ui-panel-titlebar {
+  padding: 0.5em 1em 0.3em;
+  color: white; background-color: black;
+  font-size: large;
+}
+.ui-panel .ui-panel-content {
+    border: 0px none;
+    background: none repeat scroll 0% 0% #D6C485;
+    padding: 0.5em 1em;
+        text-align: left;
+}
+.ui-tabs {
+    position: relative;
+    padding: 0.2em;
+    background-image: url("../resources/img/tabmainscreen2.png"); !important;
+    padding-top: 1px;
+    height: 600px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    
+}
+.ui-tabs-left > .ui-tabs-panels {
+    float: right;
+    width: 75%;
+    margin-top: 20px;
+    }
+
+.ui-tabs.ui-tabs-left > .ui-tabs-nav li {
+    margin: 0px 0px 1px 0.2em;
+    border-right: 0px none;
+    background-color: #D6C485 !important;
+    
+}
+
+.ui-tabs.ui-tabs-left > .ui-tabs-nav li a, .ui-tabs.ui-tabs-right > .ui-tabs-nav li a {
+    width: 90%;
+    color:black;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    width: 90%;
+    text-align: left; !important;
+}
+
+</style>
+
+
+	
+	<!-- Register -->
+	<section class="page_section team" id="team">
+		<div class="container"
+			style="border-radius: 25px; border: 2px solid #D6C485; padding: 20px; width: 80%; margin-bottom: 50px;   !important;">
+			<h:form id="form" style="">
+				<p:growl id="growl1" sticky="true" showSummary="true" />
+
+				<p:tabView id="tabview"
+					style="background-color: #F7F9D0;  !important; " orientation="left">
+					<p:tab id="AccountSetup" title="Account Details"
+						titleStyle="background-color:#E9A328;  !important; ">
+						<p:panel header="Account Details"
+							Style="background-color:#E9A328;   !important; ">
+							<p:messages showIcon="false" style="text-align:left" />
+							<h:panelGrid columns="2">
+								<h:outputText value="Email: *" />
+								<p:inputText size="60" placeholder="Email*" required="true"
+									requiredMessage="Please Enter Email ?"
+									validatorMessage="Invalid email format"
+									value="#{customerWizard.user.emailId}">
+									<f:validateRegex
+										pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+								</p:inputText>
+								<p:spacer></p:spacer>
+								<p:spacer></p:spacer>
+								<h:outputText value="FaceBook: " />
+								<p:inputText size="60" placeholder="Facebook"
+									requiredMessage="Please Enter FaceBook ?"
+									value="#{customerWizard.user.facebook}" />
+								<h:commandLink action="#{customerWizard.openURL}" value="Activate Facebook Account" />
+	
+	
+		<h:outputText value="#{param['response_type']}" />
+	
+								<p:spacer></p:spacer>
+								<p:spacer></p:spacer>
+								<h:outputText value="Password: *" />
+								<p:password placeholder="Password*" size="60" id="password"
+									required="true" match="confirmed"
+									requiredMessage="Please Enter Password ?"
+									value="#{customerWizard.user.password}" />
+								<p:spacer></p:spacer>
+								<p:spacer></p:spacer>
+								<h:outputText value="Confirm Password:* " rendered="true" />
+								<p:password size="60" id="confirmed" label="Confirm Password"
+									requiredMessage="Please Confirm Password"
+									value="#{customerWizard.user.password}" />
+
+<p:spacer></p:spacer>
+								<p:spacer></p:spacer>
+								<h:outputText value="Mobile: *" />
+								<p:inputText size="60" id="Mobile" placeholder="Telephone"
+									required="true" requiredMessage="Please Enter Mobile ?"
+									value="#{customerWizard.user.phone}">
+									<f:convertNumber integerOnly="true" type="number" />
+								</p:inputText>
+								<p:spacer></p:spacer>
+								<p:spacer></p:spacer>
+								<h:outputText value="Whats App : *" />
+								<p:inputText size="60" id="Whatsapp" placeholder="Whats App"
+									required="true" requiredMessage="Please Enter Mobile ?"
+									value="#{customerWizard.user.whatsapp}">
+									<f:convertNumber integerOnly="true" type="number" />
+								</p:inputText>
+								
+	
+							</h:panelGrid>
+
+						</p:panel>
+
+					</p:tab>
+
+					<p:tab id="PersonalDetails" title="Personal Details"
+						titleStyle="background-color:#E9A328;  !important; ">
+						<p:panel header="Personal Details"
+							Style="background-color:#E9A328;  !important; ">
+							<p:messages showIcon="false" style="text-align:left" />
+							<h:panelGrid columns="2">
+								<h:outputText value="Date of Birth: *" />
+								<p:calendar id="popup" placeholder="Birth Date" required="true"
+									yearRange="1910:2016" requiredMessage="Please Enter DOP ?"
+									label="Birth date" navigator="true" showOtherMonths="true"
+									showButtonPanel="true " pattern="dd/MM/yyyy"
+									value="#{customerWizard.user.birthdate}" />
+
+								<p:spacer></p:spacer>
+								<p:spacer></p:spacer>
+								<h:outputText value="National ID: *" />
+								<p:inputText size="60" id="NationalId"
+									value="#{customerWizard.user.nationalId}"
+									placeholder="National ID" required="true"
+									requiredMessage="Please Enter NID ?">
+									<f:validateLength minimum="14" maximum="15" />
+								</p:inputText>
+								<p:spacer></p:spacer>
+								<p:spacer></p:spacer>
+								<h:outputText value="First Name: *" />
+								<p:inputText size="60" placeholder="First Name"
+									requiredMessage="Please Enter First Name ?"
+									value="#{customerWizard.user.firstName}" required="True" />
+								<p:spacer></p:spacer>
+								<p:spacer></p:spacer>
+								<h:outputText value="Last Name: *" />
+								<p:inputText size="60" placeholder="Last Name"
+									requiredMessage="Please Enter Last Name ?"
+									value="#{customerWizard.user.lastName}" required="true" />
+								
+								
+								<h:outputText value="Address: *" />
+								<h:panelGrid columns="4" style="margin: 0 Auto; !important;">
+								
+								<p:selectOneMenu label="Country" value="#{customerWizard.user.countryId}" size="60">
+								<f:selectItems value="#{customerWizard.countriesMap}"/>
+								<p:ajax event="change" update="cities" listener="#{customerWizard.fillCitiesMap}"/>
+								</p:selectOneMenu>
+								
+								<p:selectOneMenu id="cities" label="Country1" value="#{customerWizard.user.cityId}" size="60" >
+								<p:ajax event="change" update="regions" listener="#{customerWizard.fillRegionsMap}"/>
+								<f:selectItems value="#{customerWizard.citiesMap}"/>
+								</p:selectOneMenu>
+								
+								<p:selectOneMenu id="regions" label="Country2" value="#{customerWizard.user.regionId}" size="60">
+								<f:selectItems value="#{customerWizard.regionsMap}" />
+								</p:selectOneMenu>
+								<p:inputText size="10"  placeholder="Address"
+									requiredMessage="Please Enter Address ?"
+									value="#{customerWizard.user.address}" required="true" />
+								</h:panelGrid>
+								
+								
+								<p:spacer></p:spacer>
+								<p:spacer></p:spacer>
+								<h:outputText value="Profession: *" />
+								
+								<h:panelGrid columns="4" style="margin: 0 Auto; !important;">
+								
+								<p:selectOneMenu label="Country" value="#{customerWizard.user.professionId}" size="60">
+								<f:selectItems value="#{customerWizard.professionsMap}"/>
+								<p:ajax event="change" update="subProfession" listener="#{customerWizard.fillSubProfessionsMap}"/>
+								</p:selectOneMenu>
+								
+								<p:selectOneMenu id="subProfession" label="Country1" value="#{customerWizard.user.subprofessionId}" size="60" >
+								<f:selectItems value="#{customerWizard.subProfessionsMap}"/>
+								</p:selectOneMenu>
+								
+<p:inputText size="60" placeholder="Profession" required="true"
+									requiredMessage="Please Enter Profession ?"
+									value="#{customerWizard.user.profession}" />								</h:panelGrid>
+								
+								<p:spacer></p:spacer>
+								<p:spacer></p:spacer>
+								<h:outputText value="Gender: *" />
+								<p:selectOneMenu id="console"
+									requiredMessage="Please Select Gender ?"
+									value="#{customerWizard.user.gender}" required="true"
+									style="padding:0px;   margin-bottom: 10px; width: 100%;  font-family: montserrat;  font-size: 12px; width:100%; !important">
+									<f:selectItem itemLabel="Male" itemValue="Male" />
+									<f:selectItem itemLabel="Female" itemValue="Female" />
+
+								</p:selectOneMenu>
+								<p:spacer></p:spacer>
+								<p:spacer></p:spacer>
+								<h:outputText value="Marital Status: *" />
+
+								<p:selectOneMenu id="Mstatus"
+									requiredMessage="Please Enter Marital Status ?"
+									value="#{customerWizard.user.martialStatus}" required="true"
+									style="padding: 0px;   margin-bottom: 10px; width: 100%;  font-family: montserrat;  font-size: 12px; width:100%; !important">
+									<f:selectItem itemLabel="Single" itemValue="Single" />
+									<f:selectItem itemLabel="Married" itemValue="Married" />
+									<f:selectItem itemLabel="Other" itemValue="Other" />
+
+								</p:selectOneMenu>
+								<p:spacer></p:spacer>
+								<p:spacer></p:spacer>
+								<h:outputText value="Children:" />
+								<p:inputText size="60" placeholder="Number of Children"
+									id="NoOfChilds" value="#{customerWizard.user.numberOfChildren}">
+									<f:convertNumber integerOnly="true" type="number" />
+								</p:inputText>
+
+
+
+							</h:panelGrid>
+						</p:panel>
+					</p:tab>
+
+					<p:tab id="RecommendAFriend" title="Recommend A Friend"
+						titleStyle="background-color:#E9A328;  !important; ">
+
+						<p:panel header="Recommend A Friend">
+							<p:messages showIcon="false" style="text-align:left" />
+							<h:panelGrid columns="2" style="text-align:left;">
+
+
+								<h:outputText value="Friend Name:" />
+								<p:inputText size="60" placeholder="Friend's Name"
+									value="#{customerWizard.user.friendName}" />
+								<p:spacer></p:spacer>
+								<p:spacer></p:spacer>
+								<h:outputText value="Friend Email:" />
+								<p:inputText size="60" placeholder="Friend's Email"
+									value="#{customerWizard.user.friendEmail}" />
+
+	
+	
+						
+<p:growl id="growl" sticky="true" showSummary="true" />
+							<p:commandButton value="Submit" action="#{customerWizard.save}"
+								update="growl" styleClass="myButton1" style="float:right; !important;"
+								onclick="alert('Please wait till checking our records and send email!')" />
+						
+
+
+							</h:panelGrid>
+
+						</p:panel>
+
+					</p:tab>
+					<!-- <p:tab id="Survey" title="Survey" titleStyle="background-color:#E9A328;  !important; " >
+
+						<p:panel header="Survey">
+							<p:messages showIcon="false" style="text-align:left" />
+							<h:panelGrid columns="1" style="text-align:left;">
+
+
+
+								<p:multiSelectListbox
+									value="#{multiSelectView.selectedLocation}" effect="slide"
+									header="Location" showHeaders="true">
+									<f:selectItems value="#{multiSelectView.location}" />
+								</p:multiSelectListbox>
+								<p />
+								<p:multiSelectListbox
+									value="#{multiSelectView.selectedProfession}" effect="slide"
+									header="Profession" showHeaders="true">
+									<f:selectItems value="#{multiSelectView.profession}" />
+								</p:multiSelectListbox>
+								
+								<h:outputText id="outer"
+									value="Your Profession: #{multiSelectView.selectedProfession}"
+									style="display:block" />
+								<h:outputText id="out"
+									value="Your Location: #{multiSelectView.selectedLocation}"
+									style="display:block" />
+
+							</h:panelGrid>
+							
+						</p:panel>
+
+					</p:tab> -->
+
+					<!-- <p:tab id="confirm" title="Confirmation" titleStyle="background-color:#E9A328;  !important; " >
+						<p:growl id="growl" sticky="true" showSummary="true" />
+						<p:panel header="Confirmation" style="text-align:left;">
+								<h:panelGrid id="confirmation" columns="3"
+							columnClasses="grid,grid,grid">
+							 <h:panelGrid columns="2" > 
+
+							<h:outputText value="Email: " />
+							<h:outputText value="#{customerWizard.user.emailId}"
+								styleClass="outputLabel" />
+							<br />
+
+							<h:outputText value="Name: " />
+							<h:outputText value="#{customerWizard.user.firstName} "
+								styleClass="outputLabel" />
+							<br />
+
+							<h:outputText value="FaceBoook account: " />
+							<h:outputText value="#{customerWizard.user.facebook}"
+								styleClass="outputLabel" />
+							<br />
+
+								</h:panelGrid>
+
+							<h:panelGrid columns="2" >
+							<h:outputText value="National ID: " />
+							<h:outputText value="#{customerWizard.user.nationalId}"
+								styleClass="outputLabel" />
+							<br />
+
+							<h:outputText value="Birth Date: " />
+							<h:outputText value="#{customerWizard.user.birthdate}"
+								styleClass="outputLabel" />
+							<br />
+
+							<h:outputText value="Phone: " />
+							<h:outputText value="#{customerWizard.user.phone}"
+								styleClass="outputLabel" />
+							<br />
+
+								</h:panelGrid>
+
+							<h:panelGrid columns="2" >
+							<h:outputText value="Profession: " />
+							<h:outputText value="#{customerWizard.user.profession}"
+								styleClass="outputLabel" />
+							<br />
+
+							<h:outputText value="Martial Status: " />
+							<h:outputText value="#{customerWizard.user.martialStatus}"
+								styleClass="outputLabel" />
+							<br />
+
+							<h:outputText value="Whats App: " />
+							<h:outputText value="#{customerWizard.user.whatsapp}"
+								styleClass="outputLabel" />
+							<br />
+
+							 		
+								
+						 	</h:panelGrid> 
+						 </h:panelGrid>
+							<p:commandButton value="Submit" action="#{customerWizard.save}"
+								update="growl"
+								onclick="alert('Please wait till checking our records and send email!')" />
+						</p:panel>
+					</p:tab> -->
+				</p:tabView>
+
+			</h:form>
+		</div>
+
+
+
+
+
+	</section>
+	<!--/Customer -->
+
+	<!--footer -->
+	<ui:include src="views/footer.xhtml" />
+
+</h:body>
+
+
+
+</html>

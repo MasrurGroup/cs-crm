@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+   <head><title>IGNORED</title></head>  
+   <body>        
+      <ui:composition>    
+        
+           <h:form>
+    
+ 
+    <p:panelMenu style="width:200px">
+        <p:submenu label="Mailing">
+          
+            <p:menuitem value="New Mailing"   icon="ui-icon-arrowrefresh-1-w" />
+            <p:menuitem value="content Manager"   icon="ui-icon-home" />
+        
+           
+        </p:submenu>
+         <p:separator />
+         
+        <p:submenu label="Reciepients">
+         <p:menuitem value="Delete" actionListener="#{menuView.delete}"  ajax="false" icon="ui-icon-close"/>
+        </p:submenu>
+        <p:separator />
+        
+      
+        
+          <p:submenu label="Target Groups">
+         <p:menuitem value="Delete"   ajax="false" icon="ui-icon-close"/>
+        </p:submenu>
+        <p:separator />
+    
+          <p:submenu label="Mailing lists">
+         <p:menuitem value="Delete"    ajax="false" icon="ui-icon-close"/>
+        </p:submenu>
+        <p:separator />
+        
+         <p:submenu label="Sites and Actions">
+         <p:menuitem value="Delete"   ajax="false" icon="ui-icon-close"/>
+        </p:submenu>
+        <p:separator />
+        
+         <p:submenu label="Administration">
+         <p:menuitem value="Delete"   ajax="false" icon="ui-icon-close"/>
+        </p:submenu>
+        
+        
+    </p:panelMenu>
+</h:form>
+ 
+           	
+      </ui:composition>
+   </body>
+</html>
